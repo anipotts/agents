@@ -1,0 +1,75 @@
+name: privacy
+
+on:
+  pull_request:
+    branches: [main]
+  merge_group:
+  push:
+    branches: [main]
+
+permissions:
+  contents: read
+
+concurrency:
+  group: privacy-${{ github.event.pull_request.number || github.sha }}
+  cancel-in-progress: true
+
+jobs:
+  privacy:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7
+
+      - name: install gitleaks
+        env:
+          VERSION: 8.30.1
+          SHA256: 551f6fc83ea457d62a0d98237cbad105af8d557003051f41f3e7ca7b3f2470eb
+        run: |
+          archive="gitleaks_${VERSION}_linux_x64.tar.gz"
+          curl -fsSL -o "$archive" "https://github.com/gitleaks/gitleaks/releases/download/v${VERSION}/${archive}"
+          echo "${SHA256}  ${archive}" | sha256sum -c -
+          tar -xzf "$archive" gitleaks
+          sudo install gitleaks /usr/local/bin/gitleaks
+
+      - name: scan for secrets
+        run: gitleaks dir . --no-banner --redact
+
+      # The owner keeps a private list of personal terms that must never be
+      # published. Pull requests from forks cannot read secrets, so the list
+      # only runs where it is available; gitleaks runs everywhere.
+      - name: scan for private terms
+        env:
+          PRIVACY_DENYLIST: ${{ secrets.PRIVACY_DENYLIST }}
+        run: |
+          if [ -z "$PRIVACY_DENYLIST" ]; then
+            echo "private term list unavailable in this context; skipped" >> "$GITHUB_STEP_SUMMARY"
+            exit 0
+          fi
+          python3 - <<'PY'
+          import os
+          import re
+          import subprocess
+          import sys
+
+          patterns = [
+              re.compile(line.strip())
+              for line in os.environ["PRIVACY_DENYLIST"].splitlines()
+              if line.strip() and not line.strip().startswith("#")
+          ]
+          hits = 0
+          for name in subprocess.check_output(["git", "ls-files"], text=True).splitlines():
+              try:
+                  text = open(name, encoding="utf-8").read()
+              except (UnicodeDecodeError, IsADirectoryError, FileNotFoundError):
+                  continue
+              for number, line in enumerate(text.splitlines(), 1):
+                  for index, pattern in enumerate(patterns):
+                      if pattern.search(line) or pattern.search(name):
+                          # Name the rule by position only; the list itself is private.
+                          print(f"::error file={name},line={number}::matches private term rule {index + 1}")
+                          hits += 1
+          if hits:
+              sys.exit(1)
+          print(f"private term scan passed ({len(patterns)} rules)")
+          PY
