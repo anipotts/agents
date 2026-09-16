@@ -1,5 +1,6 @@
 import { createReadStream, statSync } from 'node:fs';
 import path from 'node:path';
+import { fileURLToPath } from 'node:url';
 
 const contentTypes = new Map([
   ['.css', 'text/css; charset=utf-8'],
@@ -10,13 +11,14 @@ const contentTypes = new Map([
 
 export default function starlightDevSearch() {
   const pagefindDirectory = path.resolve('dist/pagefind');
+  const searchComponentPath = fileURLToPath(import.meta.resolve('@astrojs/starlight/components/Search.astro'));
 
   return {
     name: 'starlight-dev-search',
     apply: 'serve',
     enforce: 'pre',
     transform(source, id) {
-      if (!id.includes('@astrojs/starlight/components/Search.astro')) return;
+      if (id.split('?')[0] !== searchComponentPath) return;
       return source.replaceAll('import.meta.env.DEV', 'false');
     },
     configureServer(server) {
