@@ -18,7 +18,7 @@ const vite = path.join(root, 'node_modules/vite/bin/vite.js');
 const requestedDirectory = process.env.PERFORMANCE_AUDIT_DIR;
 const outputDirectory = requestedDirectory
   ? path.resolve(requestedDirectory)
-  : await mkdtemp(path.join(os.tmpdir(), 'coding-agent-tips-performance-'));
+  : await mkdtemp(path.join(os.tmpdir(), 'agents-performance-'));
 const outputRelativeToRoot = path.relative(root, outputDirectory);
 if (outputRelativeToRoot === '' || (!outputRelativeToRoot.startsWith('..') && !path.isAbsolute(outputRelativeToRoot))) throw new Error('performance audit output must be outside the repository');
 await mkdir(outputDirectory, { recursive: true });

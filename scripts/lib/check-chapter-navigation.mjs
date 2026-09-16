@@ -5,7 +5,7 @@ import path from 'node:path';
 import AxeBuilder from '@axe-core/playwright';
 
 export async function verifyChapterDisclosures({ browser, origin }) {
-  const folder = process.env.NAVIGATION_SCREENSHOT_DIR ?? path.join(os.tmpdir(), 'coding-agent-tips-chapter-navigation');
+  const folder = process.env.NAVIGATION_SCREENSHOT_DIR ?? path.join(os.tmpdir(), 'agents-chapter-navigation');
   await mkdir(folder, { recursive: true });
   const catalog = JSON.parse(await readFile(path.join(process.cwd(), 'dist/agent-catalog.json'), 'utf8'));
   const expectedPages = catalog.pages.filter((page) => page.scope === 'claude-code');
