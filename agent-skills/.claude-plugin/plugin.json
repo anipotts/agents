@@ -1,0 +1,11 @@
+{
+  "name": "agent-skills",
+  "version": "0.1.0",
+  "description": "Portable agent skills from Ani's working setup, published from a private source with a privacy scan.",
+  "author": {
+    "name": "Ani Potts",
+    "url": "https://github.com/anipotts"
+  },
+  "repository": "https://github.com/anipotts/coding-agent-tips",
+  "license": "MIT"
+}

@@ -9,12 +9,12 @@ The subsequent browser annotation changes the subtitle to “practical guidance
 for working with AI under constraints and tradeoffs of the real world.”
 That exact copy supersedes the subtitle in the reference image.
 
-- Source: [selected-homepage/selected-reference.png](/Users/anipotts/.codex/visualizations/2026/09/05/01a0732a-9d13-77b0-9c4e-95fd13d35689/selected-homepage/selected-reference.png), 1487 × 1058 pixels.
+- Source: [selected-homepage/selected-reference.png](~/.codex/visualizations/2026/09/05/01a0732a-9d13-77b0-9c4e-95fd13d35689/selected-homepage/selected-reference.png), 1487 × 1058 pixels.
 - Implementation: http://127.0.0.1:4330/, desktop light theme, scroll position 0, menus closed.
-- Final capture: [desktop-light-final.png](/Users/anipotts/.codex/visualizations/2026/09/05/01a0732a-9d13-77b0-9c4e-95fd13d35689/selected-homepage/desktop-light-final.png), 1487 × 1058 CSS pixels and image pixels, DPR 1.
-- Initial capture: [desktop-before.png](/Users/anipotts/.codex/visualizations/2026/09/05/01a0732a-9d13-77b0-9c4e-95fd13d35689/selected-homepage/desktop-before.png), 1488 × 1056; the final comparison removes this initial one-pixel width / two-pixel height mismatch.
-- Responsive captures: [mobile light](/Users/anipotts/.codex/visualizations/2026/09/05/01a0732a-9d13-77b0-9c4e-95fd13d35689/selected-homepage/mobile-light.png), [mobile dark](/Users/anipotts/.codex/visualizations/2026/09/05/01a0732a-9d13-77b0-9c4e-95fd13d35689/selected-homepage/mobile-dark.png), [mobile picker dark](/Users/anipotts/.codex/visualizations/2026/09/05/01a0732a-9d13-77b0-9c4e-95fd13d35689/selected-homepage/mobile-picker-dark.png), all 319 × 856 at DPR 1.
-- Guide view: [sidebar picker](/Users/anipotts/.codex/visualizations/2026/09/05/01a0732a-9d13-77b0-9c4e-95fd13d35689/selected-homepage/sidebar-picker.png), 1488 × 1056 at DPR 1.
+- Final capture: [desktop-light-final.png](~/.codex/visualizations/2026/09/05/01a0732a-9d13-77b0-9c4e-95fd13d35689/selected-homepage/desktop-light-final.png), 1487 × 1058 CSS pixels and image pixels, DPR 1.
+- Initial capture: [desktop-before.png](~/.codex/visualizations/2026/09/05/01a0732a-9d13-77b0-9c4e-95fd13d35689/selected-homepage/desktop-before.png), 1488 × 1056; the final comparison removes this initial one-pixel width / two-pixel height mismatch.
+- Responsive captures: [mobile light](~/.codex/visualizations/2026/09/05/01a0732a-9d13-77b0-9c4e-95fd13d35689/selected-homepage/mobile-light.png), [mobile dark](~/.codex/visualizations/2026/09/05/01a0732a-9d13-77b0-9c4e-95fd13d35689/selected-homepage/mobile-dark.png), [mobile picker dark](~/.codex/visualizations/2026/09/05/01a0732a-9d13-77b0-9c4e-95fd13d35689/selected-homepage/mobile-picker-dark.png), all 319 × 856 at DPR 1.
+- Guide view: [sidebar picker](~/.codex/visualizations/2026/09/05/01a0732a-9d13-77b0-9c4e-95fd13d35689/selected-homepage/sidebar-picker.png), 1488 × 1056 at DPR 1.
 
 The reference and final browser capture were opened together in the same
 comparison input. No image scaling or device-density normalization was needed

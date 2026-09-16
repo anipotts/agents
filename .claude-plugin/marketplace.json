@@ -4,7 +4,7 @@
     "name": "Ani Potts"
   },
   "metadata": {
-    "description": "legacy claude code plugins preserved for compatibility through 2026-11-05.",
+    "description": "portable agent skills, plus legacy claude code plugins preserved for compatibility through 2026-11-05.",
     "version": "3.1.0"
   },
   "plugins": [
@@ -31,6 +31,14 @@
       "author": { "name": "Ani Potts" },
       "license": "MIT",
       "category": "awareness"
+    },
+    {
+      "name": "agent-skills",
+      "source": "./agent-skills",
+      "description": "portable agent skills from ani's working setup. install the plugin in claude code, or copy a skill folder into codex.",
+      "author": { "name": "Ani Potts" },
+      "license": "MIT",
+      "category": "skills"
     }
   ]
 }
