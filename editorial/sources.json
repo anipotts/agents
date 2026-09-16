@@ -1447,7 +1447,7 @@
       "product": "cross-runtime",
       "layer": "orchestration",
       "status": "watchlist",
-      "url": "https://github.com/anipotts/coding-agent-tips/blob/main/editorial/sources.json",
+      "url": "https://github.com/anipotts/agents/blob/main/editorial/sources.json",
       "last_checked": "2026-09-07",
       "evidence": "official-source"
     },
@@ -1458,7 +1458,7 @@
       "product": "cross-runtime",
       "layer": "orchestration",
       "status": "watchlist",
-      "url": "https://github.com/anipotts/coding-agent-tips/blob/main/.github/scripts/check_sources.py",
+      "url": "https://github.com/anipotts/agents/blob/main/.github/scripts/check_sources.py",
       "last_checked": "2026-09-07",
       "evidence": "official-source"
     },
@@ -1469,7 +1469,7 @@
       "product": "cross-runtime",
       "layer": "orchestration",
       "status": "watchlist",
-      "url": "https://github.com/anipotts/coding-agent-tips/blob/main/.github/workflows/freshness-draft.yml",
+      "url": "https://github.com/anipotts/agents/blob/main/.github/workflows/freshness-draft.yml",
       "last_checked": "2026-09-07",
       "evidence": "official-source"
     },

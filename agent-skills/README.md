@@ -12,7 +12,7 @@ Skills from my own Claude Code and Codex setup, trimmed to work for anyone.
 Claude Code:
 
 ```text
-/plugin marketplace add anipotts/coding-agent-tips
+/plugin marketplace add anipotts/agents
 /plugin install agent-skills@claude-code-tips
 ```
 
