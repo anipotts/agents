@@ -1,5 +1,6 @@
 import { spawn } from 'node:child_process';
 import { once } from 'node:events';
+import os from 'node:os';
 import path from 'node:path';
 import process from 'node:process';
 import AxeBuilder from '@axe-core/playwright';
@@ -21,12 +22,21 @@ const viewports = [
   { name: 'desktop annotated', width: 1191, height: 942 },
   { name: 'desktop wide', width: 1440, height: 1024 },
 ];
+// CI checks each theme in its own job; A11Y_COLOR_SCHEMES narrows the run to one.
+const colorSchemes = (process.env.A11Y_COLOR_SCHEMES ?? 'light,dark').split(',').map((scheme) => scheme.trim());
+if (colorSchemes.length === 0 || colorSchemes.some((scheme) => scheme !== 'light' && scheme !== 'dark')) throw new Error(`A11Y_COLOR_SCHEMES must list light and/or dark, got ${process.env.A11Y_COLOR_SCHEMES}`);
 const server = spawn(process.execPath, [vite, 'preview', '--host', '127.0.0.1', '--port', String(previewPort), '--strictPort'], { stdio: 'inherit' });
 const serverExit = once(server, 'exit');
-const failures = [];
+const allFailures = [];
+const warnings = [];
 let browser;
-let activeCase = 'starting preview';
 let completedCases = 0;
+// Each theme and width runs in its own browser context. The combinations are
+// independent, so a small pool checks them side by side instead of one at a time.
+const combinations = colorSchemes.flatMap((colorScheme) => viewports.map((viewport) => ({ colorScheme, viewport })));
+const totalCases = routes.length * combinations.length;
+const concurrency = Math.max(1, Math.min(combinations.length, Number(process.env.A11Y_CONCURRENCY) || os.availableParallelism()));
+const activeCases = new Map();
 
 try {
   for (let attempt = 0; attempt < 40; attempt += 1) {
@@ -35,16 +45,20 @@ try {
     await new Promise((resolve) => setTimeout(resolve, 250));
   }
   browser = await chromium.launch({ headless: true });
-  for (const colorScheme of ['light', 'dark']) {
-  for (const viewport of viewports) {
+  let next = 0;
+  let stopped = false;
+  const checkCombination = async (worker, { colorScheme, viewport }) => {
     const context = await browser.newContext({ viewport, colorScheme });
     context.setDefaultTimeout(15_000);
     context.setDefaultNavigationTimeout(30_000);
     const page = await context.newPage();
+    try {
     for (const route of routes) {
-      activeCase = `${colorScheme} ${viewport.width}px ${route}`;
+      if (stopped) return;
+      const activeCase = `${colorScheme} ${viewport.width}px ${route}`;
+      activeCases.set(worker, activeCase);
       const started = performance.now();
-      const previousFailures = failures.length;
+      const failures = [];
       console.log(`[a11y] checking ${activeCase}`);
       await page.goto(`${origin}${route}`, { waitUntil: 'domcontentloaded' });
       await page.evaluate(() => document.fonts.ready);
@@ -156,7 +170,15 @@ try {
       await page.evaluate(() => scrollTo(0, 0));
       const report = await new AxeBuilder({ page }).analyze();
       for (const violation of report.violations.filter((item) => item.impact === 'serious' || item.impact === 'critical')) {
-        for (const node of violation.nodes) failures.push(`${colorScheme} ${viewport.name} ${route}: ${violation.impact} ${violation.id} at ${node.target.join(' -> ')}\n${node.failureSummary}`);
+        for (const node of violation.nodes) {
+          const finding = `${colorScheme} ${viewport.name} ${route}: ${violation.impact} ${violation.id} at ${node.target.join(' -> ')}\n${node.failureSummary}`;
+          // A node inside a frame belongs to a third-party embed (every iframe
+          // here is a post from X). Its markup changes without a commit here and
+          // cannot be fixed here, so it is reported without failing the run.
+          // The host iframe itself, including its title, is still enforced.
+          if (node.target.length > 1) warnings.push(finding);
+          else failures.push(finding);
+        }
       }
 
       const checkClipping = async (label) => {
@@ -190,20 +212,37 @@ try {
       }
 
       if (viewport.width === 720) await checkClipping('200% browser zoom equivalent');
-      for (const failure of failures.slice(previousFailures)) console.error(failure);
+      for (const failure of failures) console.error(failure);
+      allFailures.push(...failures);
       completedCases += 1;
-      console.log(`[a11y] ${completedCases}/${routes.length * viewports.length * 2} checked (${Math.round(performance.now() - started)}ms, ${failures.length - previousFailures} findings)`);
+      console.log(`[a11y] ${completedCases}/${totalCases} checked: ${activeCase} (${Math.round(performance.now() - started)}ms, ${failures.length} findings)`);
     }
-    await context.close();
-  }
-  }
+    } finally {
+      await context.close();
+    }
+  };
+  const worker = async (id) => {
+    while (!stopped && next < combinations.length) {
+      const combination = combinations[next];
+      next += 1;
+      await checkCombination(id, combination);
+    }
+    activeCases.delete(id);
+  };
+  console.log(`[a11y] ${totalCases} cases across ${combinations.length} theme and width combinations, ${concurrency} at a time`);
+  await Promise.all(Array.from({ length: concurrency }, (_, id) => worker(id).catch((error) => {
+    stopped = true;
+    throw error;
+  })));
 } catch (error) {
-  throw new Error(`[a11y] stopped during ${activeCase} after ${completedCases} completed cases: ${error.message}`, { cause: error });
+  const active = [...activeCases.values()].join(', ') || 'starting preview';
+  throw new Error(`[a11y] stopped during ${active} after ${completedCases} completed cases: ${error.message}`, { cause: error });
 } finally {
   await browser?.close();
   if (server.exitCode === null && server.signalCode === null) server.kill('SIGTERM');
   await serverExit;
 }
 
-if (failures.length > 0) { console.error(`[a11y] ${failures.length} findings across ${completedCases} completed cases; see the per-case diagnostics above.`); process.exit(1); }
-console.log(`typography, reflow, text spacing, text resize, and axe checks passed across ${routes.length} routes at ${viewports.length} required widths in both themes`);
+if (warnings.length > 0) console.warn(`[a11y] ${warnings.length} findings inside third-party embeds, not failing the run:\n${warnings.join('\n')}`);
+if (allFailures.length > 0) { console.error(`[a11y] ${allFailures.length} findings across ${completedCases} completed cases; see the per-case diagnostics above.`); process.exit(1); }
+console.log(`typography, reflow, text spacing, text resize, and axe checks passed across ${routes.length} routes at ${viewports.length} required widths in ${colorSchemes.join(' and ')}`);
