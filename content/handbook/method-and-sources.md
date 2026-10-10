@@ -40,9 +40,9 @@ that fixture; Ani’s experience using a product remains a separate account.
 
 ## check what automation actually checked
 
-the [source registry](https://github.com/anipotts/coding-agent-tips/blob/main/editorial/sources.json)
+the [source registry](https://github.com/anipotts/agents/blob/main/editorial/sources.json)
 records source URLs, review dates, evidence types, and tracked package versions.
-the repository’s [source checker](https://github.com/anipotts/coding-agent-tips/blob/main/.github/scripts/check_sources.py)
+the repository’s [source checker](https://github.com/anipotts/agents/blob/main/.github/scripts/check_sources.py)
 validates that metadata. its optional freshness mode also checks review windows,
 compares supplied upstream versions, and fetches watched pages to look for
 specific terms.
@@ -54,7 +54,7 @@ source and checking its meaning is a separate step.
 
 ### detected changes can become a draft
 
-the configured [weekly freshness workflow](https://github.com/anipotts/coding-agent-tips/blob/main/.github/workflows/freshness-draft.yml)
+the configured [weekly freshness workflow](https://github.com/anipotts/agents/blob/main/.github/workflows/freshness-draft.yml)
 starts with package version lookups and source checks. when it detects a review
 need and a drafting credential is available, a separate job can propose changes
 from official update material. path checks limit the draft and exclude

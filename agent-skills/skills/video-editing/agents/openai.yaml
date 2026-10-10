@@ -1,0 +1,6 @@
+interface:
+  display_name: "Video Editing"
+  short_description: "Cut and analyze short-form video with ffmpeg"
+  default_prompt: "Use $video-editing to cut this clip for short-form."
+policy:
+  allow_implicit_invocation: true

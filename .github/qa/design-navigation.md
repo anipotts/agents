@@ -2,7 +2,7 @@
 
 ## source truth
 
-- selected visual: `/Users/anipotts/.codex/generated_images/01a054ef-f6be-77d3-875d-4ef0913b9c31/exec-751df81c-0eea-4aa3-bff7-5e0a2e9120a3.png`
+- selected visual: `~/.codex/generated_images/01a054ef-f6be-77d3-875d-4ef0913b9c31/exec-751df81c-0eea-4aa3-bff7-5e0a2e9120a3.png`
 - selected visual dimensions: 1487 x 1058
 - normalized comparison source: `/tmp/coding-agent-tips-unified-sidebar-reference-1440.png`
 - implementation capture: `/tmp/coding-agent-tips-unified-sidebar-final.png`

@@ -17,9 +17,7 @@ concurrency:
 jobs:
   site:
     runs-on: ubuntu-latest
-    # The full 306-case browser matrix follows dependency setup and builds.
-    # Individual browser waits are bounded in test-a11y.mjs.
-    timeout-minutes: 20
+    timeout-minutes: 15
     steps:
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7
 
@@ -82,7 +80,36 @@ jobs:
             "content/**/*.md"
           fail: true
 
+  # The 306-case accessibility matrix runs beside the site job, one theme per
+  # job, instead of after it. Individual browser waits are bounded in
+  # test-a11y.mjs.
+  a11y:
+    name: a11y (${{ matrix.color-scheme }})
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    strategy:
+      fail-fast: false
+      matrix:
+        color-scheme: [light, dark]
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7
+
+      - uses: oven-sh/setup-bun@0c5077e51419868618aeaa5fe8019c62421857d6 # v2
+        with:
+          bun-version: "1.3.4"
+
+      - name: install pinned dependencies
+        run: bun install --frozen-lockfile
+
+      - name: build
+        run: bun run build
+
+      - name: install browser test runtime
+        run: bunx playwright install --with-deps chromium
+
       - name: scan mobile and desktop accessibility
+        env:
+          A11Y_COLOR_SCHEMES: ${{ matrix.color-scheme }}
         run: bun run test:a11y
 
   handbook:

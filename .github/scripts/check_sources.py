@@ -52,7 +52,7 @@ def load_registry() -> dict:
 
 
 def normalized_upstream_text(url: str) -> str:
-    request = Request(url, headers={"User-Agent": "coding-agent-tips-freshness/1"})
+    request = Request(url, headers={"User-Agent": "agents-freshness/1"})
     with urlopen(request, timeout=30) as response:
         raw = response.read().decode("utf-8", errors="replace")
     without_markup = re.sub(r"<[^>]+>", " ", html.unescape(raw))

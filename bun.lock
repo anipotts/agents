@@ -3,7 +3,7 @@
   "configVersion": 1,
   "workspaces": {
     "": {
-      "name": "coding-agent-tips",
+      "name": "agents",
       "dependencies": {
         "@astrojs/sitemap": "3.7.4",
         "@astrojs/starlight": "0.41.10",
