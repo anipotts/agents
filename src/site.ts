@@ -1,10 +1,10 @@
 export const site = {
   name: 'coding agent tips',
   url: 'https://agents.anipotts.com',
-  repository: 'https://github.com/anipotts/coding-agent-tips',
+  repository: 'https://github.com/anipotts/agents',
   socialImage: '/social-card.png',
   socialImageAlt: 'coding agent tips: a guide to coding agents in production software',
-  releaseHistory: 'https://github.com/anipotts/coding-agent-tips/releases',
+  releaseHistory: 'https://github.com/anipotts/agents/releases',
   author: {
     name: 'Ani Potts',
     label: 'ani potts',

@@ -1,0 +1,6 @@
+interface:
+  display_name: "Codex Pet"
+  short_description: "Assemble and QA Codex pet sprite atlases"
+  default_prompt: "Use $codex-pet to build this pet atlas."
+policy:
+  allow_implicit_invocation: true
