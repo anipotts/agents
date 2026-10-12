@@ -13,7 +13,7 @@ export async function GET() {
   });
 
   const body = [
-    '# coding agent tips',
+    '# agent tips',
     '',
     '> public handbook pages in Markdown for readers, agents, and language models.',
     '',

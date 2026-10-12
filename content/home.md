@@ -1,5 +1,5 @@
 ---
-title: coding agent tips
+title: agent tips
 description: practical help for building things and getting everyday work done
 products: [cross runtime]
 updatedAt: "2026-10-12T13:00:00-04:00"
@@ -19,6 +19,13 @@ navigation:
 practical help for building things and getting everyday work done
 
 <nav class="hero-provider-actions"></nav>
+
+## find a place to start
+
+- [start here](/handbook/operating-agents/): try a useful first task and check the result.
+- [everyday work](/handbook/everyday-work/): get help with research, documents, and planning.
+- [building things](/handbook/building-things/): build for fun or prepare for people depending on your work.
+- [personal infrastructure](/handbook/personal-infrastructure/): keep your work useful between chats, with a backup you trust.
 
 ## why i made this
 

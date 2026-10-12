@@ -225,3 +225,49 @@ reading and navigation pass. A passing build alone does not establish that.
 The review and setup submission is [PR #326](https://github.com/anipotts/agents/pull/326).
 Its exact-head checks and subsequent deployment records own release evidence.
 The shared drafts add three hidden pages to the 24-page starting inventory.
+
+## deeper backup page outline
+
+October 12, 2026. Ani requested a deeper backup page and small review batches.
+The starter heading “have a backup you trust” and its two paragraphs are
+accepted in the review ledger. Ani accepted the six-section outline on October 12
+with “i like this outline, use it.” This accepts the structure and section
+headings; body copy and publication remain unaccepted.
+Proposed destination: `/handbook/backups-and-recovery/`; working title:
+“backups and getting your work back”. No public route or unfinished link is added.
+
+| accepted heading | scope |
+| --- | --- |
+| what would you hate to lose? | identify important files and work inside apps; define backup scope |
+| choose one backup workflow | one repeatable routine, multiple copies where needed, tolerable lost work and recovery time |
+| know what each copy protects | sync, version history and backup; local and external storage; cloud, offline and offsite copies; explain hot, warm and cold labels in context |
+| try getting your work back | restore a sample into a separate location, open it and compare; record what was actually tested |
+| plan for losing access | recovery when the usual device or account is unavailable; protect recovery instructions and encryption keys |
+| keep it working | check freshness and failures; repeat a restore test after meaningful setup changes |
+
+Use a hypothetical project document throughout. Review the first section body
+next, then continue in small batches. Product instructions and sourced terminology follow their
+own accuracy review. Link the starter to this page only once the destination is
+publishable. Fresh-chat continuation belongs with organizing work and context.
+
+The hidden canonical draft now lives at `content/handbook/backups-and-recovery.md`.
+Ani accepted the exact first section body on October 12. The remaining headings
+are present as the accepted outline, with their bodies awaiting review. No public
+link has been added. The ledger owns exact acceptance and the next writing batch.
+
+## organized publication, October 12
+
+Ani asked to accumulate the discussion and publish the content simply. Codex owns
+this integration. The first edition adds everyday work, building things,
+personal infrastructure and backups, with four homepage entrances. Earlier
+hidden-state notes describe the review chronology, not current release intent.
+Accepted wording stays exact; new backup bodies and navigation copy remain agent
+prose. The backup page uses primary-source explanations without claiming Ani has
+performed a restore test. Product drafts and archived compatibility paths retain
+their previous visibility and contents. Source checks and live release evidence
+must be distinguished from copy acceptance. The share preview uses the accepted homepage wording and the working name
+agent tips.
+
+Publication submission: [PR #327](https://github.com/anipotts/agents/pull/327).
+GitHub verified the initial submission commit `420de502a15ccf5faa24b2af4b40fba898554f2d`.
+The PR checks and subsequent deployment records own final release evidence.

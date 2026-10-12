@@ -127,7 +127,7 @@ export async function buildAgentIndex(rootDirectory) {
 
   return {
     schemaVersion: AGENT_INDEX_VERSION,
-    name: 'coding agent tips',
+    name: 'agent tips',
     discovery: { llms: '/llms.txt', index: '/agent-index.json' },
     pages,
     sources,

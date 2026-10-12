@@ -1,5 +1,6 @@
 import assert from 'node:assert/strict';
 import AxeBuilder from '@axe-core/playwright';
+import { canonicalContentFiles } from '../../src/content-manifest.mjs';
 
 export async function verifyMobileLayout({ browser, origin }) {
   for (const colorScheme of ['light', 'dark']) {
@@ -12,7 +13,7 @@ export async function verifyMobileLayout({ browser, origin }) {
       try {
         await page.goto(origin, { waitUntil: 'networkidle' });
         assert.equal(await page.locator('.hero-provider-link').count(), 3);
-        assert.equal(await page.locator('.home-guide-list a').count(), 4);
+        assert.deepEqual((await page.locator('.home-guide-list a').evaluateAll((links) => links.map((link) => link.getAttribute('href')))).sort(), canonicalContentFiles().filter(({ route }) => route.startsWith('/handbook/')).map(({ route }) => route).sort(), 'homepage lists every published shared guide');
         await page.locator('.hero-provider-link').first().focus();
         await page.keyboard.press('Tab');
         assert.ok(await page.locator('.hero-provider-claude-code').evaluate((el) => el === document.activeElement));

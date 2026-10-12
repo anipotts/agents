@@ -3,9 +3,9 @@ title: everyday work
 description: bounded examples for research, documents, planning, and administration.
 products: [codex, claude-code, grok]
 updatedAt: "2026-10-12T13:00:00-04:00"
-status: pending
-completion: outline
-draft: true
+status: current
+completion: complete
+draft: false
 evidence: [analysis]
 sources: []
 voice: evidence
@@ -64,7 +64,7 @@ review recipients, amounts, dates, attachments, and commitments before sending
 or submitting anything.
 
 for a recurring job, begin with the same task done once. the
-personal infrastructure draft (`content/handbook/personal-infrastructure.md`) explains
+[personal infrastructure guide](/handbook/personal-infrastructure/) explains
 how to keep its inputs and results discoverable and check a scheduled run.
 
 ## decide whether it helped

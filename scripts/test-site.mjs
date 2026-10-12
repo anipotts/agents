@@ -63,7 +63,7 @@ for (const [route, source] of contentFiles) {
   try {
     const identities = [...html.matchAll(/<script\b[^>]*type="application\/ld\+json"[^>]*>(.*?)<\/script>/gs)].map((match) => JSON.parse(match[1]));
     const websites = identities.filter((entry) => entry['@type'] === 'WebSite');
-    if (websites.length !== 1 || websites[0]['@id'] !== `${origin}/#website` || websites[0].url !== `${origin}/` || websites[0].name !== 'coding agent tips' || websites[0].author?.['@id'] !== 'https://anipotts.com/#person' || websites[0].author?.name !== 'Ani Potts' || websites[0].author?.url !== 'https://anipotts.com/') failures.push(`${route}: structured website authorship is missing or inconsistent`);
+    if (websites.length !== 1 || websites[0]['@id'] !== `${origin}/#website` || websites[0].url !== `${origin}/` || websites[0].name !== 'agent tips' || websites[0].author?.['@id'] !== 'https://anipotts.com/#person' || websites[0].author?.name !== 'Ani Potts' || websites[0].author?.url !== 'https://anipotts.com/') failures.push(`${route}: structured website authorship is missing or inconsistent`);
   } catch { failures.push(`${route}: structured identity is not valid JSON`); }
   if (!html.includes('<meta property="og:title"')) failures.push(`${route}: open graph title is missing`);
   if (!html.includes(`<meta property="og:image" content="${origin}/social-card.png"`)) failures.push(`${route}: social preview image is missing`);
@@ -85,7 +85,7 @@ for (const [route, source] of contentFiles) {
   for (const label of ['handbook', 'codex', 'claude code', 'grok']) if (!publicText.includes(label)) failures.push(`${route}: guide picker scope is missing: ${label}`);
   if (hasRetiredGuideLabel(html)) failures.push(`${route}: retired product guides label appears in public output`);
   if (html.includes('·')) failures.push(`${route}: mid dot appears in public output`);
-  if (!html.includes('coding agent tips on GitHub')) failures.push(`${route}: GitHub link is missing from the site header`);
+  if (!html.includes('agent tips on GitHub')) failures.push(`${route}: GitHub link is missing from the site header`);
   if (/GitHub stars|github-stars|\d+ stars, checked/i.test(html)) failures.push(`${route}: stale GitHub star metadata appears in the site header`);
 
   const links = [...html.matchAll(/<a\b[^>]*\bhref="([^"]+)"/g)].map((match) => match[1]);

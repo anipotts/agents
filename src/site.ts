@@ -1,9 +1,9 @@
 export const site = {
-  name: 'coding agent tips',
+  name: 'agent tips',
   url: 'https://agents.anipotts.com',
   repository: 'https://github.com/anipotts/agents',
   socialImage: '/social-card.png',
-  socialImageAlt: 'coding agent tips: a guide to coding agents in production software',
+  socialImageAlt: 'agent tips: a casual guide to working with agents; practical help for building things and getting everyday work done',
   releaseHistory: 'https://github.com/anipotts/agents/releases',
   author: {
     name: 'Ani Potts',
@@ -25,8 +25,8 @@ export const site = {
     sources: 'sources',
     sharedFoundations: 'shared foundations',
     evidence: 'examples and sources',
-    github: 'coding agent tips on GitHub',
-    home: 'coding agent tips home',
+    github: 'agent tips on GitHub',
+    home: 'agent tips home',
     guides: 'guides',
     chapters: 'chapters',
     contents: 'contents',

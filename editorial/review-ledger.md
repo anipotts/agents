@@ -1344,6 +1344,266 @@ The unclear “why am i repeating myself?” heading is now “why does my agent
       "date": "2026-10-12",
       "source": "Ani replied “use this wording” to these exact three sentences in this chat on October 12, 2026.",
       "note": "Exact paragraph only. The longer planning candidate and neighboring examples remain unaccepted."
+    },
+    {
+      "id": "infrastructure-opening-20261012",
+      "file": "content/handbook/personal-infrastructure.md",
+      "status": "preserve",
+      "match": "quote",
+      "quote": "say an agent helps you plan a project. a week later, you want to pick it back up. keeping the notes and decisions somewhere you can find makes that easier, especially when you start a fresh chat or switch agents.\n\npersonal infrastructure is the setup around that ongoing work. we’ll start with one useful task, give it somewhere to live, and work toward a setup you can keep using.",
+      "hash": "880cafb679c7b006ef9d9dd6475ba8988d2cbcc1acd3248ede3f93f10c6c6078",
+      "origin": "ani-accepted-agent-candidate",
+      "date": "2026-10-12",
+      "source": "Ani replied “i like this copy text” to the opening in this chat, then requested a smaller-hassle framing for the first section heading.",
+      "note": "Only the two opening paragraphs are accepted. The proposed first heading and all section bodies remain candidates; page stays hidden."
+    },
+    {
+      "file": "content/handbook/personal-infrastructure.md",
+      "anchor": "start-with-one-small-hassle",
+      "origin": "ani-accepted-agent-candidate",
+      "date": "2026-10-12",
+      "source": "Ani explicitly asked to use the “start with one small hassle” heading and its sentence in this chat.",
+      "note": "Exact heading and introductory sentence only. Remaining section body is unaccepted; the page stays hidden.",
+      "id": "infrastructure-hassle-heading-20261012",
+      "status": "adopted-heading",
+      "match": "heading",
+      "hash": "55511721e2be95e34a6a67aec2fa0e49bf7d27cece5bf1bfb1a7233faecaae43"
+    },
+    {
+      "file": "content/handbook/personal-infrastructure.md",
+      "anchor": "start-with-one-small-hassle",
+      "origin": "ani-accepted-agent-candidate",
+      "date": "2026-10-12",
+      "source": "Ani explicitly asked to use the “start with one small hassle” heading and its sentence in this chat.",
+      "note": "Exact heading and introductory sentence only. Remaining section body is unaccepted; the page stays hidden.",
+      "id": "infrastructure-hassle-sentence-20261012",
+      "status": "preserve",
+      "match": "quote",
+      "quote": "pick something that’s annoying to do and easy to check when it’s done. start there.",
+      "hash": "9c49692421dec0259dc009b526c5e1811891a2e0f11a537c5c46597e277f3054"
+    },
+    {
+      "id": "infrastructure-hassle-example-20261012",
+      "file": "content/handbook/personal-infrastructure.md",
+      "anchor": "start-with-one-small-hassle",
+      "status": "preserve",
+      "match": "quote",
+      "quote": "say you keep rereading your project notes to remember where you left off. give the agent a copy and ask for a short update:\n\n```text\ntell me where i left off based on these notes. keep unanswered questions open, and suggest one next step for me to review.\n```\n\ncompare the update with your notes. if it leaves out an important decision or fills in a gap with a guess, correct it and try again. once the result is useful, save the request with the notes so you can repeat it.",
+      "hash": "7b1d3d78f0154d4aae4292e95c684513f636a53f429eb4951e08dd3bedbc9d55",
+      "origin": "ani-accepted-agent-candidate",
+      "date": "2026-10-12",
+      "source": "Ani replied “i like this, use that wording” to the proposed remainder of the first section in this chat.",
+      "note": "Exact example paragraphs and prompt accepted. Later sections remain candidates; page stays hidden."
+    },
+    {
+      "file": "content/handbook/personal-infrastructure.md",
+      "anchor": "give-your-work-a-home",
+      "origin": "ani-accepted-agent-candidate",
+      "date": "2026-10-12",
+      "source": "Ani requested “give your work a home” and explicitly accepted the three proposed paragraphs in this chat.",
+      "note": "Exact heading and three paragraphs only; later sections and publication remain unaccepted.",
+      "id": "infrastructure-home-heading-20261012",
+      "status": "adopted-heading",
+      "match": "heading",
+      "hash": "39c657314e778016d698c70b62a190bd46273f69d418419461c9e99d2bc835f3"
+    },
+    {
+      "file": "content/handbook/personal-infrastructure.md",
+      "anchor": "give-your-work-a-home",
+      "origin": "ani-accepted-agent-candidate",
+      "date": "2026-10-12",
+      "source": "Ani requested “give your work a home” and explicitly accepted the three proposed paragraphs in this chat.",
+      "note": "Exact heading and three paragraphs only; later sections and publication remain unaccepted.",
+      "id": "infrastructure-home-body-20261012",
+      "status": "preserve",
+      "match": "quote",
+      "quote": "keep the notes and the request together somewhere you already use. a single document is enough to start. give it a name you’ll recognize later, like “project updates.”\n\nkeep the notes current and save useful updates with a date so you can see what changed.\n\nwhen you want help again, paste the relevant part into a fresh chat or attach a copy if your agent supports it. if it can read the document through a file or app connection, check that it’s reading the current version.",
+      "hash": "c49952e98f0092411bfe73e78910f6b33ef7ad81dbb6498d4ffe0c891f95ab96"
+    },
+    {
+      "file": "content/handbook/personal-infrastructure.md",
+      "anchor": "make-your-notes-easy-to-follow",
+      "origin": "ani-accepted-agent-candidate",
+      "date": "2026-10-12",
+      "source": "Ani explicitly accepted the “make your notes easy to follow” heading and its five paragraphs in this chat.",
+      "note": "Exact heading and five paragraphs only. Later sections and publication remain unaccepted.",
+      "id": "infrastructure-notes-heading-20261012",
+      "status": "adopted-heading",
+      "match": "heading",
+      "hash": "65163a3714e53bc4f96944e7d80c698063ec31b8924dc2d46456eff9f5b0eac5"
+    },
+    {
+      "file": "content/handbook/personal-infrastructure.md",
+      "anchor": "make-your-notes-easy-to-follow",
+      "origin": "ani-accepted-agent-candidate",
+      "date": "2026-10-12",
+      "source": "Ani explicitly accepted the “make your notes easy to follow” heading and its five paragraphs in this chat.",
+      "note": "Exact heading and five paragraphs only. Later sections and publication remain unaccepted.",
+      "id": "infrastructure-notes-body-20261012",
+      "status": "preserve",
+      "match": "quote",
+      "quote": "use a few headings inside your document so it’s clear what each part is for.\n\ncontext explains what the project is about and the decisions you’ve already made.\n\ninstructions explain how you want the agent to help. the request we saved earlier belongs here.\n\ncurrent state explains where you left off and what still needs your attention. update this as the work changes so an old plan doesn’t get mistaken for what’s happening now.\n\nthese can stay in one document. split them into separate files when that makes the work easier to manage.",
+      "hash": "1ff1ea9b85103651d48ebd389aeeb12614bf3b4d8803b58683ef227ba06df9c9"
+    },
+    {
+      "file": "content/handbook/personal-infrastructure.md",
+      "anchor": "connect-an-app-when-it-helps",
+      "origin": "ani-accepted-agent-candidate",
+      "date": "2026-10-12",
+      "source": "Ani explicitly accepted the “connect an app when it helps” heading and its three paragraphs in this chat.",
+      "note": "Exact heading and three paragraphs only. Later sections and publication remain unaccepted.",
+      "id": "infrastructure-app-heading-20261012",
+      "status": "adopted-heading",
+      "match": "heading",
+      "hash": "57639bad121e4da47c997604e5eb2de161fe6f3d88f4ee82d11172055062ae20"
+    },
+    {
+      "file": "content/handbook/personal-infrastructure.md",
+      "anchor": "connect-an-app-when-it-helps",
+      "origin": "ani-accepted-agent-candidate",
+      "date": "2026-10-12",
+      "source": "Ani explicitly accepted the “connect an app when it helps” heading and its three paragraphs in this chat.",
+      "note": "Exact heading and three paragraphs only. Later sections and publication remain unaccepted.",
+      "id": "infrastructure-app-body-20261012",
+      "status": "preserve",
+      "match": "quote",
+      "quote": "if you keep copying the same notes into chat, connecting the app where you keep them might save you some work. check whether your agent supports that connection and which account you’re connecting.\n\ntry one small request: ask it to find your project document and summarize the latest update. open the document yourself and compare, so you can check that it found the right thing.\n\nlook at the permissions the connection asks for. where you have a choice, start with read access. decide separately what the agent can change on its own and what should wait for your approval.",
+      "hash": "1eb4b34d2b979978852484643b4243fbeaf88316501684a0a90795c5605421d6"
+    },
+    {
+      "file": "content/handbook/personal-infrastructure.md",
+      "anchor": "put-it-on-your-calendar",
+      "origin": "ani-accepted-agent-candidate",
+      "date": "2026-10-12",
+      "source": "Ani accepted the scheduling body while asking for calendar in the title, then accepted the proposed “put it on your calendar” heading in this chat.",
+      "note": "Exact heading and three paragraphs only. Final recovery section and publication remain unaccepted.",
+      "id": "infrastructure-calendar-heading-20261012",
+      "status": "adopted-heading",
+      "match": "heading",
+      "hash": "1caf4b05794df544589d4b9ec7bc3da1fb7146d0437116f2b96902e88fa52397"
+    },
+    {
+      "file": "content/handbook/personal-infrastructure.md",
+      "anchor": "put-it-on-your-calendar",
+      "origin": "ani-accepted-agent-candidate",
+      "date": "2026-10-12",
+      "source": "Ani accepted the scheduling body while asking for calendar in the title, then accepted the proposed “put it on your calendar” heading in this chat.",
+      "note": "Exact heading and three paragraphs only. Final recovery section and publication remain unaccepted.",
+      "id": "infrastructure-calendar-body-20261012",
+      "status": "preserve",
+      "match": "quote",
+      "quote": "once the task works when you ask for it, decide whether it’s worth scheduling. if your setup supports recurring tasks, choose a time and timezone, and somewhere you’ll actually see the result. tell it which notes and instructions to use.\n\nafter the first scheduled run, open the result and compare it with your notes. check that it used the current information and did what you asked.\n\ndecide how you’ll notice a missed or failed run. use failure notifications where available, or check the run history regularly. if the task can’t read your notes, have it report that and leave the existing notes alone. keep a way to pause it when you want to make changes.",
+      "hash": "9134ebd6493b52b066653bf928d3a9eae628b5cf7e61cd1a59869fa3bdb112d7"
+    },
+    {
+      "id": "infrastructure-recovery-heading-20261012",
+      "file": "content/handbook/personal-infrastructure.md",
+      "anchor": "have-a-backup-you-trust",
+      "origin": "ani-accepted-agent-candidate",
+      "date": "2026-10-12",
+      "source": "Ani explicitly accepted “have a backup you trust” and the two proposed paragraphs in this chat, replacing the earlier heading.",
+      "note": "Exact heading only. Deeper backup page outline, additional links, metadata and publication remain unaccepted.",
+      "status": "adopted-heading",
+      "match": "heading",
+      "hash": "2bd9ef07e68ce664fc8d32afd7d682a19e3001ceebf426c73348876b800b9d37"
+    },
+    {
+      "id": "infrastructure-recovery-body-20261012",
+      "file": "content/handbook/personal-infrastructure.md",
+      "anchor": "have-a-backup-you-trust",
+      "origin": "ani-accepted-agent-candidate",
+      "date": "2026-10-12",
+      "source": "Ani explicitly accepted “have a backup you trust” and the two proposed paragraphs in this chat, replacing the earlier heading.",
+      "note": "Exact two paragraphs only. Earlier recovery and continuation draft replaced. No personal recovery test is claimed; deeper page and publication remain unaccepted.",
+      "status": "preserve",
+      "match": "quote",
+      "hash": "1c250c33baba18327312b143e7167e5e5142e43f321032706c555a3b8e07bd41",
+      "quote": "choose one backup workflow and practice getting your work back. know what it covers, how recent the backup is, and what you’d do if your computer stopped working.\n\nthat gives you more room to try things. when you know how to recover, you can make changes with a clearer idea of what’s at stake."
+    },
+    {
+      "id": "backup-outline-heading-1-20261012",
+      "file": "content/handbook/backups-and-recovery.md",
+      "anchor": "what-would-you-hate-to-lose",
+      "origin": "ani-accepted-agent-candidate",
+      "date": "2026-10-12",
+      "source": "Ani explicitly accepted the six-section backup outline with “i like this outline, use it.”",
+      "note": "Exact heading only. Body and publication have separate review scopes.",
+      "status": "adopted-heading",
+      "match": "heading",
+      "hash": "d65255c5707a168e27b01ca88956f89068b0d25e1e15891a67edfd946f0ad058"
+    },
+    {
+      "id": "backup-outline-heading-2-20261012",
+      "file": "content/handbook/backups-and-recovery.md",
+      "anchor": "choose-one-backup-workflow",
+      "origin": "ani-accepted-agent-candidate",
+      "date": "2026-10-12",
+      "source": "Ani explicitly accepted the six-section backup outline with “i like this outline, use it.”",
+      "note": "Exact heading only. Body and publication have separate review scopes.",
+      "status": "adopted-heading",
+      "match": "heading",
+      "hash": "f79a77910e5c22355fc5bd52695af442a39b75a3ce714db866cb3181065054b1"
+    },
+    {
+      "id": "backup-outline-heading-3-20261012",
+      "file": "content/handbook/backups-and-recovery.md",
+      "anchor": "know-what-each-copy-protects",
+      "origin": "ani-accepted-agent-candidate",
+      "date": "2026-10-12",
+      "source": "Ani explicitly accepted the six-section backup outline with “i like this outline, use it.”",
+      "note": "Exact heading only. Body and publication have separate review scopes.",
+      "status": "adopted-heading",
+      "match": "heading",
+      "hash": "8abf0fbe78a1ef08f7cb9c6b552672c7d3903694bd0e89732871102e1d7442c1"
+    },
+    {
+      "id": "backup-outline-heading-4-20261012",
+      "file": "content/handbook/backups-and-recovery.md",
+      "anchor": "try-getting-your-work-back",
+      "origin": "ani-accepted-agent-candidate",
+      "date": "2026-10-12",
+      "source": "Ani explicitly accepted the six-section backup outline with “i like this outline, use it.”",
+      "note": "Exact heading only. Body and publication have separate review scopes.",
+      "status": "adopted-heading",
+      "match": "heading",
+      "hash": "1901604ec63bec9dfdf1b10d95e666bb56cc3be32e78a3d9bcfa97ceee7a6693"
+    },
+    {
+      "id": "backup-outline-heading-5-20261012",
+      "file": "content/handbook/backups-and-recovery.md",
+      "anchor": "plan-for-losing-access",
+      "origin": "ani-accepted-agent-candidate",
+      "date": "2026-10-12",
+      "source": "Ani explicitly accepted the six-section backup outline with “i like this outline, use it.”",
+      "note": "Exact heading only. Body and publication have separate review scopes.",
+      "status": "adopted-heading",
+      "match": "heading",
+      "hash": "7c3df6b6328d2dc1a63ede9aab85073ce7124a3c8b190fd2542512928b2585c4"
+    },
+    {
+      "id": "backup-outline-heading-6-20261012",
+      "file": "content/handbook/backups-and-recovery.md",
+      "anchor": "keep-it-working",
+      "origin": "ani-accepted-agent-candidate",
+      "date": "2026-10-12",
+      "source": "Ani explicitly accepted the six-section backup outline with “i like this outline, use it.”",
+      "note": "Exact heading only. Body and publication have separate review scopes.",
+      "status": "adopted-heading",
+      "match": "heading",
+      "hash": "df5465e3411c5abba6d0f346e56b7f3475894f8b7e3a25692adad4e0e099b626"
+    },
+    {
+      "id": "backup-inventory-body-20261012",
+      "file": "content/handbook/backups-and-recovery.md",
+      "anchor": "what-would-you-hate-to-lose",
+      "origin": "ani-accepted-agent-candidate",
+      "date": "2026-10-12",
+      "source": "Ani accepted the first section with “i like this, use that wording” and requested the next section.",
+      "note": "Exact four paragraphs only. Later bodies, metadata and publication remain unaccepted.",
+      "status": "preserve",
+      "match": "quote",
+      "quote": "imagine opening your computer tomorrow and finding your work gone. what would you want back first? start with the things you’d struggle to replace.\n\nfor the project notes we’ve been using, that might mean the document itself and any files it links to. also think about work you keep inside apps or chats that you’d want to carry forward.\n\nmake a short list of what matters and where it lives. be specific enough that you could find each item again. “project updates in my documents folder” is more useful than “my files.”\n\nthat list gives you something concrete to check when you choose your backup workflow.",
+      "hash": "66248aabbcb0599749c89cbb3ea9def56e37839ea15790771acf99f519abb985"
     }
   ],
   "next": [
@@ -1363,7 +1623,17 @@ The unclear “why am i repeating myself?” heading is now “why does my agent
       "kind": "review",
       "scope": "page",
       "status": "open",
-      "detail": "Hidden hypothetical weekly review exercise. Review usefulness, headings and body before publication; no personal-system inspection or anecdote is implied."
+      "detail": "Opening and six sections accepted through exact records. Ani authorized organized publication October 12. New contextual links and metadata are implementation copy, not additional wording acceptance. Revisit whole-page voice after release."
+    },
+    {
+      "id": "backup-workflow-review",
+      "title": "Backup workflow",
+      "file": "content/handbook/backups-and-recovery.md",
+      "anchor": "choose-one-backup-workflow",
+      "kind": "review",
+      "scope": "body",
+      "status": "open",
+      "detail": "Six headings and first section body accepted individually. Ani subsequently authorized organized publication. The previously proposed workflow body and remaining first-edition bodies are agent prose, not individually accepted; revisit them in small batches after release."
     },
     {
       "title": "Grok: taking control",
@@ -1481,7 +1751,8 @@ The unclear “why am i repeating myself?” heading is now “why does my agent
   "notes": [
     "The old ledger heading tables are historical. Current inventory is derived from Markdown.",
     "No whole-page acceptance is recorded. Preserved material and partial approvals remain separate.",
-    "The live-map next queue owns active questions. Review steps follow exact acceptance evidence; answering a question does not approve the resulting prose. Remaining page reviews are derived automatically."
+    "The live-map next queue owns active questions. Review steps follow exact acceptance evidence; answering a question does not approve the resulting prose. Remaining page reviews are derived automatically.",
+    "October 12 publication scope: Ani asked to accumulate the discussion and put the organized content on the site. This authorizes publication of the infrastructure starter and completed shared drafts, including the backup first edition, but does not retroactively accept new wording. Exact records remain the authority for Ani wording. New backup explanations and navigation copy are agent prose; no personal recovery test is claimed."
   ]
 }
 ```
