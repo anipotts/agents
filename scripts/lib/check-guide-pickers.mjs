@@ -116,8 +116,12 @@ export async function verifyGuidePickers({ browser, origin }) {
         // the settled reading layout rather than an intermediate animation.
         await page.evaluate(async () => {
           await new Promise((resolve) => requestAnimationFrame(() => requestAnimationFrame(resolve)));
-          await Promise.allSettled(document.getAnimations().filter((animation) =>
-            animation.effect?.getComputedTiming().iterations !== Infinity).map((animation) => animation.finished));
+          await new Promise((resolve, reject) => {
+            const deadline = setTimeout(() => reject(new Error('layout animations did not finish within two seconds')), 2000);
+            Promise.allSettled(document.getAnimations().filter((animation) =>
+              animation.playState === 'running' && animation.effect?.getComputedTiming().iterations !== Infinity
+            ).map((animation) => animation.finished)).then(() => { clearTimeout(deadline); resolve(); });
+          });
         });
         await page.waitForFunction(() => Math.abs(parseFloat(getComputedStyle(document.documentElement).getPropertyValue('--sl-nav-height')) - document.querySelector('.site-header').getBoundingClientRect().height) < 1);
         assert.equal(await page.locator('.header-guide-picker-trigger:visible').count(), 1, 'text enlargement compacts navigation');
