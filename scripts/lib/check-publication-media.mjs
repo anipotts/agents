@@ -30,6 +30,11 @@ export async function verifyPublicationMedia({ browser, origin }) {
       });
       assert.equal(await dialog.locator('img').isHidden(), true);
       assert.match(await dialog.locator('[data-publication-dialog-caption]').innerText(), /Claude Code in the terminal/);
+      // Scan the final rendered colors, after the opening opacity transition.
+      await dialog.evaluate(async (element) => {
+        await Promise.all(element.getAnimations({ subtree: true }).map((animation) => animation.finished));
+      });
+      assert.equal(await dialog.evaluate((element) => getComputedStyle(element).opacity), '1');
       const findings = await new AxeBuilder({ page }).include('#publication-image-dialog').withTags(['wcag2a', 'wcag2aa', 'wcag21a', 'wcag21aa']).analyze();
       assert.deepEqual(findings.violations, [], `${width}px ${theme}: media dialog accessibility`);
       await page.keyboard.press('Escape');

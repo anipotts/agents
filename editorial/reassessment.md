@@ -159,6 +159,29 @@ This is a hypothetical document task, not a claim that every product can
 access a particular file or save it without an available tool. The implemented
 example must say how to supply the notes and where its draft will appear.
 
+### planning and acting candidate
+
+Ani requested emphasis on the tradeoff curve between implementing immediately
+and planning before acting on October 12. The following is candidate analysis,
+with no claimed personal experience or measured optimum. It belongs beside the
+first task example, before the deeper coding example, after wording review.
+
+> there’s a tradeoff between planning and finding out by trying. when the task
+> is small and easy to undo, a quick first attempt gives you something concrete
+> to react to. planning helps more when a decision affects other work or a wrong
+> assumption would be expensive to fix.
+>
+> spend enough time planning to choose a useful next step, then check what
+> happens. if you’re wondering whether an idea feels useful, a small prototype
+> can answer that. for the notes example, a draft is cheap to change. before building
+> something customers will depend on, work through the important decisions and
+> failure cases first. more planning has diminishing returns: eventually the
+> next useful thing to learn comes from trying a small part of the work.
+
+The accepted everyday task above is now implemented before the coding example.
+Its exact accepted span is preserved in the ledger. This planning explanation
+remains a separate candidate; approval of the task does not accept it.
+
 ## review sequence and finish line
 
 1. Structural direction accepted October 12 with the two building paths above.

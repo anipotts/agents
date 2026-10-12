@@ -1283,6 +1283,19 @@ The unclear “why am i repeating myself?” heading is now “why does my agent
       "anchor": "why-i-made-this",
       "hash": "9a5e59d73808715383d85aadd5e0a14eecafe0d12d4ac690ca8dd714598ace7f",
       "note": "Current story preserved separately from the historical whole-file receipt."
+    },
+    {
+      "id": "start-everyday-task-20261012",
+      "file": "content/handbook/operating-agents.md",
+      "anchor": "what-should-i-ask-first",
+      "status": "preserve",
+      "match": "quote",
+      "quote": "say you have a page of rough project notes. paste a copy into the chat and ask:\n\n```text\nturn these notes into a short plan for this week. keep the decisions i’ve already made, flag questions that need my answer, and reply with a draft i can review.\n```\n\ncompare the draft with your notes, then tell it what you’d change.",
+      "hash": "b8267cb193a3bbd94895c7522026c9cdea126953404b414773293050b4ed0258",
+      "origin": "ani-accepted-agent-candidate",
+      "date": "2026-10-12",
+      "source": "Ani replied “use this wording” to the complete everyday project-notes example in this chat on October 12, 2026.",
+      "note": "Exact accepted introductory sentence, prompt and comparison sentence. Code fence only changes presentation. Remaining coding example and section body stay unaccepted."
     }
   ],
   "next": [
@@ -1326,7 +1339,7 @@ The unclear “why am i repeating myself?” heading is now “why does my agent
     },
     {
       "title": "Start here",
-      "detail": "Review the friend-like introduction, separate model and harness explanations, descriptive prompt links, then memory, permissions, coordination, checks, and handoff.",
+      "detail": "Everyday first-task block accepted October 12. Review the planning-versus-acting candidate in editorial/reassessment.md, then the remaining foundations and deeper sections. No neighboring body acceptance.",
       "file": "content/handbook/operating-agents.md",
       "anchor": "the-foundations",
       "id": "start-here-review",
