@@ -41,7 +41,9 @@ preserve source changes; account for needed ignored files separately.
 
 Preview isolation does not isolate external accounts or services. The existing
 browser test scripts reserve fixed ports, so run full verification in one
-checkout at a time. An arbitrary preview port also prevents the development
+checkout at a time. Stop that checkout's development preview before full
+verification and restart it afterward: builds and the development-search test
+refresh the same Astro content store. An arbitrary preview port also prevents the development
 search test from borrowing a different checkout's conventional preview.
 
 ## creating and reusing

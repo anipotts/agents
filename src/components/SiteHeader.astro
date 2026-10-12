@@ -100,7 +100,10 @@ const scopePages = pages.filter((page) => page.data.navigation.scope === activeS
         const trigger = root.querySelector<HTMLElement>('.guide-picker-trigger');
         if (!trigger || trigger.getClientRects().length) return;
         const popup = document.getElementById(trigger.getAttribute('aria-controls') ?? '');
-        const restoreFocus = document.activeElement === trigger || popup?.contains(document.activeElement);
+        const active = document.activeElement;
+        // Hiding the focused trigger can move focus to body before this observer
+        // runs. Keep that lost focus with the menu's visible replacement.
+        const restoreFocus = active === trigger || popup?.contains(active) || active === document.body;
         // The responsive wrapper owns trigger visibility; Starwind owns closing
         // its portaled menu. Transfer keyboard focus only if that menu owned it.
         createMenu(root).close();
