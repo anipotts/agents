@@ -85,38 +85,53 @@ const scopePages = pages.filter((page) => page.data.navigation.scope === activeS
 <Toaster position="bottom-right" duration={3200} />
 
 <script>
-  import { createMenu } from '@starwind-ui/runtime/menu';
-
   let cleanupHeader = () => {};
   const setupHeaderLayout = () => {
     cleanupHeader();
     const header = document.querySelector<HTMLElement>('.site-header');
     if (!header) return;
+    let lastGuideTrigger: HTMLElement | null = null;
+    const rememberGuideFocus = (event: Event) => {
+      const target = event.target;
+      if (!(target instanceof HTMLElement)) return;
+      const trigger = target.closest<HTMLElement>('.guide-picker-trigger');
+      if (trigger && header.contains(trigger)) {
+        lastGuideTrigger = trigger;
+      } else {
+        const popup = document.getElementById(lastGuideTrigger?.getAttribute('aria-controls') ?? '');
+        if (!popup?.contains(target)) lastGuideTrigger = null;
+      }
+    };
+    document.addEventListener('focusin', rememberGuideFocus);
+    document.addEventListener('pointerdown', rememberGuideFocus);
     const resize = new ResizeObserver(() => {
       // Starlight's fixed shell must reserve the actual header height when
       // enlarged labels wrap. CSS still owns the composition and breakpoints.
       document.documentElement.style.setProperty('--site-header-rendered-height', `${header.getBoundingClientRect().height}px`);
+      const active = document.activeElement;
+      const previousPopup = document.getElementById(lastGuideTrigger?.getAttribute('aria-controls') ?? '');
+      // Native focus-out can close the menu before ResizeObserver runs. Retain
+      // its focus owner so a hidden trigger still gets a visible replacement.
+      const restoreFocus = lastGuideTrigger && !lastGuideTrigger.getClientRects().length
+        && (active === document.body || active === lastGuideTrigger || previousPopup?.contains(active));
       header.querySelectorAll<HTMLElement>('[data-sw-menu][data-state="open"]').forEach((root) => {
         const trigger = root.querySelector<HTMLElement>('.guide-picker-trigger');
-        if (!trigger || trigger.getClientRects().length) return;
-        const popup = document.getElementById(trigger.getAttribute('aria-controls') ?? '');
-        const active = document.activeElement;
-        // Hiding the focused trigger can move focus to body before this observer
-        // runs. Keep that lost focus with the menu's visible replacement.
-        const restoreFocus = active === trigger || popup?.contains(active) || active === document.body;
-        // The responsive wrapper owns trigger visibility; Starwind owns closing
-        // its portaled menu. Transfer keyboard focus only if that menu owned it.
-        createMenu(root).close();
-        if (restoreFocus) {
-          const next = [...header.querySelectorAll<HTMLElement>('.guide-picker-trigger')]
-            .find((element) => element.getClientRects().length);
-          (next ?? header.querySelector<HTMLElement>('.header-search input'))?.focus();
-        }
+        // Use the native trigger so the existing portaled menu controller closes.
+        if (trigger && !trigger.getClientRects().length) trigger.click();
       });
+      if (restoreFocus) {
+        const next = [...header.querySelectorAll<HTMLElement>('.guide-picker-trigger')]
+          .find((element) => element.getClientRects().length);
+        (next ?? header.querySelector<HTMLElement>('.header-search input'))?.focus({ preventScroll: true });
+      }
     });
     resize.observe(header);
     header.querySelectorAll('.header-guides-wide, .header-guides-compact').forEach((element) => resize.observe(element));
-    cleanupHeader = () => resize.disconnect();
+    cleanupHeader = () => {
+      resize.disconnect();
+      document.removeEventListener('focusin', rememberGuideFocus);
+      document.removeEventListener('pointerdown', rememberGuideFocus);
+    };
   };
   document.addEventListener('astro:page-load', setupHeaderLayout);
   document.addEventListener('astro:before-swap', () => cleanupHeader());
