@@ -71,7 +71,7 @@ reading a small piece of relevant information. check the result before adding
 write access or a recurring action. sending invitations is a separate decision
 from preparing a draft invitation.
 
-see [credentials and agent access](/handbook/credentials-and-access/) for the
+see credentials and agent access draft (`content/handbook/credentials-and-access.md`) for the
 hidden reference under review. product settings and access controls vary; use
 the relevant product guide when implementing a connection.
 

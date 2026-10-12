@@ -4,7 +4,8 @@ October 12, 2026. Prepared by Codex from the current Markdown, editorial records
 and scoped primary source checks. This is an editorial proposal for Ani's review.
 The existing [review ledger](review-ledger.md) remains the owner of acceptance and
 the active question queue. [Section audit](reassessment-details.md) contains the
-full page and subsection findings. The explicitly accepted homepage lines and everyday first-task block are updated.
+full page and subsection findings. The explicitly accepted homepage lines, everyday first-task block, and planning
+tradeoff paragraph are updated.
 
 ## the decision to review first
 
@@ -112,7 +113,7 @@ its chat exists.
 
 ## first wording batch
 
-Ani accepted the homepage headline and subtitle below on October 12. The bridge and planning explanation remain candidates. The everyday start
+Ani accepted the homepage headline and subtitle below on October 12. The bridge and longer planning explanation remain candidates. The everyday start
 example is accepted and implemented. No new personal
 experience is invented. Keep the existing `why i made this` story byte for byte
 while reviewing how to bridge from coding into the broader handbook.
@@ -174,16 +175,21 @@ first task example, before the deeper coding example, after wording review.
 > failure cases first. more planning has diminishing returns: eventually the
 > next useful thing to learn comes from trying a small part of the work.
 
-The accepted everyday task above is now implemented before the coding example.
-Its exact accepted span is preserved in the ledger. This planning explanation
-remains a separate candidate; approval of the task does not accept it.
+Ani subsequently accepted the following exact paragraph, now implemented after
+the everyday task and before the coding example:
+
+> when the task is small and easy to undo, a quick first attempt gives you something concrete to react to. planning helps more when a wrong assumption would be expensive to fix. more planning has diminishing returns: eventually the next useful thing to learn comes from trying a small part of the work.
+
+Both accepted spans are preserved separately in the ledger. The longer planning
+explanation above remains a candidate; acceptance does not extend to it.
 
 ## review sequence and finish line
 
 1. Structural direction accepted October 12 with the two building paths above.
    Detailed page dispositions remain proposals for the relevant wording batch.
 2. Homepage headline, subtitle, and everyday first task accepted October 12.
-   Review the bridge and planning explanation next.
+   The exact three-sentence planning paragraph is also accepted and implemented.
+   Review the homepage bridge next.
 3. Prepare the infrastructure and everyday pages, then review the retained
    product chapters with the section audit and scoped source findings beside them.
 4. Implement accepted batches in canonical Markdown, preserving fragments and

@@ -112,6 +112,13 @@ export async function verifyGuidePickers({ browser, origin }) {
       for (const width of [320, 390, 872, 1440]) {
         await page.setViewportSize({ width, height: 900 });
         const enlarged = await page.addStyleTag({ content: 'html { font-size: 200% !important; }' });
+        // Text resizing also transitions the rail and article padding. Check
+        // the settled reading layout rather than an intermediate animation.
+        await page.evaluate(async () => {
+          await new Promise((resolve) => requestAnimationFrame(() => requestAnimationFrame(resolve)));
+          await Promise.allSettled(document.getAnimations().filter((animation) =>
+            animation.effect?.getComputedTiming().iterations !== Infinity).map((animation) => animation.finished));
+        });
         await page.waitForFunction(() => Math.abs(parseFloat(getComputedStyle(document.documentElement).getPropertyValue('--sl-nav-height')) - document.querySelector('.site-header').getBoundingClientRect().height) < 1);
         assert.equal(await page.locator('.header-guide-picker-trigger:visible').count(), 1, 'text enlargement compacts navigation');
         assert.ok(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth), 'enlarged guide header reflows');

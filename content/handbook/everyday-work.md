@@ -64,7 +64,7 @@ review recipients, amounts, dates, attachments, and commitments before sending
 or submitting anything.
 
 for a recurring job, begin with the same task done once. the
-[personal infrastructure draft](/handbook/personal-infrastructure/) explains
+personal infrastructure draft (`content/handbook/personal-infrastructure.md`) explains
 how to keep its inputs and results discoverable and check a scheduled run.
 
 ## decide whether it helped

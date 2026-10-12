@@ -24,7 +24,7 @@ headings, copy, source conflicts, and both recovered stashes. The
 [review ledger](editorial/review-ledger.md) owns wording acceptance and the
 local `/__progress/` page derives the current review map.
 
-- [ ] review the homepage bridge and start page planning tradeoff candidate
+- [ ] review the homepage bridge and remaining start page copy
 - [ ] review the hidden infrastructure, everyday work, and building drafts
 - [ ] resolve the product accuracy findings, then reassess retained copy in batches
 - [ ] verify the exact release tree, integrate through protected PRs, and check deployment
@@ -34,7 +34,8 @@ reconciled design work, audit, and accepted opening copy through protected check
 Its check and deployment records own release evidence.
 
 The structure is accepted with separate building paths for curiosity and work
-with business or real world consequences. The homepage headline/subtitle and everyday first-task example are accepted;
+with business or real world consequences. The homepage headline/subtitle, everyday first-task example and exact planning
+tradeoff paragraph are accepted;
 remaining candidate prose is unaccepted.
 Archived plugins retain compatibility through November 5, 2026.
 

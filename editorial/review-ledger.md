@@ -9,8 +9,9 @@ Ani accepted the proposed task based structure and refined building into
 fun/curiosity and serious work involving business, income, money, impact, or
 startups. This is structure acceptance only. Ani separately accepted the exact homepage
 headline and subtitle on October 12; both are implemented with the story
-preserved. The everyday start example is also accepted and implemented. The bridge,
-planning explanation and three new hidden shared drafts remain proposed wording. Existing adopted
+preserved. The everyday start example and exact three-sentence planning tradeoff paragraph
+are accepted and implemented. The bridge, longer planning candidate and three
+new hidden shared drafts remain proposed wording. Existing adopted
 headings and accepted paragraphs retain their exact scope.
 
 The maintained outline is `editorial/reassessment.md`; its section audit covers
@@ -1330,6 +1331,19 @@ The unclear “why am i repeating myself?” heading is now “why does my agent
       "date": "2026-10-12",
       "source": "Ani replied “use this wording” to the complete everyday project-notes example in this chat on October 12, 2026.",
       "note": "Exact accepted introductory sentence, prompt and comparison sentence. Code fence only changes presentation. Remaining coding example and section body stay unaccepted."
+    },
+    {
+      "id": "start-planning-tradeoff-20261012",
+      "file": "content/handbook/operating-agents.md",
+      "anchor": "what-should-i-ask-first",
+      "status": "preserve",
+      "match": "quote",
+      "quote": "when the task is small and easy to undo, a quick first attempt gives you something concrete to react to. planning helps more when a wrong assumption would be expensive to fix. more planning has diminishing returns: eventually the next useful thing to learn comes from trying a small part of the work.",
+      "hash": "34d2cd26bd5f668b0738faeec67a5a39c5e1e655a497d8f031fac411476be834",
+      "origin": "ani-accepted-agent-candidate",
+      "date": "2026-10-12",
+      "source": "Ani replied “use this wording” to these exact three sentences in this chat on October 12, 2026.",
+      "note": "Exact paragraph only. The longer planning candidate and neighboring examples remain unaccepted."
     }
   ],
   "next": [
@@ -1340,7 +1354,7 @@ The unclear “why am i repeating myself?” heading is now “why does my agent
       "kind": "review",
       "scope": "page",
       "status": "open",
-      "detail": "Headline and subtitle accepted October 12. Review the proposed bridge and planning explanation next; the story is preserved and the everyday first task is accepted. No whole-page acceptance."
+      "detail": "Headline, subtitle, everyday first task and the exact three-sentence planning paragraph accepted October 12. Review the proposed homepage bridge next. Story preserved; no whole-page acceptance."
     },
     {
       "id": "infrastructure-starter-review",
@@ -1373,7 +1387,7 @@ The unclear “why am i repeating myself?” heading is now “why does my agent
     },
     {
       "title": "Start here",
-      "detail": "Everyday first-task block accepted October 12. Review the planning-versus-acting candidate in editorial/reassessment.md, then the remaining foundations and deeper sections. No neighboring body acceptance.",
+      "detail": "Everyday first task and the exact three-sentence planning paragraph accepted October 12. Review the remaining foundations and deeper sections. The longer planning candidate and neighboring body remain unaccepted.",
       "file": "content/handbook/operating-agents.md",
       "anchor": "the-foundations",
       "id": "start-here-review",

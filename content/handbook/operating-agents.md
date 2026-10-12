@@ -74,6 +74,8 @@ turn these notes into a short plan for this week. keep the decisions i’ve alre
 
 compare the draft with your notes, then tell it what you’d change.
 
+when the task is small and easy to undo, a quick first attempt gives you something concrete to react to. planning helps more when a wrong assumption would be expensive to fix. more planning has diminishing returns: eventually the next useful thing to learn comes from trying a small part of the work.
+
 consider a search box that loses its query when you open a result and return.
 here are two example prompts for that same bug.
 
