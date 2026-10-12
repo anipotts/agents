@@ -105,6 +105,9 @@ export async function verifyGuidePickers({ browser, origin }) {
       await page.locator('.guide-page-options:visible').waitFor();
       await page.setViewportSize({ width: 872, height: 900 });
       await page.locator('.guide-page-options:visible').waitFor({ state: 'hidden' });
+      // CSS can hide the old menu before ResizeObserver transfers focus.
+      // Require the actual transfer, with a bounded wait for that observer.
+      await page.waitForFunction(() => document.activeElement === document.querySelector('.header-guides-compact .guide-picker-trigger'), undefined, { timeout: 2000 });
       assert.ok(await compact.evaluate((element) => element === document.activeElement), 'resizing an open menu restores focus to the compact picker');
       for (const width of [320, 390, 872, 1440]) {
         await page.setViewportSize({ width, height: 900 });
