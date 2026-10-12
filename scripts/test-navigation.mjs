@@ -46,7 +46,7 @@ try {
 
   await page.goto(`${origin}/guides/codex/`, { waitUntil: 'networkidle' });
   const documentToken = await page.evaluate(() => window.__navigationDocumentToken);
-  expect(await page.title() === 'codex | coding agent tips', 'guide title is incorrect');
+  expect(await page.title() === 'codex | agent tips', 'guide title is incorrect');
   expect(await page.locator('meta[name="astro-view-transitions-enabled"]').count() === 1, 'ClientRouter marker is missing');
   expect(await page.locator('.header-guides-compact .guide-page-options a[data-astro-prefetch="hover"]').count() >= 13, 'header guide picker must expose all public chapters');
   const expectedCodexRoutes = canonicalContentFiles().filter(({ route }) => route.startsWith('/guides/codex/')).map(({ route }) => route).sort();

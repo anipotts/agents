@@ -19,7 +19,7 @@ for (const source of registry.sources) {
 }
 
 const textContent = (node) => (node.children ?? []).map((child) => child.type === 'text' ? child.value : textContent(child)).join('').trim();
-const humanize = (value) => decodeURIComponent(value).replace(/^#|\/$/g, '').split('/').pop()?.replace(/[-_]/g, ' ') || 'coding agent tips';
+const humanize = (value) => decodeURIComponent(value).replace(/^#|\/$/g, '').split('/').pop()?.replace(/[-_]/g, ' ') || 'agent tips';
 const element = (tagName, properties = {}, children = []) => ({ type: 'element', tagName, properties, children });
 const text = (value) => ({ type: 'text', value });
 
@@ -83,7 +83,7 @@ function annotate(node) {
       const icon = publisher?.icon ?? '/favicon.svg';
       const title = source?.title ?? (href.startsWith('#') ? humanize(href) : label);
       const domain = source ? new URL(href).hostname : 'agents.anipotts.com';
-      const publisherLabel = publisher?.label ?? 'coding agent tips';
+      const publisherLabel = publisher?.label ?? 'agent tips';
       const kind = source?.evidence === 'official-source' ? 'official source' : source ? 'external source' : 'internal page';
       const currentClasses = Array.isArray(node.properties.className)
         ? node.properties.className

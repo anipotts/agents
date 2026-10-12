@@ -3,9 +3,9 @@ title: building things
 description: choose a curiosity project or prepare for people depending on what you build.
 products: [codex, claude-code, grok]
 updatedAt: "2026-10-12T13:00:00-04:00"
-status: pending
-completion: outline
-draft: true
+status: current
+completion: complete
+draft: false
 evidence: [analysis]
 sources: []
 voice: evidence
@@ -73,5 +73,5 @@ use [start here](/handbook/operating-agents/) for task context and review, then
 choose a product guide for its actual controls. the coding exercises in Codex
 and Claude Code are optional starting points with their own prerequisites.
 keep reusable project notes with the work, using the
-personal infrastructure draft (`content/handbook/personal-infrastructure.md`) as a small
+[personal infrastructure guide](/handbook/personal-infrastructure/) as a small
 starting layout.

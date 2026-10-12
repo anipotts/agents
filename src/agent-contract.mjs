@@ -102,7 +102,7 @@ export function createHandbookTools({ loadIndex, loadPage, navigate }) {
     {
       name: 'list_handbook_pages',
       title: 'List handbook pages',
-      description: 'Lists canonical public coding agent tips pages with route, update, evidence, and source provenance.',
+      description: 'Lists canonical public agent tips pages with route, update, evidence, and source provenance.',
       inputSchema: AGENT_TOOL_SCHEMAS.list_handbook_pages,
       annotations: { readOnlyHint: true, untrustedContentHint: false },
       execute: withIndex((input, index) => {

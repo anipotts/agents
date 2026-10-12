@@ -1,8 +1,8 @@
 # agent tips
 
 a personal handbook for using agents to build things and handle everyday work.
-the published site still centers on coding while the broader structure and copy
-are reviewed.
+the site brings together everyday work, building for fun or serious use, and
+personal infrastructure. product guides provide the specific controls.
 
 [read the handbook](https://agents.anipotts.com) or go directly to a principal guide:
 
@@ -12,6 +12,10 @@ are reviewed.
 - [grok](https://agents.anipotts.com/guides/grok/)
 - [start here](https://agents.anipotts.com/handbook/operating-agents/)
 - [choosing an agent setup](https://agents.anipotts.com/handbook/choosing-a-setup/)
+- [everyday work](https://agents.anipotts.com/handbook/everyday-work/)
+- [building things](https://agents.anipotts.com/handbook/building-things/)
+- [personal infrastructure](https://agents.anipotts.com/handbook/personal-infrastructure/)
+- [backups and getting your work back](https://agents.anipotts.com/handbook/backups-and-recovery/)
 - [how coding agents got here](https://agents.anipotts.com/handbook/history/)
 - [where this comes from](https://agents.anipotts.com/handbook/method-and-sources/)
 <!-- generated:guides:end -->
@@ -19,13 +23,14 @@ are reviewed.
 ## resume here
 
 The [reassessment](editorial/reassessment.md) records a disposition for all 24
-pages present at the start. Three new shared drafts remain hidden. The [section audit](editorial/reassessment-details.md) covers
+pages present at the start. Four shared pages now have a publishable first edition. The [section audit](editorial/reassessment-details.md) covers
 headings, copy, source conflicts, and both recovered stashes. The
 [review ledger](editorial/review-ledger.md) owns wording acceptance and the
 local `/__progress/` page derives the current review map.
 
 - [ ] review the homepage bridge and remaining start page copy
-- [ ] review the hidden infrastructure, everyday work, and building drafts
+- [ ] review deeper backup page copy in small batches, continuing with “choose one backup workflow”
+- [ ] reassess the published everyday work and building copy in small wording batches
 - [ ] resolve the product accuracy findings, then reassess retained copy in batches
 - [ ] verify the exact release tree, integrate through protected PRs, and check deployment
 
@@ -36,7 +41,10 @@ Its check and deployment records own release evidence.
 The structure is accepted with separate building paths for curiosity and work
 with business or real world consequences. The homepage headline/subtitle, everyday first-task example and exact planning
 tradeoff paragraph are accepted;
-remaining candidate prose is unaccepted.
+the infrastructure opening and six sections also have exact acceptance records.
+The deeper backup outline is accepted; its body copy remains under review.
+Ani authorized organized publication of the shared pages on October 12.
+Publication authority does not extend exact wording acceptance to newly added prose.
 Archived plugins retain compatibility through November 5, 2026.
 
 ## project layout

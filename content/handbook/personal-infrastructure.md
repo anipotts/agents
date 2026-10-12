@@ -3,9 +3,9 @@ title: personal infrastructure
 description: a small system for recurring work, readable context, and recovery.
 products: [codex, claude-code, grok]
 updatedAt: "2026-10-12T13:00:00-04:00"
-status: pending
-completion: outline
-draft: true
+status: current
+completion: complete
+draft: false
 evidence: [analysis]
 sources: []
 voice: evidence
@@ -14,86 +14,64 @@ navigation:
   order: 22
 ---
 
-start with one job you keep returning to. this example uses a weekly project
-review with made up notes. the first result is a useful review you can inspect;
-scheduling it comes after that works.
+say an agent helps you plan a project. a week later, you want to pick it back up. keeping the notes and decisions somewhere you can find makes that easier, especially when you start a fresh chat or switch agents.
 
-## choose a recurring job
+personal infrastructure is the setup around that ongoing work. we’ll start with one useful task, give it somewhere to live, and work toward a setup you can keep using.
 
-write down the input, output, and human decision. for a weekly review, the input
-is your project notes, the output is a list of open decisions and next actions,
-and you choose what to do. give it a time limit you can afford to review.
+use [choosing an agent setup](/handbook/choosing-a-setup/) if you’re still deciding where to start.
 
-## give the work a home
+## start with one small hassle
 
-use a folder or document collection you can open yourself. here is one possible
-layout for the example:
+pick something that’s annoying to do and easy to check when it’s done. start there.
+
+say you keep rereading your project notes to remember where you left off. give the agent a copy and ask for a short update:
 
 ```text
-weekly-review/
-  README.md
-  context.md
-  instructions.md
-  projects.md
-  reviews/
+tell me where i left off based on these notes. keep unanswered questions open, and suggest one next step for me to review.
 ```
 
-put the purpose and links to the other files in `README.md`. keep one current
-project list. save dated review drafts in `reviews/` so the next run has a clear
-starting point. a chat needs a supported way to read these files; attaching
-copies also works for the first exercise.
+compare the update with your notes. if it leaves out an important decision or fills in a gap with a guess, correct it and try again. once the result is useful, save the request with the notes so you can repeat it.
 
-## separate what each file means
+## give your work a home
 
-`context.md` holds durable facts, such as what the project is for and who uses
-it. `instructions.md` holds the procedure: read the project list, preserve its
-decisions, list unresolved questions, and prepare a draft. `projects.md` holds
-current state: what happened, what is blocked, and the next action.
+keep the notes and the request together somewhere you already use. a single document is enough to start. give it a name you’ll recognize later, like “project updates.”
 
-try these made up project notes:
+keep the notes current and save useful updates with a date so you can see what changed.
 
-```text
-project: neighborhood reading group
-purpose: arrange one discussion of a short story
-agreed: meet on a weekend; keep attendance free
-open: date and location
-next: compare two possible dates
-```
+when you want help again, paste the relevant part into a fresh chat or attach a copy if your agent supports it. if it can read the document through a file or app connection, check that it’s reading the current version.
 
-ask the agent to read the procedure and notes, then prepare a weekly review.
-check that the date and location remain questions. choosing an answer needs
-more information than these notes provide.
+## make your notes easy to follow
 
-## connect one app when it helps
+use a few headings inside your document so it’s clear what each part is for.
 
-identify the account, the information needed, and the operation. begin by
-reading a small piece of relevant information. check the result before adding
-write access or a recurring action. sending invitations is a separate decision
-from preparing a draft invitation.
+context explains what the project is about and the decisions you’ve already made.
 
-see credentials and agent access draft (`content/handbook/credentials-and-access.md`) for the
-hidden reference under review. product settings and access controls vary; use
-the relevant product guide when implementing a connection.
+instructions explain how you want the agent to help. the request we saved earlier belongs here.
 
-## make recurring work visible
+current state explains where you left off and what still needs your attention. update this as the work changes so an old plan doesn’t get mistaken for what’s happening now.
 
-run the review manually and inspect its saved result. before scheduling it,
-choose the timezone, input location, output location, and what should happen
-when input is missing. a useful failure result names the missing input and
-leaves the previous notes intact.
+these can stay in one document. split them into separate files when that makes the work easier to manage.
 
-check the scheduler's run history and open the output after its first scheduled
-run. a saved schedule establishes configuration; that first run establishes
-whether this setup actually worked. keep a way to pause it and revise the
-procedure when the review stops being useful.
+## connect an app when it helps
 
-## practice recovery and continuation
+if you keep copying the same notes into chat, connecting the app where you keep them might save you some work. check whether your agent supports that connection and which account you’re connecting.
 
-keep a backup you can restore independently of the chat. copy a sample note,
-change the copy, and restore it from the backup. open the restored file and
-compare its contents before trusting the recovery process.
+try one small request: ask it to find your project document and summarize the latest update. open the document yourself and compare, so you can check that it found the right thing.
 
-finish a session with a short continuation note: current goal, decisions,
-changed files, checks, and next action. ask a fresh chat to locate the notes and
-explain what comes next. correct missing context in the files so the system
-stays understandable when you change products.
+look at the permissions the connection asks for. where you have a choice, start with read access. decide separately what the agent can change on its own and what should wait for your approval.
+
+## put it on your calendar
+
+once the task works when you ask for it, decide whether it’s worth scheduling. if your setup supports recurring tasks, choose a time and timezone, and somewhere you’ll actually see the result. tell it which notes and instructions to use.
+
+after the first scheduled run, open the result and compare it with your notes. check that it used the current information and did what you asked.
+
+decide how you’ll notice a missed or failed run. use failure notifications where available, or check the run history regularly. if the task can’t read your notes, have it report that and leave the existing notes alone. keep a way to pause it when you want to make changes.
+
+## have a backup you trust
+
+choose one backup workflow and practice getting your work back. know what it covers, how recent the backup is, and what you’d do if your computer stopped working.
+
+that gives you more room to try things. when you know how to recover, you can make changes with a clearer idea of what’s at stake.
+
+use [backups and getting your work back](/handbook/backups-and-recovery/) to choose and test your recovery workflow.

@@ -1711,6 +1711,54 @@
       "last_checked": "2026-10-12",
       "evidence": "official-source",
       "notes": "Scoped documentation review recorded in editorial/reassessment-details.md. No runtime test or personal acceptance."
+    },
+    {
+      "id": "cisa-backup-recovery",
+      "title": "StopRansomware guide",
+      "publisher": "cisa",
+      "product": "cross runtime",
+      "layer": "harness",
+      "status": "watchlist",
+      "url": "https://www.cisa.gov/stopransomware/ransomware-guide",
+      "last_checked": "2026-10-12",
+      "evidence": "official-source",
+      "notes": "Official search-index excerpt checked October 12 supports offline encrypted backups and regular restore tests. Direct page fetch returned 403. Organization-focused guidance applied narrowly."
+    },
+    {
+      "id": "cisa-device-data",
+      "title": "How to protect data stored on your devices",
+      "publisher": "cisa",
+      "product": "cross runtime",
+      "layer": "harness",
+      "status": "watchlist",
+      "url": "https://www.cisa.gov/resources-tools/training/how-protect-data-stored-your-devices",
+      "last_checked": "2026-10-12",
+      "evidence": "official-source",
+      "notes": "Official search-index excerpt checked October 12 supports disconnecting external drives and safe storage of recovery keys."
+    },
+    {
+      "id": "aws-recovery-strategies",
+      "title": "Disaster recovery options in the cloud",
+      "publisher": "aws",
+      "product": "cross runtime",
+      "layer": "harness",
+      "status": "watchlist",
+      "url": "https://docs.aws.amazon.com/whitepapers/latest/disaster-recovery-workloads-on-aws/disaster-recovery-options-in-the-cloud.html",
+      "last_checked": "2026-10-12",
+      "evidence": "official-source",
+      "notes": "Primary page read October 12; warm standby means a scaled down running recovery environment. No AWS setup is required by the shared guide."
+    },
+    {
+      "id": "apple-restore-files",
+      "title": "Restore items backed up with Time Machine",
+      "publisher": "apple",
+      "product": "cross runtime",
+      "layer": "harness",
+      "status": "watchlist",
+      "url": "https://support.apple.com/guide/mac-help/restore-files-mh11422/mac",
+      "last_checked": "2026-10-12",
+      "evidence": "official-source",
+      "notes": "Official search-index excerpt checked October 12. Linked as optional restore instructions, without asserting tested behavior."
     }
   ],
   "publishers": [
@@ -1832,6 +1880,24 @@
       "id": "levelsio",
       "label": "Pieter Levels",
       "domain": "x.com",
+      "icon": "/icons/publishers/independent-creator.svg"
+    },
+    {
+      "id": "cisa",
+      "label": "CISA",
+      "domain": "cisa.gov",
+      "icon": "/icons/publishers/independent-creator.svg"
+    },
+    {
+      "id": "aws",
+      "label": "AWS",
+      "domain": "docs.aws.amazon.com",
+      "icon": "/icons/publishers/independent-creator.svg"
+    },
+    {
+      "id": "apple",
+      "label": "Apple",
+      "domain": "support.apple.com",
       "icon": "/icons/publishers/independent-creator.svg"
     }
   ]
