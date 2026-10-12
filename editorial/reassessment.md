@@ -267,3 +267,7 @@ performed a restore test. Product drafts and archived compatibility paths retain
 their previous visibility and contents. Source checks and live release evidence
 must be distinguished from copy acceptance. The share preview uses the accepted homepage wording and the working name
 agent tips.
+
+Publication submission: [PR #327](https://github.com/anipotts/agents/pull/327).
+GitHub verified the initial submission commit `420de502a15ccf5faa24b2af4b40fba898554f2d`.
+The PR checks and subsequent deployment records own final release evidence.

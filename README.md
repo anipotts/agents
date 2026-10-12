@@ -32,7 +32,10 @@ local `/__progress/` page derives the current review map.
 - [ ] review deeper backup page copy in small batches, continuing with “choose one backup workflow”
 - [ ] reassess the published everyday work and building copy in small wording batches
 - [ ] resolve the product accuracy findings, then reassess retained copy in batches
-- [ ] verify the exact release tree, integrate through protected PRs, and check deployment
+
+[PR #327](https://github.com/anipotts/agents/pull/327) carries the organized
+publication and backup first edition. Its exact-head checks and deployment
+records own release evidence.
 
 [PR #326](https://github.com/anipotts/agents/pull/326) carries the setup,
 reconciled design work, audit, and accepted opening copy through protected checks.
