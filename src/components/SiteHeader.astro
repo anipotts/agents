@@ -27,7 +27,12 @@ const scopePages = pages.filter((page) => page.data.navigation.scope === activeS
       <img src="/favicon.svg" alt="" width="24" height="24" />
       <span>{site.name}</span>
     </a>
-    {!Astro.props.embedded && <div class="header-guide-picker"><GuidePicker placement="header" /></div>}
+    <nav class="header-guide-picker" aria-label={site.interfaceCopy.guides}>
+      <div class="header-guides-wide">
+        {navigationScopes.map((scope) => <GuidePicker scope={scope.id} />)}
+      </div>
+      <div class="header-guides-compact"><GuidePicker /></div>
+    </nav>
     <div class="header-actions">
       <div class="header-search" transition:persist><Search /></div>
       <ThemeToggle class="site-header-control" variant="default" size="sm" ariaLabel="toggle color theme" />
@@ -45,22 +50,21 @@ const scopePages = pages.filter((page) => page.data.navigation.scope === activeS
         </TooltipTrigger>
         <TooltipContent side="bottom">GitHub</TooltipContent>
       </Tooltip>
-      <Sheet>
+      {Astro.props.embedded && <Sheet>
         <SheetTrigger asChild>
           <Button
             class="mobile-site-menu-trigger site-header-control"
             variant="ghost"
             size="icon-sm"
-            aria-label={site.interfaceCopy.menu}
+            aria-label={site.interfaceCopy.chapters}
           >
             <Menu2 aria-hidden="true" />
           </Button>
         </SheetTrigger>
         <SheetContent class="mobile-site-menu" side="right">
           <SheetHeader class="mobile-menu-heading">
-            <SheetTitle>{site.interfaceCopy.guides}</SheetTitle>
+            <SheetTitle>{`${activeScopeLabel} ${site.interfaceCopy.chapters}`}</SheetTitle>
           </SheetHeader>
-          <div class="mobile-page-picker"><GuidePicker placement="mobile" /></div>
           <nav class="mobile-page-navigation" aria-label={`${activeScopeLabel} handbook chapters`}>
             <ChapterMenu pages={scopePages} current={current} scope={activeScope} mode="mobile" />
           </nav>
@@ -74,13 +78,47 @@ const scopePages = pages.filter((page) => page.data.navigation.scope === activeS
             </Button>
           </div>
         </SheetContent>
-      </Sheet>
+      </Sheet>}
     </div>
   </div>
 </HeaderTag>
 <Toaster position="bottom-right" duration={3200} />
 
 <script>
+  import { createMenu } from '@starwind-ui/runtime/menu';
+
+  let cleanupHeader = () => {};
+  const setupHeaderLayout = () => {
+    cleanupHeader();
+    const header = document.querySelector<HTMLElement>('.site-header');
+    if (!header) return;
+    const resize = new ResizeObserver(() => {
+      // Starlight's fixed shell must reserve the actual header height when
+      // enlarged labels wrap. CSS still owns the composition and breakpoints.
+      document.documentElement.style.setProperty('--site-header-rendered-height', `${header.getBoundingClientRect().height}px`);
+      header.querySelectorAll<HTMLElement>('[data-sw-menu][data-state="open"]').forEach((root) => {
+        const trigger = root.querySelector<HTMLElement>('.guide-picker-trigger');
+        if (!trigger || trigger.getClientRects().length) return;
+        const popup = document.getElementById(trigger.getAttribute('aria-controls') ?? '');
+        const restoreFocus = document.activeElement === trigger || popup?.contains(document.activeElement);
+        // The responsive wrapper owns trigger visibility; Starwind owns closing
+        // its portaled menu. Transfer keyboard focus only if that menu owned it.
+        createMenu(root).close();
+        if (restoreFocus) {
+          const next = [...header.querySelectorAll<HTMLElement>('.guide-picker-trigger')]
+            .find((element) => element.getClientRects().length);
+          (next ?? header.querySelector<HTMLElement>('.header-search input'))?.focus();
+        }
+      });
+    });
+    resize.observe(header);
+    header.querySelectorAll('.header-guides-wide, .header-guides-compact').forEach((element) => resize.observe(element));
+    cleanupHeader = () => resize.disconnect();
+  };
+  document.addEventListener('astro:page-load', setupHeaderLayout);
+  document.addEventListener('astro:before-swap', () => cleanupHeader());
+  setupHeaderLayout();
+
   // Pagefind currently exposes a title-only input label and no input-attribute
   // configuration. Supply an explicit accessible name without owning search state.
   let labelObserver: MutationObserver | undefined;

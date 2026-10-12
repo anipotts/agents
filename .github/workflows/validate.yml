@@ -40,6 +40,9 @@ jobs:
       - name: verify writing inventory and review boundaries
         run: bun run test:editorial
 
+      - name: verify reusable project setup
+        run: bun run test:project
+
       - name: type check and build
         run: |
           bun run check:ui

@@ -1,0 +1,25 @@
+version = 1
+name = "agents"
+
+[setup]
+script = "node scripts/project.mjs setup"
+
+[[actions]]
+name = "start preview"
+icon = "run"
+command = "node scripts/project.mjs dev"
+
+[[actions]]
+name = "check changes"
+icon = "test"
+command = "node scripts/project.mjs check"
+
+[[actions]]
+name = "full verification"
+icon = "test"
+command = "node scripts/project.mjs verify"
+
+[[actions]]
+name = "setup dependencies"
+icon = "tool"
+command = "node scripts/project.mjs setup"

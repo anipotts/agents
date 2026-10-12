@@ -157,12 +157,8 @@ html[data-theme='dark'] .hero-provider-grok .hero-provider-mark { filter: invert
 .hero-provider-arrow { inline-size: 1rem; block-size: 1rem; background: currentColor; mask: url('/icons/arrow-right.svg') center / contain no-repeat; }
 .homepage-header { padding-inline: max(var(--site-gutter), calc((100vw - 82rem) / 2)); }
 .homepage-header .mobile-site-menu-trigger { display: none !important; }
-.header-guide-picker { margin-inline-end: .75rem; }
-.header-guide-picker .guide-picker-trigger { border: 0; color: var(--cobalt); background: transparent; box-shadow: none; padding-inline: .25rem; }
-.site-header:has(.header-search dialog[open]) .header-guide-picker { display: none; }
 @media (max-width: 47.99rem) {
   .homepage-header .site-name span { display: none; }
-  .header-guide-picker { margin-inline-end: .25rem; }
   .hero-provider-actions { gap: .5rem; margin-top: 1.25rem; }
   .hero-provider-link { gap: .4rem; padding-inline: .65rem; max-inline-size: 100%; }
 }
@@ -305,7 +301,7 @@ html[data-theme='dark'] .hero-provider-grok .hero-provider-mark { filter: invert
   .site-header .site-name span { display: none; }
 }
 
-@media (max-width: 59.99rem) {
+@media (max-width: 47.99rem) {
   .header-search { inline-size: var(--control-size); }
   .site-header:has(.header-search dialog[open]) { grid-template-columns: 1.5rem minmax(0, 1fr); column-gap: .75rem; padding-inline: var(--site-gutter); }
   .site-header:has(.header-search dialog[open]) .site-name { margin: 0; }
@@ -344,16 +340,57 @@ html[data-theme='dark'] .hero-provider-grok .hero-provider-mark { filter: invert
   .site-header, .sidebar-pane, .right-sidebar-container { display: none !important; }
 }
 
-/* Let enlarged navigation labels reflow without hiding header utilities. */
-.homepage-header { grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr); grid-template-rows: minmax(var(--site-header-height), auto); height: auto; column-gap: .5rem; }
-.homepage-header .header-actions { grid-column: 3; inline-size: 100%; min-inline-size: 0; flex-wrap: wrap; justify-content: flex-end; }
-.homepage-header .header-guide-picker { grid-column: 2; grid-row: 1; justify-self: center; min-inline-size: 0; max-inline-size: min(14rem, 42vw, calc(100vw - 2 * var(--site-gutter) - 5rem)); margin: 0; }
-.homepage-header .guide-picker-trigger { white-space: normal; height: auto; min-block-size: 2.5rem; padding: .4rem .65rem; justify-content: center; border-radius: var(--radius-md); background: var(--soft); }
-.homepage-header .guide-picker-trigger:hover, .homepage-header .guide-picker-trigger[aria-expanded="true"] { background: var(--accent-soft); }
-.homepage-header .guide-picker-trigger span { min-inline-size: 0; overflow-wrap: anywhere; white-space: normal; overflow: visible; text-overflow: clip; }
-.homepage-header:has(.header-search dialog[open]) { grid-template-columns: auto minmax(0, 1fr); }
-.homepage-header:has(.header-search dialog[open]) .header-actions { grid-column: 2; }
-
+/* One guide navigation location across both shells. Container em units also
+   compact the menus when the reader enlarges text independently of the viewport. */
+.site-header {
+  container: site-header / inline-size;
+  grid-template-columns: auto minmax(0, 1fr) auto;
+  grid-template-rows: minmax(var(--site-header-height), auto);
+  height: auto;
+  column-gap: 1rem;
+}
+.site-header .header-actions { grid-column: 3; min-inline-size: 0; flex-wrap: wrap; justify-content: flex-end; }
+.header-guide-picker { grid-column: 2; grid-row: 1; justify-self: center; min-inline-size: 0; max-inline-size: 100%; }
+.header-guides-wide { display: none; align-items: center; gap: .5rem; }
+.header-guides-compact { min-inline-size: 0; }
+.header-guide-picker .guide-picker-trigger {
+  height: auto;
+  min-block-size: 2rem;
+  padding: .4rem .65rem;
+  border: 0;
+  border-radius: var(--radius-md);
+  background: transparent;
+  color: var(--ink);
+  box-shadow: none;
+  white-space: normal;
+  transition-property: color, background-color, box-shadow;
+}
+.header-guide-picker .guide-picker-trigger span { min-inline-size: 0; white-space: normal; overflow: visible; text-overflow: clip; overflow-wrap: anywhere; }
+.header-guides-compact .guide-picker-trigger { background: var(--soft); }
+.header-guide-picker .guide-picker-trigger:hover,
+.header-guide-picker .guide-picker-trigger[aria-expanded="true"],
+.header-guide-picker .guide-picker-trigger[aria-current="true"] { background: var(--accent-soft); color: var(--accent-strong); }
+@container site-header (min-width: 64em) {
+  .header-guides-wide { display: flex; }
+  .header-guides-compact { display: none; }
+}
+@container site-header (max-width: 14em) {
+  .header-main { display: grid; grid-column: 1 / -1; grid-template-columns: auto minmax(0, 1fr); align-items: center; gap: .25rem .5rem; padding-block: .25rem; }
+  .header-guide-picker { justify-self: start; }
+  .site-header .header-actions { grid-column: 1 / -1; grid-row: 2; justify-self: end; }
+  .site-header:has(.header-search dialog[open]) .header-main { display: contents; }
+  .site-header:has(.header-search dialog[open]) .header-actions { grid-row: 1; }
+  .site-header:has(.header-search dialog[open]) .site-header-control { display: none !important; }
+}
+.site-header:has(.header-search dialog[open]) .header-guides-wide { display: none; }
+.site-header:has(.header-search dialog[open]) .header-guides-compact { display: block; }
+@media (max-width: 47.99rem) {
+  .site-header { column-gap: .5rem; }
+  .site-header .site-name span { display: none; }
+  .site-header:has(.header-search dialog[open]) { grid-template-columns: auto minmax(0, 1fr); }
+  .site-header:has(.header-search dialog[open]) .header-guide-picker { display: none; }
+  .site-header:has(.header-search dialog[open]) .header-actions { grid-column: 2; }
+}
 
 @media (min-width: 48rem) {
   .hero-provider-mark { inline-size: 2.5rem; block-size: 2.5rem; }
@@ -394,5 +431,3 @@ body > main, body > .page, .site-footer { background: var(--surface-canvas); }
 @media (max-width: 47.99rem) {
   .hero-heading-line { display: block; }
 }
-
-html[data-theme="dark"] .homepage-header .guide-picker-trigger { color: color-mix(in srgb, var(--cobalt) 90%, #fff); }

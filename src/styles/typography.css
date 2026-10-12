@@ -165,7 +165,6 @@ body {
   .home-content h1 + p { font-size: clamp(1.125rem, 1.75vw, 1.625rem); line-height: 1.5; }
   .home-content h2 { font-size: 2.5rem; }
   .homepage-header .site-name { font-size: 1.125rem; }
-  .homepage-header .guide-picker-trigger { font-size: 1rem; }
 }
 .hero-provider-link { font-family: var(--font-sans); font-size: 1rem; font-weight: 600; line-height: 1.5rem; }
 

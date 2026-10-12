@@ -1,6 +1,8 @@
-# coding agent tips
+# agent tips
 
-this is my evidence backed guide to working with coding agents, whether you are a student having an existential crisis, a startup founder working with real money for yourself and other people, or an engineer at one of the biggest technology companies in the world. the guidance is organized around the scale and consequences of the work.
+a personal handbook for using agents to build things and handle everyday work.
+the published site still centers on coding while the broader structure and copy
+are reviewed.
 
 [read the handbook](https://agents.anipotts.com) or go directly to a principal guide:
 
@@ -14,9 +16,29 @@ this is my evidence backed guide to working with coding agents, whether you are 
 - [where this comes from](https://agents.anipotts.com/handbook/method-and-sources/)
 <!-- generated:guides:end -->
 
-## what this helps you decide
+## resume here
 
-the handbook separates the surface where you steer work, the harness that runs the agent loop, the model that supplies inference, and the orchestration used for parallel work. it also covers repository instructions, permissions, review, evidence, hardware, and the operating costs that appear after the first demo.
+The [reassessment](editorial/reassessment.md) records a disposition for all 24
+existing pages. The [section audit](editorial/reassessment-details.md) covers
+headings, copy, source conflicts, and both recovered stashes. The
+[review ledger](editorial/review-ledger.md) owns wording acceptance and the
+local `/__progress/` page derives the current review map.
+
+- [ ] review the homepage and start page candidate wording
+- [ ] review the hidden infrastructure, everyday work, and building drafts
+- [ ] resolve the product accuracy findings, then reassess retained copy in batches
+- [ ] verify the exact release tree, integrate through protected PRs, and check deployment
+
+The structure is accepted with separate building paths for curiosity and work
+with business or real world consequences. Candidate prose remains unaccepted.
+Archived plugins retain compatibility through November 5, 2026.
+
+## project layout
+
+`content/` owns guide copy; `editorial/` owns sources and review evidence;
+`src/` renders the site; `scripts/` owns checks. `design.md` owns visual rules.
+[Worktree setup](docs/worktrees.md) describes reusable setup and preview actions.
+The handbook review stays in the saved local `main` checkout.
 
 ## evidence principle
 
@@ -32,8 +54,8 @@ citations sit beside the claims they support. tested observations name their lim
 ## local verification
 
 ```bash
-bun install --frozen-lockfile
-bun run verify
+node scripts/project.mjs setup
+node scripts/project.mjs verify
 ```
 
 built and maintained by [ani potts](https://anipotts.com). corrections with primary sources or reproducible field evidence are welcome.

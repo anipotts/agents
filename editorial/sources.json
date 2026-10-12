@@ -177,8 +177,9 @@
       "layer": "harness",
       "status": "watchlist",
       "url": "https://learn.chatgpt.com/docs/hooks",
-      "last_checked": "2026-09-07",
-      "evidence": "official-source"
+      "last_checked": "2026-10-12",
+      "evidence": "official-source",
+      "notes": "2026-10-12 scoped source review: Discovery, concurrent handlers, hash trust, local coverage, and cloud orchestration exclusions checked; no handler executed. See editorial/reassessment-details.md. This does not refresh every consuming page or establish Ani wording acceptance."
     },
     {
       "id": "openai-codex-cloud",
@@ -188,8 +189,9 @@
       "layer": "surface",
       "status": "watchlist",
       "url": "https://learn.chatgpt.com/docs/cloud",
-      "last_checked": "2026-09-07",
-      "evidence": "official-source"
+      "last_checked": "2026-10-12",
+      "evidence": "official-source",
+      "notes": "2026-10-12 scoped source review: Published environments, isolated cloud workspaces and independence from laptop sleep checked; no account environment inspected. See editorial/reassessment-details.md. This does not refresh every consuming page or establish Ani wording acceptance."
     },
     {
       "id": "openai-remote-connections",
@@ -202,7 +204,7 @@
       "aliases": [
         "https://learn.chatgpt.com/docs/remote-connections.md"
       ],
-      "last_checked": "2026-09-08",
+      "last_checked": "2026-10-12",
       "evidence": "official-source",
       "watch": {
         "kind": "terms",
@@ -212,7 +214,7 @@
           "Remote"
         ]
       },
-      "notes": "Rechecked September 8, 2026 for mobile task steering, approval, terminal output, screenshots, and host execution. Supports the described remote workflow; silence about a live viewer is not proof it is unavailable in every release."
+      "notes": "Rechecked September 8, 2026 for mobile task steering, approval, terminal output, screenshots, and host execution. Supports the described remote workflow; silence about a live viewer is not proof it is unavailable in every release. 2026-10-12 scoped source review: Host/mobile/SSH, handoff and Work local-access distinctions checked; rollout dependent, no pairing or transfer test. See editorial/reassessment-details.md. This does not refresh every consuming page or establish Ani wording acceptance."
     },
     {
       "id": "anthropic-claude-overview",
@@ -267,8 +269,9 @@
       "layer": "surface",
       "status": "watchlist",
       "url": "https://code.claude.com/docs/en/claude-code-on-the-web",
-      "last_checked": "2026-09-07",
-      "evidence": "official-source"
+      "last_checked": "2026-10-12",
+      "evidence": "official-source",
+      "notes": "2026-10-12 scoped source review: Current cloud naming and local/cloud continuation distinctions checked; no research-preview label found. See editorial/reassessment-details.md. This does not refresh every consuming page or establish Ani wording acceptance."
     },
     {
       "id": "anthropic-changelog",
@@ -316,8 +319,9 @@
       "layer": "harness",
       "status": "watchlist",
       "url": "https://code.claude.com/docs/en/skills",
-      "last_checked": "2026-09-07",
-      "evidence": "official-source"
+      "last_checked": "2026-10-12",
+      "evidence": "official-source",
+      "notes": "2026-10-12 scoped source review: Invocation controls, SKILL.md and permissions distinction checked; fixture not executed through Claude. See editorial/reassessment-details.md. This does not refresh every consuming page or establish Ani wording acceptance."
     },
     {
       "id": "anthropic-mcp",
@@ -327,8 +331,9 @@
       "layer": "harness",
       "status": "watchlist",
       "url": "https://code.claude.com/docs/en/mcp",
-      "last_checked": "2026-09-07",
-      "evidence": "official-source"
+      "last_checked": "2026-10-12",
+      "evidence": "official-source",
+      "notes": "2026-10-12 scoped source review: MCP scopes, OAuth restrictions and context-dependent project approvals checked; no authentication performed. See editorial/reassessment-details.md. This does not refresh every consuming page or establish Ani wording acceptance."
     },
     {
       "id": "anthropic-subagents",
@@ -338,8 +343,9 @@
       "layer": "orchestration",
       "status": "watchlist",
       "url": "https://code.claude.com/docs/en/sub-agents",
-      "last_checked": "2026-09-07",
-      "evidence": "official-source"
+      "last_checked": "2026-10-12",
+      "evidence": "official-source",
+      "notes": "2026-10-12 scoped source review: Separate context and distinction from independent sessions/teams checked. See editorial/reassessment-details.md. This does not refresh every consuming page or establish Ani wording acceptance."
     },
     {
       "id": "anthropic-hooks",
@@ -349,27 +355,28 @@
       "layer": "harness",
       "status": "watchlist",
       "url": "https://code.claude.com/docs/en/hooks",
-      "last_checked": "2026-09-07",
-      "evidence": "official-source"
+      "last_checked": "2026-10-12",
+      "evidence": "official-source",
+      "notes": "2026-10-12 scoped source review: Settings-handler types, event differences, PostToolUse semantics and separate Mods implementation checked; no live hook registration test. See editorial/reassessment-details.md. This does not refresh every consuming page or establish Ani wording acceptance."
     },
     {
       "id": "anthropic-function-hooks-proposal",
-      "title": "Function Hooks: internal proposal and architecture",
+      "title": "Mods: original Function Hooks proposal and shipping updates",
       "publisher": "anthropic",
       "product": "claude-code",
       "layer": "harness",
       "status": "watchlist",
       "url": "https://github.com/anthropics/claude-code/issues/91870",
-      "last_checked": "2026-09-07",
+      "last_checked": "2026-10-12",
       "evidence": "open-question",
       "watch": {
         "kind": "terms",
         "terms": [
-          "Function Hooks",
-          "internal proposal",
-          "ui.press"
+          "Mods",
+          "Function Hooks"
         ]
-      }
+      },
+      "notes": "2026-10-12 scoped source review: Original proposal is historical. October 1 shipping update and official Mods implementation docs supersede proposal-only framing; open issue status is not availability evidence. See editorial/reassessment-details.md. This does not refresh every consuming page or establish Ani wording acceptance."
     },
     {
       "id": "anthropic-plugins",
@@ -390,8 +397,9 @@
       "layer": "harness",
       "status": "watchlist",
       "url": "https://code.claude.com/docs/en/settings",
-      "last_checked": "2026-09-07",
-      "evidence": "official-source"
+      "last_checked": "2026-10-12",
+      "evidence": "official-source",
+      "notes": "2026-10-12 scoped source review: Locations, precedence and merging exceptions, trust, and status inspection checked; no installed config inspected. See editorial/reassessment-details.md. This does not refresh every consuming page or establish Ani wording acceptance."
     },
     {
       "id": "anthropic-desktop",
@@ -420,7 +428,7 @@
       "layer": "harness",
       "status": "core",
       "url": "https://code.claude.com/docs/en/permissions",
-      "last_checked": "2026-09-07",
+      "last_checked": "2026-10-12",
       "evidence": "official-source",
       "watch": {
         "kind": "terms",
@@ -429,7 +437,8 @@
           "permission modes",
           ".claude/settings.local.json"
         ]
-      }
+      },
+      "notes": "2026-10-12 scoped source review: MCP tool matching and interactive trust versus headless context checked; sandbox enforcement not retested. See editorial/reassessment-details.md. This does not refresh every consuming page or establish Ani wording acceptance."
     },
     {
       "id": "anthropic-memory",
@@ -439,7 +448,7 @@
       "layer": "harness",
       "status": "core",
       "url": "https://code.claude.com/docs/en/memory",
-      "last_checked": "2026-09-07",
+      "last_checked": "2026-10-12",
       "evidence": "official-source",
       "watch": {
         "kind": "terms",
@@ -448,7 +457,8 @@
           "Auto memory",
           ".claude/rules/"
         ]
-      }
+      },
+      "notes": "2026-10-12 scoped source review: Instruction versus auto-memory, versioned native AGENTS.md fallback and import compatibility checked. See editorial/reassessment-details.md. This does not refresh every consuming page or establish Ani wording acceptance."
     },
     {
       "id": "anthropic-remote-control",
@@ -458,7 +468,7 @@
       "layer": "surface",
       "status": "core",
       "url": "https://code.claude.com/docs/en/remote-control",
-      "last_checked": "2026-09-08",
+      "last_checked": "2026-10-12",
       "evidence": "official-source",
       "watch": {
         "kind": "terms",
@@ -468,7 +478,7 @@
           "running locally"
         ]
       },
-      "notes": "Rechecked September 8, 2026: connected phone/browser conversations, subagent progress, attachments, approvals, and execution on the local machine. Mobile live-view comparison in Grok is Ani-reported, not inferred from undocumented absence."
+      "notes": "Rechecked September 8, 2026: connected phone/browser conversations, subagent progress, attachments, approvals, and execution on the local machine. Mobile live-view comparison in Grok is Ani-reported, not inferred from undocumented absence. 2026-10-12 scoped source review: Local execution versus synchronized transcript, process lifetime, and reconnect limitations checked; no live session test. See editorial/reassessment-details.md. This does not refresh every consuming page or establish Ani wording acceptance."
     },
     {
       "id": "anthropic-commands",
@@ -969,8 +979,9 @@
       "layer": "harness",
       "status": "watchlist",
       "url": "https://learn.chatgpt.com/docs/config-file/config-reference",
-      "last_checked": "2026-09-07",
-      "evidence": "official-source"
+      "last_checked": "2026-10-12",
+      "evidence": "official-source",
+      "notes": "2026-10-12 scoped source review: Profile location and reserved project keys checked; not exhaustive reference validation. See editorial/reassessment-details.md. This does not refresh every consuming page or establish Ani wording acceptance."
     },
     {
       "id": "openai-codex-security",
@@ -1035,8 +1046,9 @@
       "layer": "surface",
       "status": "watchlist",
       "url": "https://support.claude.com/en/articles/13345190-get-started-with-claude-cowork",
-      "last_checked": "2026-09-07",
-      "evidence": "official-source"
+      "last_checked": "2026-10-12",
+      "evidence": "official-source",
+      "notes": "2026-10-12 scoped source review: Cloud execution versus connected Desktop local capabilities and browser rollout checked; no account behavior test. See editorial/reassessment-details.md. This does not refresh every consuming page or establish Ani wording acceptance."
     },
     {
       "id": "grok-build-settings",
@@ -1046,8 +1058,9 @@
       "layer": "harness",
       "status": "watchlist",
       "url": "https://docs.x.ai/build/settings",
-      "last_checked": "2026-09-07",
-      "evidence": "official-source"
+      "last_checked": "2026-10-12",
+      "evidence": "official-source",
+      "notes": "2026-10-12 scoped source review: User/project configuration scope, GROK_HOME and inspect discovery documentation checked; no new runtime test. See editorial/reassessment-details.md. This does not refresh every consuming page or establish Ani wording acceptance."
     },
     {
       "id": "grok-build-permissions",
@@ -1057,8 +1070,9 @@
       "layer": "harness",
       "status": "watchlist",
       "url": "https://docs.x.ai/build/features/permissions",
-      "last_checked": "2026-09-07",
-      "evidence": "official-source"
+      "last_checked": "2026-10-12",
+      "evidence": "official-source",
+      "notes": "2026-10-12 scoped source review: Ask/auto/always-approve, deny precedence and user-only permission_mode checked; no enforcement test. See editorial/reassessment-details.md. This does not refresh every consuming page or establish Ani wording acceptance."
     },
     {
       "id": "grok-bot",
@@ -1068,8 +1082,9 @@
       "layer": "surface",
       "status": "watchlist",
       "url": "https://docs.x.ai/grok-bot/overview",
-      "last_checked": "2026-09-07",
-      "evidence": "official-source"
+      "last_checked": "2026-10-12",
+      "evidence": "official-source",
+      "notes": "2026-10-12 scoped source review: Persistent Bots, shared computer and inter-Bot collaboration documented; no personal-use or reliability claim. See editorial/reassessment-details.md. This does not refresh every consuming page or establish Ani wording acceptance."
     },
     {
       "id": "git-worktrees",
@@ -1140,19 +1155,21 @@
       "layer": "harness",
       "status": "watchlist",
       "url": "https://learn.chatgpt.com/docs/app-server",
-      "last_checked": "2026-09-07",
-      "evidence": "official-source"
+      "last_checked": "2026-10-12",
+      "evidence": "official-source",
+      "notes": "2026-10-12 scoped source review: Thread/turn/item, history/status/events and schema generation checked; no integration test. See editorial/reassessment-details.md. This does not refresh every consuming page or establish Ani wording acceptance."
     },
     {
       "id": "openai-codex-mcp-server",
-      "title": "Use Codex with the Agents SDK",
+      "title": "Codex MCP server removal",
       "publisher": "openai",
       "product": "codex",
       "layer": "harness",
       "status": "watchlist",
       "url": "https://learn.chatgpt.com/docs/mcp-server",
-      "last_checked": "2026-09-07",
-      "evidence": "official-source"
+      "last_checked": "2026-10-12",
+      "evidence": "official-source",
+      "notes": "2026-10-12 scoped source review: MCP hosting removal and migration status checked. App server is a separate experimental JSON-RPC integration; external MCP connections remain supported. See editorial/reassessment-details.md. This does not refresh every consuming page or establish Ani wording acceptance."
     },
     {
       "id": "grok-bot-mobile",
@@ -1162,9 +1179,9 @@
       "layer": "surface",
       "status": "watchlist",
       "url": "https://docs.x.ai/grok-bot/mobile",
-      "last_checked": "2026-09-08",
+      "last_checked": "2026-10-12",
       "evidence": "official-source",
-      "notes": "Rechecked 2026-09-08 for the mobile computer view, human takeover, and return of control. Exact fingertip/cursor and phone keyboard wording remains grounded in Ani's account; the documentation corroborates the general takeover flow."
+      "notes": "Rechecked 2026-09-08 for the mobile computer view, human takeover, and return of control. Exact fingertip/cursor and phone keyboard wording remains grounded in Ani's account; the documentation corroborates the general takeover flow. 2026-10-12 scoped source review: Mobile viewing/takeover and recurring-work controls checked. Exact fingertip gesture wording remains Ani input, not established by this page. No mobile device test. See editorial/reassessment-details.md. This does not refresh every consuming page or establish Ani wording acceptance."
     },
     {
       "id": "grok-bot-computer",
@@ -1174,9 +1191,9 @@
       "layer": "surface",
       "status": "watchlist",
       "url": "https://docs.x.ai/grok-bot/computer-and-apps",
-      "last_checked": "2026-09-08",
+      "last_checked": "2026-10-12",
       "evidence": "official-source",
-      "notes": "Rechecked 2026-09-08: one persistent computer per account, separate Bot screens, shared files/browser sessions/CLI credentials, background work, and the instruction to return control and tell the Bot to continue. This is documented behavior, not an independent product test."
+      "notes": "Rechecked 2026-09-08: one persistent computer per account, separate Bot screens, shared files/browser sessions/CLI credentials, background work, and the instruction to return control and tell the Bot to continue. This is documented behavior, not an independent product test. 2026-10-12 scoped source review: Shared account computer, separate screens, shared sessions/files/CLI credentials and background operation checked; no live Bot test. See editorial/reassessment-details.md. This does not refresh every consuming page or establish Ani wording acceptance."
     },
     {
       "id": "grok-bot-approvals",
@@ -1186,9 +1203,9 @@
       "layer": "harness",
       "status": "watchlist",
       "url": "https://docs.x.ai/grok-bot/approvals-security-and-privacy",
-      "last_checked": "2026-09-08",
+      "last_checked": "2026-10-12",
       "evidence": "official-source",
-      "notes": "Rechecked 2026-09-08 for action approvals, human entry of sensitive values, supported masked secret requests, and the shared-computer boundary. This is source review, not Ani's wording acceptance or a hands-on security evaluation."
+      "notes": "Rechecked 2026-09-08 for action approvals, human entry of sensitive values, supported masked secret requests, and the shared-computer boundary. This is source review, not Ani's wording acceptance or a hands-on security evaluation. 2026-10-12 scoped source review: Action approvals and masked secure handoff documentation checked; no authentication or private value accessed. See editorial/reassessment-details.md. This does not refresh every consuming page or establish Ani wording acceptance."
     },
     {
       "id": "grok-bot-profiles",
@@ -1198,8 +1215,9 @@
       "layer": "surface",
       "status": "watchlist",
       "url": "https://docs.x.ai/grok-bot/bots",
-      "last_checked": "2026-09-07",
-      "evidence": "official-source"
+      "last_checked": "2026-10-12",
+      "evidence": "official-source",
+      "notes": "2026-10-12 scoped source review: Names/descriptions/avatar and hiding without pausing checked; no account change. See editorial/reassessment-details.md. This does not refresh every consuming page or establish Ani wording acceptance."
     },
     {
       "id": "x-api",
@@ -1242,8 +1260,9 @@
       "layer": "harness",
       "status": "watchlist",
       "url": "https://docs.x.ai/build/settings/reference",
-      "last_checked": "2026-09-07",
-      "evidence": "official-source"
+      "last_checked": "2026-10-12",
+      "evidence": "official-source",
+      "notes": "2026-10-12 scoped source review: GROK_HOME and sandbox/memory/subagent feature switches checked; full compatibility scanner reference still needs review. See editorial/reassessment-details.md. This does not refresh every consuming page or establish Ani wording acceptance."
     },
     {
       "id": "grok-build-sandbox",
@@ -1253,8 +1272,9 @@
       "layer": "harness",
       "status": "watchlist",
       "url": "https://docs.x.ai/build/features/sandbox",
-      "last_checked": "2026-09-07",
-      "evidence": "official-source"
+      "last_checked": "2026-10-12",
+      "evidence": "official-source",
+      "notes": "2026-10-12 scoped source review: Profiles and documented limits checked: off by default; child-network restriction Linux-only; in-process traffic separate. No enforcement test. See editorial/reassessment-details.md. This does not refresh every consuming page or establish Ani wording acceptance."
     },
     {
       "id": "grok-bot-routines",
@@ -1264,8 +1284,9 @@
       "layer": "orchestration",
       "status": "watchlist",
       "url": "https://docs.x.ai/grok-bot/skills-routines-and-automations",
-      "last_checked": "2026-09-07",
-      "evidence": "official-source"
+      "last_checked": "2026-10-12",
+      "evidence": "official-source",
+      "notes": "2026-10-12 scoped source review: Reusable skills, owner-specific schedules, timezone/run-history and real-effect test distinction checked; no routine run. See editorial/reassessment-details.md. This does not refresh every consuming page or establish Ani wording acceptance."
     },
     {
       "id": "openai-codex-config-basic",
@@ -1275,8 +1296,9 @@
       "layer": "harness",
       "status": "watchlist",
       "url": "https://learn.chatgpt.com/docs/config-file/config-basic",
-      "last_checked": "2026-09-07",
-      "evidence": "official-source"
+      "last_checked": "2026-10-12",
+      "evidence": "official-source",
+      "notes": "2026-10-12 scoped source review: Precedence includes cloud-managed defaults; project trust and profile distinction checked. See editorial/reassessment-details.md. This does not refresh every consuming page or establish Ani wording acceptance."
     },
     {
       "id": "openai-codex-config-advanced",
@@ -1286,8 +1308,9 @@
       "layer": "harness",
       "status": "watchlist",
       "url": "https://learn.chatgpt.com/docs/config-file/config-advanced",
-      "last_checked": "2026-09-07",
-      "evidence": "official-source"
+      "last_checked": "2026-10-12",
+      "evidence": "official-source",
+      "notes": "2026-10-12 scoped source review: Sibling profile files and trusted project layers checked; no runtime test. See editorial/reassessment-details.md. This does not refresh every consuming page or establish Ani wording acceptance."
     },
     {
       "id": "openai-codex-memories",
@@ -1297,8 +1320,9 @@
       "layer": "harness",
       "status": "watchlist",
       "url": "https://learn.chatgpt.com/docs/customization/memories",
-      "last_checked": "2026-09-07",
-      "evidence": "official-source"
+      "last_checked": "2026-10-12",
+      "evidence": "official-source",
+      "notes": "2026-10-12 scoped source review: Local enablement, eligibility, generation delay, and local/web distinction checked; installed storage layout not certified. See editorial/reassessment-details.md. This does not refresh every consuming page or establish Ani wording acceptance."
     },
     {
       "id": "openai-codex-approvals",
@@ -1341,8 +1365,9 @@
       "layer": "orchestration",
       "status": "watchlist",
       "url": "https://learn.chatgpt.com/docs/automations",
-      "last_checked": "2026-09-07",
-      "evidence": "official-source"
+      "last_checked": "2026-10-12",
+      "evidence": "official-source",
+      "notes": "2026-10-12 scoped source review: Standalone versus existing-chat schedules and local/web/event surfaces checked; no scheduled execution demonstrated. See editorial/reassessment-details.md. This does not refresh every consuming page or establish Ani wording acceptance."
     },
     {
       "id": "openai-codex-image-generation",
@@ -1650,6 +1675,42 @@
       "last_checked": "2026-09-07",
       "evidence": "official-source",
       "notes": "Read README setup, fixed experiment time budget, agent-edited train.py, human-edited program.md, metric, and platform limits. No local research experiment was run for this handbook."
+    },
+    {
+      "id": "anthropic-mods-overview",
+      "title": "Claude Code Mods overview",
+      "publisher": "anthropic",
+      "product": "claude-code",
+      "layer": "harness",
+      "status": "watchlist",
+      "url": "https://code.claude.com/docs/en/plugins/mods/overview",
+      "last_checked": "2026-10-12",
+      "evidence": "official-source",
+      "notes": "Scoped documentation review recorded in editorial/reassessment-details.md. No runtime test or personal acceptance."
+    },
+    {
+      "id": "anthropic-mods-events",
+      "title": "Claude Code Mods events",
+      "publisher": "anthropic",
+      "product": "claude-code",
+      "layer": "harness",
+      "status": "watchlist",
+      "url": "https://code.claude.com/docs/en/plugins/mods/events",
+      "last_checked": "2026-10-12",
+      "evidence": "official-source",
+      "notes": "Scoped documentation review recorded in editorial/reassessment-details.md. No runtime test or personal acceptance."
+    },
+    {
+      "id": "anthropic-agent-teams",
+      "title": "Claude Code agent teams",
+      "publisher": "anthropic",
+      "product": "claude-code",
+      "layer": "orchestration",
+      "status": "watchlist",
+      "url": "https://code.claude.com/docs/en/agent-teams",
+      "last_checked": "2026-10-12",
+      "evidence": "official-source",
+      "notes": "Scoped documentation review recorded in editorial/reassessment-details.md. No runtime test or personal acceptance."
     }
   ],
   "publishers": [

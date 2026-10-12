@@ -133,8 +133,8 @@ and respect reduced motion.
 
 Below `48rem`, search results use the viewport width minus the shared page
 gutters, centered below the inline header input. The results scroll within
-the available viewport height. In the mobile page picker, chapter icons and
-labels sit one indentation level beneath their provider label.
+the available viewport height. In the compact header picker, chapter icons and
+labels sit one indentation level beneath their guide label.
 
 The Claude overview places Ani's terminal recording immediately below
 “this is claude code,” before the explanatory paragraphs.
@@ -146,14 +146,27 @@ Do not add a permanent right table of contents or a second intermediate navigati
 Shared pages use the same publication shell without pretending to belong to a provider. Chronology, comparisons, and methods may use timelines, tables, or aligned evidence rows when those structures improve retrieval.
 
 Archived Claude Code tools belong to the Claude Code navigation group, including
-the mobile page picker. The archive URL and compatibility text remain stable.
+the compact header picker. The archive URL and compatibility text remain stable.
 Navigation scope comes from each page's canonical frontmatter.
 
-The rail starts with the shared guide picker and its collapse control. The
-picker labels the current guide and exposes all public guides with indented
-chapters. The same component powers the homepage “browse guides” menu and
-mobile Sheet picker. The site logo appears in the main header; provider
-pickers retain their product identity. Native X embeds are centered at a maximum width of 360px,
+The header owns guide selection on every page. Wide screens show four text
+menus: handbook, codex, claude, and grok. The current guide has a subtle selected
+surface. Each menu exposes that guide's canonical overview and chapters.
+When the header's content width is below `64em`, one compact picker exposes all
+guides in the same order. It reads “guides” on the homepage and the current guide
+name within the handbook. Container em units respond to independent text enlargement.
+
+The sidebar starts with a compact collapse row and contains the current
+guide's chapters and heading outline. On phones, a separate chapters control
+opens that same chapter navigation in a Sheet. The Sheet title names the guide;
+guide selection remains in the header.
+
+Opening search compacts the four menus. The compact picker stays available on
+tablet and desktop; below `48rem`, search temporarily occupies its header space.
+Closing search restores the previous navigation composition. Keep labels readable
+and let enlarged text wrap without overlapping the identity or utilities.
+
+Native X embeds are centered at a maximum width of 360px,
 with responsive height, readable native controls, and an adjacent source link.
 
 ### editorial review
@@ -213,7 +226,7 @@ The site header has two intentional compositions:
 | `60rem` and wider | one row, exactly `64px` high |
 | below `60rem` | one row, exactly `52px` high |
 
-The header contains the site identity and utilities. The homepage adds the visible guide picker; guide pages place it at the top of their rail or mobile Sheet. There is one shared route hierarchy. Both responsive placements are present in static HTML, so the guide HTML budget is `28 KiB` compressed (the largest current chapter is about `26.4 KiB`). CSS, JavaScript, font, and media budgets remain unchanged.
+The header contains the site identity, shared guide navigation, and utilities on every route. Wide guide menus and the compact picker derive from one route hierarchy and are present in static HTML. The guide HTML budget remains `28 KiB` compressed. CSS, JavaScript, font, and media budgets remain unchanged. Header heights are the normal reading baseline; enlarged text may increase the row height.
 
 The guide shell has two modes:
 
@@ -463,8 +476,8 @@ Responsive design recomposes the shell; it does not shrink every element.
 
 | range | required behavior |
 | --- | --- |
-| below `48rem` | `52px` one-row header, homepage guide picker, compact utility group, guide mobile Sheet, no permanent rail, local scrolling for wide tables |
-| `48rem` through `59.99rem` | `52px` one-row header, persistent collapsible guide rail, icon search control, no intermediate dual dropdown bar |
+| below `48rem` | `52px` one-row header, compact guide picker, compact utility group, chapter Sheet, no permanent rail, local scrolling for wide tables |
+| `48rem` through `59.99rem` | `52px` one-row header, persistent collapsible guide rail, compact guide picker, icon search control, no intermediate dual dropdown bar |
 | `60rem` through `71.99rem` | `64px` one-row header, compact utilities and a shared guide picker, persistent guide rail |
 | `72rem` and wider | `64px` full publication shell with wider article breathing room |
 
@@ -642,6 +655,11 @@ A design change is complete when:
 
 The final test is simple: the page should feel more like coding agent tips after the change: clearer, more personal, more useful, and more technically credible without looking busier or manufactured.
 
-The homepage header centers the browse guides control between equal flexible side
-columns. It uses the existing soft control surface and 8px rounding, wrapping its
-label and utilities when enlarged rather than truncating navigation text.
+The shared header places guide navigation between the site identity and utilities.
+The compact picker uses the existing soft control surface and 8px rounding.
+Navigation labels and utilities may wrap under enlargement. Below `14em` of
+header content width, utilities use a second row so guide names retain reading
+space. Search temporarily uses that narrow header with the site mark and input;
+closing it restores the picker and utilities. A ResizeObserver reports the rendered height to Starlight and asks
+Starwind to close any menu whose trigger becomes hidden, restoring keyboard
+focus to the visible picker when needed. It owns no menu interaction state.

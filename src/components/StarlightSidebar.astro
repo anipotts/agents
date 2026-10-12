@@ -2,7 +2,6 @@
 import { getHandbookPages, scopeForPath } from '../content';
 import { handbookScopes, site } from '../site';
 import Book from '@tabler/icons/outline/book.svg';
-import GuidePicker from './GuidePicker.astro';
 import ChapterMenu from './ChapterMenu.astro';
 import SidebarPrimitive from '@starwind-ui/astro/sidebar';
 import { sidebar, sidebarContainer, sidebarInner } from './starwind/sidebar/variants';
@@ -46,7 +45,6 @@ const label = handbookScopes.find((scope) => scope.id === activeScope)?.label ??
     <div class={sidebarContainer({ side: 'left', variant: 'sidebar' })} data-slot="sidebar-container" aria-label={activeScope === 'handbook' ? `${label} navigation` : `${label} handbook chapters`}>
     <div class={sidebarInner({ variant: 'sidebar' })} data-sidebar="sidebar" data-slot="sidebar-inner">
     <div class="handbook-rail-head">
-      <div class="guide-rail-identity"><GuidePicker placement="sidebar" /></div>
       <SidebarTrigger />
     </div>
     <SidebarContent class="publication-sidebar-content">

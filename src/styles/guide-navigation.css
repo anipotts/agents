@@ -32,26 +32,14 @@ html:has(.publication-sidebar[data-state='collapsed']) { --left-rail-width: var(
 
 .publication-sidebar [data-slot='sidebar-inner'] { background: var(--surface-canvas); }
 .handbook-rail-head {
-  min-block-size: var(--site-header-height);
-  padding: .75rem var(--site-gutter);
+  min-block-size: 3rem;
+  padding: .5rem .75rem;
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: flex-end;
   gap: .5rem;
   border-bottom: 1px solid var(--rule);
 }
-
-.guide-rail-identity { flex: 1; min-inline-size: 0; display: flex; align-items: center; gap: .55rem; }
-.guide-rail-identity .sidebar-label { min-inline-size: 0; margin: 0; display: flex; gap: .25rem; }
-.provider-product-icon.sidebar-provider-icon {
-  --provider-product-icon-size: 1.75rem;
-  overflow: hidden;
-  border: 0;
-  border-radius: var(--radius-sm);
-  background: transparent;
-}
-
-
 
 .publication-sidebar [data-sw-sidebar-trigger] {
   inline-size: 2rem;
@@ -154,7 +142,6 @@ html:has(.publication-sidebar[data-state='collapsed']) { --left-rail-width: var(
   color: var(--accent-strong);
 }
 
-.publication-sidebar[data-state='collapsed'] .guide-rail-identity,
 .publication-sidebar[data-state='collapsed'] .sidebar-page-outline,
 .publication-sidebar[data-state='collapsed'] .chapter-toggle { display: none; }
 .publication-sidebar[data-state='collapsed'] .handbook-rail-head {
@@ -194,9 +181,6 @@ html:has(.publication-sidebar[data-state='collapsed']) { --left-rail-width: var(
   .main-pane .sl-container { max-width: 52rem; margin-inline: auto; }
 }
 
-@media (min-width: 48rem) and (max-width: 59.99rem) {
-  .handbook-rail-head { min-block-size: 3.25rem; }
-}
 
 @media (min-width: 80rem) {
   .right-sidebar-container,
@@ -219,11 +203,7 @@ html:has(.publication-sidebar[data-state='collapsed']) { --left-rail-width: var(
 .mobile-site-menu [data-slot='sheet-close'] { inset-block-start: .75rem; inset-inline-end: .75rem; inline-size: var(--control-size); border-radius: var(--radius-md); }
 .mobile-site-menu [data-slot='sheet-close'] svg { inline-size: 1rem; block-size: 1rem; }
 .guide-picker-trigger { inline-size: 100%; justify-content: space-between; gap: .5rem; }
-.guide-rail-identity > [data-slot="dropdown"] { display: flex; inline-size: 100%; }
-.sidebar-guide-picker-trigger { block-size: 2rem; border: 0; background: transparent; box-shadow: none; padding-inline: 0; }
-.sidebar-guide-picker-trigger > span:not(.provider-product-icon) { flex: 1; text-align: start; }
 .guide-picker-trigger > svg { inline-size: 1rem; block-size: 1rem; flex: none; }
-.mobile-page-picker { padding-block-end: .25rem; }
 .guide-picker-trigger span { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
 .guide-page-options { overflow: hidden; inline-size: min(20.5rem, calc(100dvw - 2.5rem)); }
 .guide-page-options-scroll { max-block-size: min(42rem, calc(100dvh - 8rem)); overflow-y: auto; }

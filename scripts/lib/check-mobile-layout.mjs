@@ -61,23 +61,22 @@ export async function verifyMobileLayout({ browser, origin }) {
           await page.keyboard.press('Escape');
           assert.ok(await searchTrigger.evaluate((el) => el === document.activeElement), 'search dismissal restores trigger focus');
         }
-        await page.locator('.mobile-site-menu-trigger').click();
-        await page.locator('.mobile-page-picker-trigger').click();
-        const picker = page.locator('.mobile-page-options');
+        await page.locator('.header-guides-compact .guide-picker-trigger').click();
+        const picker = page.locator('.guide-page-options:visible');
         await picker.waitFor({ state: 'visible' });
         assert.ok(await picker.locator('a').evaluateAll((links) => links.every((link) => link.querySelector('svg[aria-hidden="true"]'))), 'every picker page has a decorative chapter icon');
         assert.equal(await picker.locator('[data-slot="dropdown-label"] .provider-product-icon').count(), 4, 'picker group labels use all four provider identities');
         await page.waitForFunction(() => {
-          const viewport = document.querySelector('.mobile-page-options-scroll').getBoundingClientRect();
-          return [...document.querySelectorAll('.mobile-page-options img')].filter((image) => {
+          const viewport = document.querySelector('.guide-page-options[data-state="open"] .guide-page-options-scroll').getBoundingClientRect();
+          return [...document.querySelectorAll('.guide-page-options[data-state="open"] img')].filter((image) => {
             const rect = image.getBoundingClientRect();
             return rect.height > 0 && rect.bottom > viewport.top && rect.top < viewport.bottom;
           }).every((image) => image.complete && image.naturalWidth > 0);
         });
-        const report = await new AxeBuilder({ page }).include('.mobile-page-options').analyze();
+        const report = await new AxeBuilder({ page }).include('.guide-page-options[data-state="open"]').analyze();
         assert.deepEqual(report.violations.map(({ id }) => id), [], 'mobile picker passes axe');
         await page.keyboard.press('Escape');
-        await page.keyboard.press('Escape');
+        await picker.waitFor({ state: 'hidden' });
         assert.equal(await page.evaluate(() => document.documentElement.scrollWidth - innerWidth), 0, 'mobile page has no horizontal overflow');
         assert.deepEqual(errors, [], 'mobile interactions have no page errors');
       } finally { await context.close(); }

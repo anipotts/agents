@@ -3,6 +3,23 @@
 This file tracks Ani's manual review of every currently public canonical page and each H1, H2, and H3 block. It is editorial working state, not public content. A section stays `unreviewed` until Ani has directly reviewed it. Git history, validation, publication status, and a lack of recent changes do not count as approval.
 
 
+## whole handbook reassessment: October 12, 2026
+
+Ani accepted the proposed task based structure and refined building into
+fun/curiosity and serious work involving business, income, money, impact, or
+startups. This is structure acceptance only. Ani separately accepted the exact homepage
+headline and subtitle on October 12; both are implemented with the story
+preserved. The bridge and start example
+and three new hidden shared drafts remain proposed wording. Existing adopted
+headings and accepted paragraphs retain their exact scope.
+
+The maintained outline is `editorial/reassessment.md`; its section audit covers
+all 24 previous pages and scoped official source refreshes. Historical version
+receipts and whole-page acceptance are unchanged. The local main checkout was
+fast-forwarded to `6e62f8f` with unfinished design work restored; both stashes
+have recorded dispositions and are retained for recovery. See the audit for
+the historical mode-only stash rather than applying obsolete permission changes.
+
 ## Grok and foundations voice pass: September 8, 2026
 
 Ani requested a stronger mobile comparison, the ability to watch real browser
@@ -1229,9 +1246,64 @@ The unclear “why am i repeating myself?” heading is now “why does my agent
       "date": "2026-09-08",
       "source": "Ani browser annotations on Grok and Start here, September 8, 2026, comments 1–10.",
       "note": "Ani comments 9 and 10 requested a brief conversational foundation with deeper links. Technical explanation comes from primary documentation, not an invented personal experience."
+    },
+    {
+      "file": "content/home.md",
+      "date": "2026-10-12",
+      "source": "Ani replied “use this wording” to the exact headline and subtitle in this chat on October 12, 2026.",
+      "origin": "ani-accepted-agent-candidate",
+      "id": "home-headline-20261012",
+      "status": "adopted-heading",
+      "match": "heading",
+      "anchor": "a-casual-guide-to---working-with---agents",
+      "hash": "4b3ff60579d81cbaa8692af8edf251550f32b94534073ea424b5018907611312",
+      "note": "Exact headline only. Excludes neighboring body, bridge and page title."
+    },
+    {
+      "file": "content/home.md",
+      "date": "2026-10-12",
+      "source": "Ani replied “use this wording” to the exact headline and subtitle in this chat on October 12, 2026.",
+      "origin": "ani-accepted-agent-candidate",
+      "id": "home-subtitle-20261012",
+      "status": "preserve",
+      "match": "quote",
+      "anchor": "a-casual-guide-to---working-with---agents",
+      "quote": "practical help for building things and getting everyday work done",
+      "hash": "b3c1d09d39ee71cbc736bb72b9c92a6416065aaf4f3cfc84710c5860e88e5b94",
+      "note": "Exact subtitle accepted; quote preservation avoids extending approval to provider markup or whole section."
+    },
+    {
+      "id": "home-story-preserved-20261012",
+      "file": "content/home.md",
+      "date": "2026-10-12",
+      "source": "Ani confirmed that the existing personal story stays intact with the new headline and subtitle.",
+      "origin": "ani-original-and-manual-edits",
+      "status": "preserve",
+      "match": "body",
+      "anchor": "why-i-made-this",
+      "hash": "9a5e59d73808715383d85aadd5e0a14eecafe0d12d4ac690ca8dd714598ace7f",
+      "note": "Current story preserved separately from the historical whole-file receipt."
     }
   ],
   "next": [
+    {
+      "id": "handbook-home-review",
+      "title": "Homepage and first task",
+      "file": "content/home.md",
+      "kind": "review",
+      "scope": "page",
+      "status": "open",
+      "detail": "Headline and subtitle accepted October 12. Review the proposed bridge and start-page task next; the story is preserved. No whole-page acceptance."
+    },
+    {
+      "id": "infrastructure-starter-review",
+      "title": "Personal infrastructure starter",
+      "file": "content/handbook/personal-infrastructure.md",
+      "kind": "review",
+      "scope": "page",
+      "status": "open",
+      "detail": "Hidden hypothetical weekly review exercise. Review usefulness, headings and body before publication; no personal-system inspection or anecdote is implied."
+    },
     {
       "title": "Grok: taking control",
       "detail": "Review the added visual-following observation and the scoped Codex/Claude mobile comparison alongside the preserved fingertip and phone-keyboard wording.",

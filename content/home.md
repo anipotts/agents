@@ -1,8 +1,8 @@
 ---
 title: coding agent tips
-description: practical guidance for working with ai under real world constraints and tradeoffs.
+description: practical help for building things and getting everyday work done
 products: [cross runtime]
-updatedAt: "2026-08-27T01:36:11-04:00"
+updatedAt: "2026-10-12T13:00:00-04:00"
 status: current
 evidence: [tested, official-source, analysis]
 sources: []
@@ -14,9 +14,9 @@ navigation:
   hidden: true
 ---
 
-# <span class="hero-heading-line">a casual guide to</span> <span class="hero-heading-line"><mark class="keyword-highlight">coding agents</mark></span> <span class="hero-heading-line">in real software</span>
+# <span class="hero-heading-line">a casual guide to</span> <span class="hero-heading-line">working with</span> <span class="hero-heading-line"><mark class="keyword-highlight">agents</mark></span>
 
-practical guidance for working with ai under real world constraints and tradeoffs.
+practical help for building things and getting everyday work done
 
 <nav class="hero-provider-actions"></nav>
 
