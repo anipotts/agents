@@ -51,7 +51,7 @@ access boundaries, release review, tests of important behavior, and recovery
 before real people or money depend on the work. A small project can cross that
 boundary; a large harmless experiment can remain on the curiosity path.
 
-## every current page
+## every original page
 
 These are proposed dispositions, not removals. Existing published routes stay
 available during review. Consolidation happens only when the replacement is
@@ -199,7 +199,7 @@ reading and navigation pass. A passing build alone does not establish that.
 ## implementation checkpoint
 
 - Integration owner: this Codex chat, local `agents` checkout on `main`.
-- Current base: `6e62f8fbd03b136d09e40484c89066f7b80c47d1`, fast-forwarded from
+- Reconciled base: `6e62f8fbd03b136d09e40484c89066f7b80c47d1`, fast-forwarded from
   `472b8f1`; unfinished design/navigation work restored without conflicts.
 - Recovery: retained stash `agents pre-reassessment design recovery 2026-10-12`
   and a local snapshot under `/tmp/agents-reassessment-recovery-2026-10-12`.
@@ -215,3 +215,7 @@ reading and navigation pass. A passing build alone does not establish that.
 - Remaining acceptance and questions are tracked in `review-ledger.md` and
   the local `/__progress/` view, rather than a second status tracker.
 - Source chat: `01a130f2-2d78-7a01-af62-5f49e61eec53` on local.
+
+The review and setup submission is [PR #326](https://github.com/anipotts/agents/pull/326).
+Its exact-head checks and subsequent deployment records own release evidence.
+The shared drafts add three hidden pages to the 24-page starting inventory.

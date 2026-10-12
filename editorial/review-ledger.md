@@ -20,6 +20,40 @@ fast-forwarded to `6e62f8f` with unfinished design work restored; both stashes
 have recorded dispositions and are retained for recovery. See the audit for
 the historical mode-only stash rather than applying obsolete permission changes.
 
+## setup and reconciliation evidence: October 12, 2026
+
+Submission: [PR #326](https://github.com/anipotts/agents/pull/326). The signed
+submission commits have GitHub-recognized verification. Exact-head required
+checks and deployment state are recorded on that PR and its linked workflows;
+this record does not infer publication from local checks.
+
+Reusable setup succeeded in the saved checkout and an independent submission
+worktree, including a frozen install and cached Chromium. Nine setup tests
+cover failure handling, repeated installs, isolated paths, and runtime pinning.
+Native app environment selection remains unverified. The normal development
+preview used an OS-assigned localhost port. Full verification refreshes Astro's
+content store, so stop that checkout's preview during the suite and restart it.
+
+Source checks cover 126 registered sources. Astro diagnostics, 14 editorial
+inventory tests, build, generated routes/redirects, agent surfaces and media
+budgets passed after the accepted copy and Sharp 0.35.5 patch. Archived suites
+passed: 45 Bun tests and 175 Python tests. Shell syntax, JSON, Python compilation
+and changed Markdown passed. The complete earlier 306-case accessibility pass
+is retained separately from the rerun covering final changes.
+
+The rerun exposed two issues in restored design work: a contrast scan during
+the media dialog fade, and focus loss when a wide menu trigger disappears.
+The check now awaits completed dialog animation without excluding rules.
+Responsive focus transfer also handles focus lost to body when the trigger is
+hidden. Existing responsive interaction checks cover that transition; a bounded
+independent code review found no blocking issue. Final CI/browser results are
+on the PR rather than inferred from this implementation record.
+
+The original design QA notes remain in the recovery snapshot. A publishable
+copy lives in `docs/design-qa.md`, with a private local reference omitted after
+the privacy check identified it. Current privacy checks pass. The GitHub Sharp
+advisory identified 0.35.5 as patched; the package and lockfile are pinned to it.
+
 ## Grok and foundations voice pass: September 8, 2026
 
 Ani requested a stronger mobile comparison, the ability to watch real browser

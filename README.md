@@ -19,7 +19,7 @@ are reviewed.
 ## resume here
 
 The [reassessment](editorial/reassessment.md) records a disposition for all 24
-existing pages. The [section audit](editorial/reassessment-details.md) covers
+pages present at the start. Three new shared drafts remain hidden. The [section audit](editorial/reassessment-details.md) covers
 headings, copy, source conflicts, and both recovered stashes. The
 [review ledger](editorial/review-ledger.md) owns wording acceptance and the
 local `/__progress/` page derives the current review map.
@@ -28,6 +28,10 @@ local `/__progress/` page derives the current review map.
 - [ ] review the hidden infrastructure, everyday work, and building drafts
 - [ ] resolve the product accuracy findings, then reassess retained copy in batches
 - [ ] verify the exact release tree, integrate through protected PRs, and check deployment
+
+[PR #326](https://github.com/anipotts/agents/pull/326) carries the setup,
+reconciled design work, audit, and accepted opening copy through protected checks.
+Its check and deployment records own release evidence.
 
 The structure is accepted with separate building paths for curiosity and work
 with business or real world consequences. The homepage headline/subtitle and everyday first-task example are accepted;
