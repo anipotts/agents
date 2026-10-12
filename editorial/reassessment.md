@@ -4,7 +4,7 @@ October 12, 2026. Prepared by Codex from the current Markdown, editorial records
 and scoped primary source checks. This is an editorial proposal for Ani's review.
 The existing [review ledger](review-ledger.md) remains the owner of acceptance and
 the active question queue. [Section audit](reassessment-details.md) contains the
-full page and subsection findings. Only the explicitly accepted homepage headline and subtitle have been updated.
+full page and subsection findings. The explicitly accepted homepage lines and everyday first-task block are updated.
 
 ## the decision to review first
 
@@ -112,8 +112,8 @@ its chat exists.
 
 ## first wording batch
 
-Ani accepted the homepage headline and subtitle below on October 12. The bridge
-and start example remain candidates. No new personal
+Ani accepted the homepage headline and subtitle below on October 12. The bridge and planning explanation remain candidates. The everyday start
+example is accepted and implemented. No new personal
 experience is invented. Keep the existing `why i made this` story byte for byte
 while reviewing how to bridge from coding into the broader handbook.
 
@@ -140,24 +140,20 @@ Entrances: **start here**, **everyday work**, **building things**,
 ### start here candidate
 
 Retain the current friend comparison as a separately grounded candidate.
-Review the following everyday example under `what should i ask first?` before
-replacing or moving the existing search example:
+The accepted everyday example under `what should i ask first?` is implemented
+before the existing search example. Its current canonical form uses pasted
+notes and a reply in chat, which makes the input and output explicit:
 
-> say you have a page of rough notes for a project. ask the agent to turn them
-> into something you can work from:
+> say you have a page of rough project notes. paste a copy into the chat and ask:
 
 ```text
-read these project notes and make a short plan for this week.
-keep the decisions i've already made. flag anything that needs my answer.
-save a draft i can review before changing the original notes.
+turn these notes into a short plan for this week. keep the decisions i’ve already made, flag questions that need my answer, and reply with a draft i can review.
 ```
 
-> open the draft beside your notes. check that it kept your decisions and
-> left the unanswered questions visible. then tell it what you'd change.
+> compare the draft with your notes, then tell it what you’d change.
 
-This is a hypothetical document task, not a claim that every product can
-access a particular file or save it without an available tool. The implemented
-example must say how to supply the notes and where its draft will appear.
+This is a hypothetical task using pasted notes and a reply in chat. It makes
+no claim about file access or an available save tool.
 
 ### planning and acting candidate
 
@@ -186,8 +182,8 @@ remains a separate candidate; approval of the task does not accept it.
 
 1. Structural direction accepted October 12 with the two building paths above.
    Detailed page dispositions remain proposals for the relevant wording batch.
-2. Homepage headline and subtitle accepted October 12. Review the bridge and
-   start-page candidates above in small batches.
+2. Homepage headline, subtitle, and everyday first task accepted October 12.
+   Review the bridge and planning explanation next.
 3. Prepare the infrastructure and everyday pages, then review the retained
    product chapters with the section audit and scoped source findings beside them.
 4. Implement accepted batches in canonical Markdown, preserving fragments and

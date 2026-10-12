@@ -13,9 +13,9 @@ export async function verifyGuidePickers({ browser, origin }) {
         await page.goto(origin, { waitUntil: 'networkidle' });
         assert.equal(await page.locator('.provider-tabs').count(), 0, 'retired tabs are absent');
         assert.equal(await page.locator('.hero-provider-link').count(), 3);
-        assert.equal(await page.locator('.home-content h1 + p').textContent().then((s) => s.replace(/\s+/g, ' ').trim()), 'practical guidance for working with ai under real world constraints and tradeoffs.');
+        assert.equal(await page.locator('.home-content h1 + p').textContent().then((s) => s.replace(/\s+/g, ' ').trim()), 'practical help for building things and getting everyday work done');
         assert.equal(await page.locator('.hero-scope').count(), 0);
-        assert.deepEqual(await page.locator('h1 .hero-heading-line').allTextContents(), ['a casual guide to', 'coding agents', 'in real software']);
+        assert.deepEqual(await page.locator('h1 .hero-heading-line').allTextContents(), ['a casual guide to', 'working with', 'agents']);
         const geometry = await page.evaluate(() => {
           const highlight = document.querySelector('.keyword-highlight');
           return {

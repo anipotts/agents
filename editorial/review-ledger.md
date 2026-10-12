@@ -9,8 +9,8 @@ Ani accepted the proposed task based structure and refined building into
 fun/curiosity and serious work involving business, income, money, impact, or
 startups. This is structure acceptance only. Ani separately accepted the exact homepage
 headline and subtitle on October 12; both are implemented with the story
-preserved. The bridge and start example
-and three new hidden shared drafts remain proposed wording. Existing adopted
+preserved. The everyday start example is also accepted and implemented. The bridge,
+planning explanation and three new hidden shared drafts remain proposed wording. Existing adopted
 headings and accepted paragraphs retain their exact scope.
 
 The maintained outline is `editorial/reassessment.md`; its section audit covers
@@ -1306,7 +1306,7 @@ The unclear “why am i repeating myself?” heading is now “why does my agent
       "kind": "review",
       "scope": "page",
       "status": "open",
-      "detail": "Headline and subtitle accepted October 12. Review the proposed bridge and start-page task next; the story is preserved. No whole-page acceptance."
+      "detail": "Headline and subtitle accepted October 12. Review the proposed bridge and planning explanation next; the story is preserved and the everyday first task is accepted. No whole-page acceptance."
     },
     {
       "id": "infrastructure-starter-review",
