@@ -26,8 +26,11 @@
     "audit:performance": "node scripts/audit-performance.mjs",
     "preview": "node node_modules/astro/bin/astro.mjs preview",
     "sync:readme": "bun scripts/sync-readme.ts",
-    "verify": "bun run check:content && bun run check:ui && bun run test:editorial && bun run build && bun run test:site && bun run check:performance && bun run test:agent && bun run test:navigation && bun run test:dev-search && bun run test:a11y",
-    "test:editorial": "node --test scripts/test-editorial-inventory.mjs"
+    "verify": "bun run check:content && bun run check:ui && bun run test:editorial && bun run test:project && bun run build && bun run test:site && bun run check:performance && bun run test:agent && bun run test:navigation && bun run test:dev-search && bun run test:a11y",
+    "test:editorial": "node --test scripts/test-editorial-inventory.mjs",
+    "setup:project": "node scripts/project.mjs setup",
+    "dev:project": "node scripts/project.mjs dev",
+    "test:project": "node --test scripts/test-project.mjs"
   },
   "dependencies": {
     "@astrojs/sitemap": "3.7.4",
@@ -60,7 +63,7 @@
     "parse5": "7.3.0",
     "remark-gfm": "4.0.1",
     "remark-parse": "11.0.0",
-    "sharp": "0.35.4",
+    "sharp": "0.35.5",
     "typescript": "6.0.3",
     "unified": "11.0.5",
     "yaml": "2.9.0"

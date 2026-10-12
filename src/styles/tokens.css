@@ -62,7 +62,7 @@
   --sl-color-bg: var(--white);
   --sl-color-bg-nav: rgba(255, 255, 255, 0.97);
   --sl-color-bg-sidebar: var(--white);
-  --sl-nav-height: var(--site-header-height);
+  --sl-nav-height: var(--site-header-rendered-height, var(--site-header-height));
   --sl-nav-pad-x: var(--site-gutter);
   --sl-nav-pad-y: 0rem;
   --sl-mobile-toc-height: 0rem;

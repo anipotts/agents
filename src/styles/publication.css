@@ -1,4 +1,4 @@
-header.header { z-index: var(--z-navigation); height: var(--site-header-height); padding: 0 !important; border-bottom: 1px solid var(--rule); box-shadow: none; }
+header.header { z-index: var(--z-navigation); height: auto; padding: 0 !important; border-bottom: 1px solid var(--rule); box-shadow: none; }
 .sl-markdown-content .heading-alias { display: block; block-size: 0; margin: 0 !important; scroll-margin-block-start: calc(var(--site-header-height) + 2rem); }
 .sidebar-pane {
   width: var(--left-rail-width) !important;

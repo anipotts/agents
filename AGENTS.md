@@ -1,10 +1,10 @@
 # coding agent tips
 
-this repository is an opinionated, source backed handbook for people who know basic coding and are learning to work with agents. codex and claude code are coequal primary guides. archived claude code plugins remain available only for the compatibility window documented in `content/archive/claude-code-tools.md`.
+this repository is a personal, source backed handbook for people learning to use agents for everyday work and building things. basic coding is a prerequisite only for coding exercises. codex and claude code are coequal primary guides. archived claude code plugins remain available only for the compatibility window documented in `content/archive/claude-code-tools.md`.
 
 ## public standard
 
-- assume basic coding knowledge and little agent experience. give a brief, optional crash course with embedded primary references. explain unfamiliar agent terms where they matter and let fluent readers move straight to practical material.
+- assume little agent experience. explain coding prerequisites where a task needs them. give a brief, optional crash course with embedded primary references. explain unfamiliar agent terms where they matter and let fluent readers move straight to practical material.
 - use short headings that help readers find a question, worry, or curiosity. preserve clear topic names and Ani's adopted headings. personal judgments require his words; a question heading does not establish his experience.
 - separate tested behavior, official product facts, analysis, and open questions.
 - prefer primary sources and record them in `editorial/sources.json`.
@@ -39,6 +39,13 @@ GitHub's protected `main` still requires a pull request and passing checks;
 create a temporary submission branch from the current work when needed, then
 fast forward local `main` to the verified merge. Preserve other worktrees as
 recovery copies until their remaining work is accounted for.
+
+Reusable worktree setup and toolbar actions live in
+`.codex/environments/environment.toml` and call `scripts/project.mjs`. Run
+`node scripts/project.mjs setup` for a frozen install and cached browser runtime.
+See `docs/worktrees.md`; keep dependencies and build outputs local to each checkout.
+Run full browser verification in one checkout at a time because its tests reserve
+fixed ports. Setup and preview commands are safe to repeat.
 
 ## verification
 

@@ -28,6 +28,7 @@ export const site = {
     github: 'coding agent tips on GitHub',
     home: 'coding agent tips home',
     guides: 'guides',
+    chapters: 'chapters',
     contents: 'contents',
     archive: 'archive',
     lastUpdated: 'last updated',
@@ -77,7 +78,7 @@ export const handbookScopes = [
     providerIconSource: 'https://openai.com/index/introducing-the-codex-app/', providerIconCheckedAt: '2026-08-29',
   },
   {
-    id: 'claude-code', label: 'claude code', heroLabel: 'claude', href: '/guides/claude-code/', order: 30, public: true,
+    id: 'claude-code', label: 'claude code', headerLabel: 'claude', heroLabel: 'claude', href: '/guides/claude-code/', order: 30, public: true,
     heroIcon: '/icons/products/claude.svg', providerIcon: '/icons/products/claude-code.png', providerIconDark: '/icons/products/claude-code.png',
     providerIconSource: 'https://claude.ai/images/claude_app_icon.png', providerIconCheckedAt: '2026-09-08',
   },

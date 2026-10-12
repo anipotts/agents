@@ -10,12 +10,12 @@ import Home from '@tabler/icons/outline/home.svg';
 import ShieldCheck from '@tabler/icons/outline/shield-check.svg';
 import { getHandbookPages, routeForEntry, scopeForPath } from '../content';
 import ProviderProductIcon from './ProviderProductIcon.astro';
-import { chapterForOrder, navigationScopes, site } from '../site';
+import { chapterForOrder, navigationScopes, site, type NavigationScope } from '../site';
 import { Button } from './starwind/button';
 import { Dropdown, DropdownContent, DropdownGroup, DropdownLabel, DropdownLinkItem, DropdownTrigger } from './starwind/dropdown';
 
-interface Props { placement: 'header' | 'sidebar' | 'mobile'; }
-const { placement } = Astro.props;
+interface Props { scope?: NavigationScope; }
+const { scope: menuScope } = Astro.props;
 const current = Astro.url.pathname;
 const activeScope = await scopeForPath(current);
 const pages = await getHandbookPages();
@@ -23,26 +23,26 @@ const activeScopeLabel = navigationScopes.find((scope) => scope.id === activeSco
 const chapterLabel = (page: (typeof pages)[number]) => page.data.navigation.scope === 'handbook'
   ? page.data.title
   : chapterForOrder(page.data.navigation.order)?.label ?? page.data.title;
-const activePage = pages.find((page) => routeForEntry(page) === current);
-const selectedPageLabel = activePage ? `${activeScopeLabel}: ${chapterLabel(activePage)}` : 'handbook';
 const chapterIcons = {
   'ph:book-open-text': Book, 'ph:arrow-right': ArrowRight,
   'ph:sliders-horizontal': Adjustments, 'ph:git-branch': GitBranch,
   'ph:app-window': AppWindow, 'ph:shield-check': ShieldCheck, 'ph:compass': Compass,
 } as const;
-const activeScopeMetadata = navigationScopes.find((scope) => scope.id === activeScope);
+const scopes = menuScope ? navigationScopes.filter((scope) => scope.id === menuScope) : navigationScopes;
+const scopeLabel = scopes[0];
+const label = menuScope ? ('headerLabel' in scopeLabel ? scopeLabel.headerLabel : scopeLabel.label)
+  : current === '/' ? site.interfaceCopy.guides : activeScopeLabel;
 ---
 
 <Dropdown>
   <DropdownTrigger asChild>
-    <Button class:list={['guide-picker-trigger', `${placement}-guide-picker-trigger`, { 'mobile-page-picker-trigger': placement === 'mobile' }]} variant={placement === 'header' ? 'ghost' : 'outline'} size="sm" aria-label={placement === 'header' ? site.interfaceCopy.browseGuides : site.interfaceCopy.choosePage}>
-      {placement === 'sidebar' && activeScope !== 'handbook' && activeScopeMetadata && <ProviderProductIcon class={`sidebar-provider-icon sidebar-provider-icon-${activeScope}`} light={activeScopeMetadata.providerIcon} dark={'providerIconDark' in activeScopeMetadata ? activeScopeMetadata.providerIconDark : undefined} size={28} />}
-      <span>{placement === 'header' ? site.interfaceCopy.browseGuides : placement === 'sidebar' ? activeScopeLabel : selectedPageLabel}</span><ChevronDown aria-hidden="true" />
+    <Button class:list={['guide-picker-trigger', 'header-guide-picker-trigger', { 'scope-guide-picker-trigger': menuScope }]} variant="ghost" size="sm" aria-current={menuScope === activeScope && current !== '/' ? 'true' : undefined} data-guide-scope={menuScope}>
+      <span>{label}</span><ChevronDown aria-hidden="true" />
     </Button>
   </DropdownTrigger>
-  <DropdownContent class:list={['guide-page-options', `${placement}-guide-page-options`, { 'mobile-page-options': placement === 'mobile' }]} align={placement === 'header' ? 'end' : 'start'}>
-    <div class:list={['guide-page-options-scroll', { 'mobile-page-options-scroll': placement === 'mobile' }]} tabindex="0" role="group" aria-label="all handbook pages">
-    {navigationScopes.map((scope) => (
+  <DropdownContent class="guide-page-options header-guide-page-options" align="start">
+    <div class="guide-page-options-scroll" tabindex="0" role="group" aria-label={menuScope ? `${scopeLabel.label} chapters` : 'all handbook pages'}>
+    {scopes.map((scope) => (
       <DropdownGroup role="group" aria-label={scope.label}>
         <DropdownLabel>
           <ProviderProductIcon light={scope.providerIcon} dark={'providerIconDark' in scope ? scope.providerIconDark : undefined} size={16} loading="lazy" />
@@ -53,7 +53,7 @@ const activeScopeMetadata = navigationScopes.find((scope) => scope.id === active
           const chapter = chapterForOrder(page.data.navigation.order);
           const PageIcon = chapter ? chapterIcons[chapter.icon] : Book;
           return (
-            <DropdownLinkItem href={routeForEntry(page)} closeOnClick data-sw-drawer-close data-astro-prefetch={placement === 'mobile' ? 'tap' : 'hover'} aria-current={current === routeForEntry(page) ? 'page' : undefined}>
+            <DropdownLinkItem href={routeForEntry(page)} closeOnClick data-astro-prefetch="hover" aria-current={current === routeForEntry(page) ? 'page' : undefined}>
               <PageIcon aria-hidden="true" /><span>{chapterLabel(page)}</span>
             </DropdownLinkItem>
           );

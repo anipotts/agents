@@ -3,6 +3,58 @@
 This file tracks Ani's manual review of every currently public canonical page and each H1, H2, and H3 block. It is editorial working state, not public content. A section stays `unreviewed` until Ani has directly reviewed it. Git history, validation, publication status, and a lack of recent changes do not count as approval.
 
 
+## whole handbook reassessment: October 12, 2026
+
+Ani accepted the proposed task based structure and refined building into
+fun/curiosity and serious work involving business, income, money, impact, or
+startups. This is structure acceptance only. Ani separately accepted the exact homepage
+headline and subtitle on October 12; both are implemented with the story
+preserved. The everyday start example and exact three-sentence planning tradeoff paragraph
+are accepted and implemented. The bridge, longer planning candidate and three
+new hidden shared drafts remain proposed wording. Existing adopted
+headings and accepted paragraphs retain their exact scope.
+
+The maintained outline is `editorial/reassessment.md`; its section audit covers
+all 24 previous pages and scoped official source refreshes. Historical version
+receipts and whole-page acceptance are unchanged. The local main checkout was
+fast-forwarded to `6e62f8f` with unfinished design work restored; both stashes
+have recorded dispositions and are retained for recovery. See the audit for
+the historical mode-only stash rather than applying obsolete permission changes.
+
+## setup and reconciliation evidence: October 12, 2026
+
+Submission: [PR #326](https://github.com/anipotts/agents/pull/326). The signed
+submission commits have GitHub-recognized verification. Exact-head required
+checks and deployment state are recorded on that PR and its linked workflows;
+this record does not infer publication from local checks.
+
+Reusable setup succeeded in the saved checkout and an independent submission
+worktree, including a frozen install and cached Chromium. Nine setup tests
+cover failure handling, repeated installs, isolated paths, and runtime pinning.
+Native app environment selection remains unverified. The normal development
+preview used an OS-assigned localhost port. Full verification refreshes Astro's
+content store, so stop that checkout's preview during the suite and restart it.
+
+Source checks cover 126 registered sources. Astro diagnostics, 14 editorial
+inventory tests, build, generated routes/redirects, agent surfaces and media
+budgets passed after the accepted copy and Sharp 0.35.5 patch. Archived suites
+passed: 45 Bun tests and 175 Python tests. Shell syntax, JSON, Python compilation
+and changed Markdown passed. The complete earlier 306-case accessibility pass
+is retained separately from the rerun covering final changes.
+
+The rerun exposed two issues in restored design work: a contrast scan during
+the media dialog fade, and focus loss when a wide menu trigger disappears.
+The check now awaits completed dialog animation without excluding rules.
+Responsive focus transfer also handles focus lost to body when the trigger is
+hidden. Existing responsive interaction checks cover that transition; a bounded
+independent code review found no blocking issue. Final CI/browser results are
+on the PR rather than inferred from this implementation record.
+
+The original design QA notes remain in the recovery snapshot. A publishable
+copy lives in `docs/design-qa.md`, with a private local reference omitted after
+the privacy check identified it. Current privacy checks pass. The GitHub Sharp
+advisory identified 0.35.5 as patched; the package and lockfile are pinned to it.
+
 ## Grok and foundations voice pass: September 8, 2026
 
 Ani requested a stronger mobile comparison, the ability to watch real browser
@@ -1229,9 +1281,90 @@ The unclear “why am i repeating myself?” heading is now “why does my agent
       "date": "2026-09-08",
       "source": "Ani browser annotations on Grok and Start here, September 8, 2026, comments 1–10.",
       "note": "Ani comments 9 and 10 requested a brief conversational foundation with deeper links. Technical explanation comes from primary documentation, not an invented personal experience."
+    },
+    {
+      "file": "content/home.md",
+      "date": "2026-10-12",
+      "source": "Ani replied “use this wording” to the exact headline and subtitle in this chat on October 12, 2026.",
+      "origin": "ani-accepted-agent-candidate",
+      "id": "home-headline-20261012",
+      "status": "adopted-heading",
+      "match": "heading",
+      "anchor": "a-casual-guide-to---working-with---agents",
+      "hash": "4b3ff60579d81cbaa8692af8edf251550f32b94534073ea424b5018907611312",
+      "note": "Exact headline only. Excludes neighboring body, bridge and page title."
+    },
+    {
+      "file": "content/home.md",
+      "date": "2026-10-12",
+      "source": "Ani replied “use this wording” to the exact headline and subtitle in this chat on October 12, 2026.",
+      "origin": "ani-accepted-agent-candidate",
+      "id": "home-subtitle-20261012",
+      "status": "preserve",
+      "match": "quote",
+      "anchor": "a-casual-guide-to---working-with---agents",
+      "quote": "practical help for building things and getting everyday work done",
+      "hash": "b3c1d09d39ee71cbc736bb72b9c92a6416065aaf4f3cfc84710c5860e88e5b94",
+      "note": "Exact subtitle accepted; quote preservation avoids extending approval to provider markup or whole section."
+    },
+    {
+      "id": "home-story-preserved-20261012",
+      "file": "content/home.md",
+      "date": "2026-10-12",
+      "source": "Ani confirmed that the existing personal story stays intact with the new headline and subtitle.",
+      "origin": "ani-original-and-manual-edits",
+      "status": "preserve",
+      "match": "body",
+      "anchor": "why-i-made-this",
+      "hash": "9a5e59d73808715383d85aadd5e0a14eecafe0d12d4ac690ca8dd714598ace7f",
+      "note": "Current story preserved separately from the historical whole-file receipt."
+    },
+    {
+      "id": "start-everyday-task-20261012",
+      "file": "content/handbook/operating-agents.md",
+      "anchor": "what-should-i-ask-first",
+      "status": "preserve",
+      "match": "quote",
+      "quote": "say you have a page of rough project notes. paste a copy into the chat and ask:\n\n```text\nturn these notes into a short plan for this week. keep the decisions i’ve already made, flag questions that need my answer, and reply with a draft i can review.\n```\n\ncompare the draft with your notes, then tell it what you’d change.",
+      "hash": "b8267cb193a3bbd94895c7522026c9cdea126953404b414773293050b4ed0258",
+      "origin": "ani-accepted-agent-candidate",
+      "date": "2026-10-12",
+      "source": "Ani replied “use this wording” to the complete everyday project-notes example in this chat on October 12, 2026.",
+      "note": "Exact accepted introductory sentence, prompt and comparison sentence. Code fence only changes presentation. Remaining coding example and section body stay unaccepted."
+    },
+    {
+      "id": "start-planning-tradeoff-20261012",
+      "file": "content/handbook/operating-agents.md",
+      "anchor": "what-should-i-ask-first",
+      "status": "preserve",
+      "match": "quote",
+      "quote": "when the task is small and easy to undo, a quick first attempt gives you something concrete to react to. planning helps more when a wrong assumption would be expensive to fix. more planning has diminishing returns: eventually the next useful thing to learn comes from trying a small part of the work.",
+      "hash": "34d2cd26bd5f668b0738faeec67a5a39c5e1e655a497d8f031fac411476be834",
+      "origin": "ani-accepted-agent-candidate",
+      "date": "2026-10-12",
+      "source": "Ani replied “use this wording” to these exact three sentences in this chat on October 12, 2026.",
+      "note": "Exact paragraph only. The longer planning candidate and neighboring examples remain unaccepted."
     }
   ],
   "next": [
+    {
+      "id": "handbook-home-review",
+      "title": "Homepage and first task",
+      "file": "content/home.md",
+      "kind": "review",
+      "scope": "page",
+      "status": "open",
+      "detail": "Headline, subtitle, everyday first task and the exact three-sentence planning paragraph accepted October 12. Review the proposed homepage bridge next. Story preserved; no whole-page acceptance."
+    },
+    {
+      "id": "infrastructure-starter-review",
+      "title": "Personal infrastructure starter",
+      "file": "content/handbook/personal-infrastructure.md",
+      "kind": "review",
+      "scope": "page",
+      "status": "open",
+      "detail": "Hidden hypothetical weekly review exercise. Review usefulness, headings and body before publication; no personal-system inspection or anecdote is implied."
+    },
     {
       "title": "Grok: taking control",
       "detail": "Review the added visual-following observation and the scoped Codex/Claude mobile comparison alongside the preserved fingertip and phone-keyboard wording.",
@@ -1254,7 +1387,7 @@ The unclear “why am i repeating myself?” heading is now “why does my agent
     },
     {
       "title": "Start here",
-      "detail": "Review the friend-like introduction, separate model and harness explanations, descriptive prompt links, then memory, permissions, coordination, checks, and handoff.",
+      "detail": "Everyday first task and the exact three-sentence planning paragraph accepted October 12. Review the remaining foundations and deeper sections. The longer planning candidate and neighboring body remain unaccepted.",
       "file": "content/handbook/operating-agents.md",
       "anchor": "the-foundations",
       "id": "start-here-review",

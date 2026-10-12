@@ -2,7 +2,7 @@
 title: start here
 description: "the foundations of working with agents: models, harnesses, better prompts, and checking the result."
 products: [codex, claude-code]
-updatedAt: "2026-09-08T14:44:41-04:00"
+updatedAt: "2026-10-12T13:00:00-04:00"
 checkedAt: "2026-09-07T16:55:21-04:00"
 status: current
 evidence: [official-source, analysis]
@@ -65,6 +65,16 @@ Karpathy captured the language shift in one sentence back in 2023.
 <span id="begin-with-a-behavior-you-can-check" class="heading-alias" aria-hidden="true"></span>
 
 ## what should i ask first?
+
+say you have a page of rough project notes. paste a copy into the chat and ask:
+
+```text
+turn these notes into a short plan for this week. keep the decisions i’ve already made, flag questions that need my answer, and reply with a draft i can review.
+```
+
+compare the draft with your notes, then tell it what you’d change.
+
+when the task is small and easy to undo, a quick first attempt gives you something concrete to react to. planning helps more when a wrong assumption would be expensive to fix. more planning has diminishing returns: eventually the next useful thing to learn comes from trying a small part of the work.
 
 consider a search box that loses its query when you open a result and return.
 here are two example prompts for that same bug.

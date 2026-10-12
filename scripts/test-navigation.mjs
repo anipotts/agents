@@ -48,11 +48,11 @@ try {
   const documentToken = await page.evaluate(() => window.__navigationDocumentToken);
   expect(await page.title() === 'codex | coding agent tips', 'guide title is incorrect');
   expect(await page.locator('meta[name="astro-view-transitions-enabled"]').count() === 1, 'ClientRouter marker is missing');
-  expect(await page.locator('.publication-sidebar .guide-page-options a[data-astro-prefetch="hover"]').count() >= 13, 'desktop guide picker must expose all public chapters');
+  expect(await page.locator('.header-guides-compact .guide-page-options a[data-astro-prefetch="hover"]').count() >= 13, 'header guide picker must expose all public chapters');
   const expectedCodexRoutes = canonicalContentFiles().filter(({ route }) => route.startsWith('/guides/codex/')).map(({ route }) => route).sort();
   const prefetchedCodexRoutes = await page.locator('.publication-sidebar [data-sidebar="menu-button"][data-astro-prefetch="hover"]').evaluateAll((links) => links.map((link) => link.getAttribute('href')).sort());
   expect(JSON.stringify(prefetchedCodexRoutes) === JSON.stringify(expectedCodexRoutes), 'public desktop chapters are missing selective hover prefetching');
-  expect(await page.locator('.mobile-page-options a[data-astro-prefetch="tap"]').count() >= 13, 'mobile page picker is missing selective tap prefetching');
+  expect(await page.locator('.publication-sidebar .guide-picker-trigger, .mobile-site-menu .guide-picker-trigger').count() === 0, 'guide selection belongs only in the header');
   expect(await page.locator('.sidebar-page-outline a[data-astro-prefetch]').count() === 0, 'hash links must not be prefetched');
 
   for (const viewport of [
@@ -78,7 +78,7 @@ try {
         .map((bounds) => bounds.height),
       pageActionHeights: [...document.querySelectorAll('.page-actions button')].map((control) => control.getBoundingClientRect().height),
       headerGroupsOverlap: (() => {
-        const groups = [...document.querySelectorAll('.site-header .site-name, .header-actions')]
+        const groups = [...document.querySelectorAll('.site-header .site-name, .header-guide-picker, .header-actions')]
           .map((element) => element.getBoundingClientRect());
         return groups.some((first, index) => groups.slice(index + 1).some((second) =>
           first.left < second.right && first.right > second.left && first.top < second.bottom && first.bottom > second.top
@@ -147,11 +147,7 @@ try {
   await sheet.waitFor({ state: 'hidden' });
   expect(await sheetTrigger.evaluate((trigger) => document.activeElement === trigger), 'mobile Sheet does not restore trigger focus');
   await sheetTrigger.click();
-  await sheet.getByRole('button', { name: 'choose page', exact: true }).click();
-  await page.keyboard.press('Escape');
-  expect(await sheet.isVisible(), 'closing the page picker also closed the Sheet');
-  await sheet.getByRole('button', { name: 'choose page', exact: true }).click();
-  await page.locator('.mobile-page-options a[href="/guides/codex/configuration/"]').click();
+  await sheet.locator('a[href="/guides/codex/configuration/"]').click();
   await page.waitForURL('**/guides/codex/configuration/');
   await sheet.waitFor({ state: 'hidden' });
   await page.goBack();
@@ -260,8 +256,6 @@ try {
         width: bounds.width,
       };
     };
-    const siteMark = document.querySelector('.site-name img').getBoundingClientRect();
-    const railMark = document.querySelector('.sidebar-provider-icon').getBoundingClientRect();
     return {
       controls: [
         box('[data-slot="theme-toggle"]'),
@@ -273,15 +267,13 @@ try {
       outlineRule: getComputedStyle(document.querySelector('.sidebar-page-outline')).borderInlineStartWidth,
       railHeaderHeight: document.querySelector('.handbook-rail-head').getBoundingClientRect().height,
       siteHeaderHeight: document.querySelector('.site-header').getBoundingClientRect().height,
-      leftAlignmentDelta: Math.abs(siteMark.left - railMark.left),
     };
   });
   expect(chromeStyles.controls.every((control) => control.width === 32 && control.height === 32), 'header and sidebar controls do not share a compact 32px footprint');
   expect(chromeStyles.controls.every((control) => control.borderStyle !== 'outset'), 'native browser borders leak into Starwind controls');
   expect(chromeStyles.listMarkers === 0, 'browser list markers leak into the guide sidebar');
   expect(chromeStyles.outlineRule === '0px', 'the retired heading connector rule remains visible');
-  expect(chromeStyles.railHeaderHeight === chromeStyles.siteHeaderHeight, 'sidebar and site headers use different vertical rhythms');
-  expect(chromeStyles.leftAlignmentDelta < 1, 'sidebar identity does not align with the site header gutter');
+  expect(chromeStyles.railHeaderHeight >= 48 && chromeStyles.railHeaderHeight <= 52, 'sidebar collapse row must remain compact');
 
   await page.locator('[data-slot="theme-toggle"]').click();
   const darkChrome = await page.evaluate(() => {
@@ -358,9 +350,9 @@ try {
   for (const width of [375, 1440]) {
     await page.setViewportSize({ width, height: 900 });
     await page.goto(`${origin}/archive/claude-code-tools/`, { waitUntil: 'networkidle' });
-    expect((await page.locator('.sidebar-guide-picker-trigger').textContent()).trim() === 'claude code', 'archive must activate Claude Code in the guide picker');
+    expect((await page.locator('.header-guides-compact .guide-picker-trigger').textContent()).trim() === 'claude code', 'archive must activate Claude Code in the guide picker');
     expect(await page.locator('.publication-sidebar .chapter-menu [aria-current="page"]').getAttribute('href') === '/archive/claude-code-tools/', 'archive must remain reachable and active in the Claude Code chapter list');
-    const archiveGroup = page.locator('.mobile-page-options [data-slot="dropdown-group"]').filter({ has: page.locator('a[href="/archive/claude-code-tools/"]') });
+    const archiveGroup = page.locator('.header-guides-compact .guide-page-options [data-slot="dropdown-group"]').filter({ has: page.locator('a[href="/archive/claude-code-tools/"]') });
     expect((await archiveGroup.locator('[data-slot="dropdown-label"]').textContent())?.trim() === 'claude code', 'mobile archive entry must be grouped under Claude Code');
     await page.mouse.move(0, 0);
     await codeCopy.hover();
@@ -388,7 +380,7 @@ try {
   const reducedContext = await browser.newContext({ viewport: { width: 1024, height: 900 }, reducedMotion: 'reduce' });
   const reducedPage = await reducedContext.newPage();
   await reducedPage.goto(`${origin}/guides/codex/`, { waitUntil: 'networkidle' });
-  expect(await reducedPage.locator('.sidebar-guide-picker-trigger').first().evaluate((link) => Number.parseFloat(getComputedStyle(link).transitionDuration) <= .001), 'reduced motion does not suppress interface transitions');
+  expect(await reducedPage.locator('.header-guide-picker-trigger:visible').first().evaluate((link) => Number.parseFloat(getComputedStyle(link).transitionDuration) <= .001), 'reduced motion does not suppress interface transitions');
   await reducedContext.close();
 
   await verifyChapterDisclosures({ browser, origin });
