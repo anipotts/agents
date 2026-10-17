@@ -2,7 +2,7 @@
 title: what else can it do?
 description: choosing and combining codex extensions by the job they do.
 products: [codex]
-updatedAt: "2026-10-17T18:23:26-04:00"
+updatedAt: "2026-10-17T18:40:42-04:00"
 checkedAt: "2026-09-07T15:01:58-04:00"
 status: current
 completion: complete
@@ -131,9 +131,8 @@ the operations i'm interested in are concrete: create a task, message it,
 read its history, check its current activity, and archive it when the work is
 done. integrations can use the [app server](https://learn.chatgpt.com/docs/app-server)
 for thread operations, history, and runtime events. OpenAI labels the app server
-experimental and unsupported for production workloads. desktop task tools have
-their own supported operations; an app server method does not establish a
-matching desktop tool. history tells you what has happened; status and new events help you keep up with what happens next.
+experimental and unsupported for production workloads. desktop task tools expose
+their own supported operations. history tells you what has happened; status and new events help you keep up with what happens next.
 
 <span id="the-return-contract-matters" class="heading-alias" aria-hidden="true"></span>
 
