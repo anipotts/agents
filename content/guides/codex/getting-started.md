@@ -2,7 +2,7 @@
 title: your first task
 description: a first useful codex loop with one repository, one task, and one way to verify it.
 products: [codex]
-updatedAt: "2026-09-08T14:44:41-04:00"
+updatedAt: "2026-10-17T18:23:26-04:00"
 checkedAt: "2026-09-07T15:01:58-04:00"
 status: pending
 completion: outline
@@ -31,7 +31,10 @@ may belong to someone else.
 
 ## example: fix a retry count
 
-this small exercise uses Node.js and a new scratch directory. it deliberately
+this coding exercise assumes basic JavaScript and Git knowledge. follow the
+[CLI setup](https://learn.chatgpt.com/docs/codex/cli) to install and sign in if
+needed. check `node --version` and `git --version` before creating a new scratch
+directory. the example deliberately
 starts with a bug: `0` gets replaced by the default retry count.
 
 ```sh
@@ -75,7 +78,9 @@ keep the existing tests and run node --test retry.test.mjs.
 explain the cause and show the change. finish with local files only.
 ```
 
-the expected fix uses `value ?? 3`. inspect the function and rerun the test.
+the expected fix uses `value ?? 3`. `||` replaces every falsy value, including
+zero; `??` uses the default only for `null` or `undefined`. inspect the function
+and rerun the test.
 that demonstrates one complete loop: observed failure, a bounded request, a
 change, and a check you can repeat. it proves the listed inputs; validation of
 negative numbers or strings would be a separate requirement.

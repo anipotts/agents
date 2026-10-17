@@ -2,12 +2,12 @@
 title: choosing your setup
 description: source based starting points for claude code, with a practical way to compare and extend a setup.
 products: [claude-code]
-updatedAt: "2026-09-07T22:03:00-04:00"
+updatedAt: "2026-10-17T18:23:26-04:00"
 checkedAt: "2026-09-07T15:02:34-04:00"
 status: current
 completion: complete
 evidence: [official-source, analysis, open-question]
-sources: [anthropic-claude-overview, anthropic-platforms, anthropic-desktop, anthropic-remote-control, anthropic-web, anthropic-agents, anthropic-routines, boris-parallel-claude-post]
+sources: [anthropic-claude-overview, anthropic-platforms, anthropic-desktop, anthropic-remote-control, anthropic-web, anthropic-agents, anthropic-agent-teams, anthropic-mods-overview, anthropic-routines, boris-parallel-claude-post]
 redirects: []
 voice: evidence
 navigation:
@@ -103,10 +103,13 @@ detail is how he keeps track of work that needs his attention.
 ## should i rely on a preview?
 
 Claude Code’s [agent guidance](https://code.claude.com/docs/en/agents) includes
-experimental agent teams. web sessions and [routines](https://code.claude.com/docs/en/routines)
-remain a research preview. the [Function Hooks discussion](/guides/claude-code/extensions/#function-hooks-are-a-proposal)
-points toward deeper customization. decide how much change a workflow can absorb
-before depending on one of those interfaces.
+[experimental agent teams](https://code.claude.com/docs/en/agent-teams),
+disabled by default, and agent view in research preview.
+[routines](https://code.claude.com/docs/en/routines) also remain in research
+preview. [Mods](/guides/claude-code/extensions/#mods-extend-the-harness) now
+provide the deeper customization introduced in the Function Hooks discussion.
+check each feature’s current status and your account’s availability before
+building a workflow around it.
 
 use a disposable project for an experiment, capture the version and expected
 result, and keep a way to return to the supported setup. a reproducible small

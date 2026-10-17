@@ -553,6 +553,66 @@ Correct the Function Hooks proposal-only framing and any shared guide claim that
 The broader deferred source work still includes routines/scheduling behavior, sandbox platform/enforcement specifics, desktop workflows, plugins packaging/validation, actual examples and private account availability. This pass does not settle them.
 
 
+
+## accuracy corrections, October 17, 2026
+
+Codex owns integration for Ani's request to fix the product accuracy findings
+before continuing small wording batches. The previous page audits retain their
+history. The table below closes their factual questions for the stated claims;
+structural and voice suggestions remain for wording review. Scoped primary
+source checks are recorded per entry in `editorial/sources.json`. Sources read
+on October 17 describe documented behavior, with no private account test.
+
+| finding | disposition and current evidence |
+| --- | --- |
+| Codex surfaces and source availability | CLI, editor, desktop and cloud descriptions remain supported; overview now states closed-source IDE/cloud and published cloud environment setup. CLI/SDK/app-server sources remain available. |
+| Codex precedence, trust, reserved keys | Configuration now includes cloud managed defaults; trusted closest-project precedence and reserved provider/routing keys remain supported. |
+| Codex config profiles | Sibling `inspect.config.toml`, top-level TOML and `--profile inspect` are current documented syntax. TOML parses; CLI 0.162.1 help accepts the shown sandbox/approval flags. No live profile session. |
+| Codex memories | Added default-off, background/eligible-chat and local-host/web distinctions plus separate chat/global controls. No internal storage path asserted. |
+| Codex approvals and permission profiles | Existing `never` versus access distinction remains supported; profiles identified as beta. Command proxy requires activation and covers command/subprocess traffic, with hosted tools outside it. No enforcement test. |
+| Codex MCP | Existing transports/tool controls remain supported. Removed hosting commands replace deprecated wording; external MCP connections remain supported. |
+| Codex app server | Thread/turn/item and history/status/events remain supported. Added experimental/non-production qualification and distinction from native desktop task tools. |
+| Codex skills, plugins and subagents | Existing progressive loading, component packaging and separate delegated contexts remain supported; added IDE plugin exclusion and cloud plugin-hook limits. |
+| Codex hooks | Existing discovery/concurrency/trust remains supported; added local-tool coverage limits and managed cloud-coordination distinction. No handler executed. |
+| Codex schedules | Replaced broad cloud automation claim with standalone/chat context, desktop project/worktree prerequisites, web uploads/connections and separate app-event availability. Default sandbox retained. No schedule executed. |
+| Codex Remote, SSH and handoff | Overview clarifies host availability, rollout, SSH through desktop and Work local-access mode. Workflow distinguishes phone steering from matching-project cross-host handoff, interruption and no self/cloud handoff. No transfer executed. |
+| Codex image generation | Existing generation/edit capability supported; requested dimensions explicitly require measuring output. No image generated. |
+| autoresearch | Current project README supports training/edit/score/keep-discard loop, human instructions and Codex applicability; NVIDIA GPU setup remains external project scope. No training run. |
+| Codex first-task example | Added coding/Node/Git prerequisites and onboarding link, explained OR versus nullish default. Extracted original fails the zero assertion; documented fix passes both tests. |
+| Codex parallel review example | Added committed-branch versus uncommitted-working-tree distinction. Synthetic prompt remains an unexecuted delegation example. |
+| Claude Remote Control | Added synchronized transcript/server boundary and interactive retry versus server-mode timeout. Existing local execution/viewing distinction remains supported. |
+| Claude cloud and local transfer | Removed blanket web preview label; hidden workflow distinguishes teleport, new cloud tasks and Desktop local-to-cloud option. No transfer executed. |
+| Claude settings and trust | Corrected precedence to `--settings` JSON; added list/security exceptions, per-setting flags/env, `/status` sources, `/config` subset and checkout/trust scope. |
+| Claude project instructions | Native AGENTS.md fallback and explicit import compatibility corrected in configuration and shared start page. Configuration may change selection. |
+| Claude memory | Added per-repository/worktree scope and startup 200-line/25KB limit; context remains distinct from permission enforcement. |
+| Cowork | Corrected cloud session execution; connected Desktop required for local capabilities; browser availability varies during rollout. |
+| Claude skills and subagents | Existing skill invocation/control syntax remains supported; clarified separate-context subagents versus independent sessions/teams. No live skill invocation. |
+| Claude teams and agent view | Teams remain experimental and disabled by default; agent view remains preview; `/agents` manages subagent definitions. |
+| Claude hooks and fixture | Existing settings-hook types and post-action semantics remain supported. Edit/Write match excludes Bash/external edits. Extracted hook shell command passes on good fixture and exits 2 with stderr on intentional failure; no live registration. |
+| Claude Mods | Proposal-only wording replaced with shipped feature, minimum versions/default enablement, obsolete flag, user-permission code outside Bash sandbox and separate event/failure API. Historical fragment alias retained; no runtime trial. |
+| Claude MCP | Added server inspection and local/project/user scope; loading/trust is separate from tool approval and account access. Noninteractive/cloud behavior qualified. |
+| Claude plugins | Manifest/component-root and validate/load syntax supported by current reference; reference registered. No plugin load performed. |
+| Claude scheduling | Added dirty-directory default, optional worktree isolation and latest missed catchup within seven days. Local session schedule/host requirements and cloud routines remain supported. No schedule executed. |
+| Claude sandbox | Added supported OS scope, native Windows exclusion, dependency fallback/failIfUnavailable and Bash-only enforcement boundary. No enforcement trial. |
+| Claude first-task fixture | Original extracted normalizer fails; corrected fixture passes. Extension fixture and hook shell success/failure cases also exercised. |
+| Grok product/computer distinction | Removed OS-level application label; persistent shared cloud computer, separate Bot screens, names/avatars and communication remain supported. Accepted computer-view body preserved. |
+| Grok mobile and saved sign-ins | Takeover/return-control and cloud continuity supported; trackpad wording remains Ani's supplied observation. Historical comparison stays dated and personal; current competitor docs do not prove absence of all live-view controls. |
+| Grok settings and CLI | MCP location and documented `grok version` corrected; existing project scope/scanners/TOML remain supported. Title now settings and access because the page covers access. Historical 0.2.22 discovery receipt unchanged. |
+| Grok sandbox | Added default-off, Linux/macOS filesystem scope, Linux-only child network limits, in-process exclusions and built-in writable/credential-path caveats. No enforcement trial. |
+| Grok Bot profiles and hiding | Clarified profile fields and description instructions; hide/unhide versus continuing routines remains supported. |
+| Grok routine exercises | Added one owner/optional event triggers, desktop-only edit/test controls and missing changelog-input assumption. Exercises remain proposed evaluations, with no routine/account trial. |
+
+Public and hidden page visibility, checkedAt, global checked_on, recorded product
+versions, archive files and structured acceptance records are preserved. UpdatedAt
+records actual edits. Accepted passages are checked against the pre-edit tree;
+no source refresh grants neighboring prose acceptance. Original media and credits
+remain unchanged. The X source/image lookup was inconclusive in the source tool;
+that historical media entry receives no freshness advance.
+
+Implementation review found no blocking correctness issue. Full source, Astro,
+build, route, Markdown, shell and browser verification and protected publication
+are tracked in the release receipt; a source check alone proves none of them.
+
 # stash reconciliation: October 12, 2026
 
 Observed against current HEAD/main `6e62f8f` on 2026-10-12; dirty handbook/design work exists and was not changed.

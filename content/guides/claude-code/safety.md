@@ -2,7 +2,7 @@
 title: what can go wrong?
 description: claude code identity, secrets, external tools, and the decisions that stay human.
 products: [claude-code]
-updatedAt: "2026-09-07T16:33:00-04:00"
+updatedAt: "2026-10-17T18:23:26-04:00"
 checkedAt: "2026-09-07T15:02:34-04:00"
 status: pending
 completion: outline
@@ -34,7 +34,10 @@ three when a workflow reaches beyond local files.
 use `/sandbox` to inspect the mode, resolved configuration, and options for
 commands that need to run outside it. an unsandboxed retry changes where the
 command can reach. decide whether that path belongs in the workflow before
-making it routine.
+making it routine. the sandbox supports macOS, Linux, and WSL2; native Windows
+commands run unsandboxed. missing sandbox dependencies can also cause an
+unsandboxed fallback unless `sandbox.failIfUnavailable` requires startup to
+fail. file tools, MCP servers, and hooks run outside the Bash sandbox.
 
 test a restriction with harmless fixtures: a disposable file in an allowed
 folder, a disposable file outside it, and an expected blocked operation. record
@@ -96,8 +99,8 @@ queue, with enough context for the person deciding what happens next.
 
 [managed settings](https://code.claude.com/docs/en/settings) let an organization
 set policy above local choices. [hooks](https://code.claude.com/docs/en/hooks)
-can check named events, such as a proposed tool call. a hook needs a tested input
-contract, a clear failure result, and an owner who keeps it working as the tool
+can check named events. a `PreToolUse` hook can block a proposed tool action.
+a hook needs a tested input contract, a clear failure result, and an owner who keeps it working as the tool
 changes. post action hooks inspect a result after the action has happened.
 
 finish with the artifact, environment, identity, and outcome. “prepared a

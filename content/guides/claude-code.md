@@ -2,7 +2,7 @@
 title: claude code
 description: a practical map of claude code across terminal, desktop, editor, web, and remote workflows.
 products: [claude-code]
-updatedAt: "2026-09-08T14:44:41-04:00"
+updatedAt: "2026-10-17T18:23:26-04:00"
 checkedAt: "2026-09-07T15:02:34-04:00"
 status: current
 completion: complete
@@ -82,11 +82,14 @@ outputs. either can also need a code review.
 
 ### web and Remote Control
 
-[web sessions](https://code.claude.com/docs/en/claude-code-on-the-web), currently
-a research preview, run in a cloud environment. [Remote Control](https://code.claude.com/docs/en/remote-control)
+[cloud sessions](https://code.claude.com/docs/en/claude-code-on-the-web) run in
+a separate execution environment. [Remote Control](https://code.claude.com/docs/en/remote-control)
 lets a browser or phone steer Claude Code running on your machine. local tools,
 files, and configuration stay with that machine, and the local process needs
-to remain available for work to continue there.
+to remain available for work to continue there. the conversation synchronizes
+through Anthropic’s servers. after an interruption, interactive sessions retry
+the connection; a server mode process exits after roughly ten minutes of
+network loss while the host is awake.
 
 picture a bug that only reproduces with your local development database. Remote
 Control can let you check on that investigation from your phone. a cloud task
@@ -141,10 +144,14 @@ meant by “done.”
 ### Cowork
 
 [Cowork](https://support.claude.com/en/articles/13345190-get-started-with-claude-cowork)
-extends Claude into broader files and deliverables. an engineering task fits
-Claude Code when its output belongs in a repository and needs the project’s
-verification. a document or a collection of organized files has its own review
-criteria. name the output first, then pick the workflow around it.
+covers research, documents, organized files, and scheduled work. its cloud
+sessions run code on Anthropic’s servers and can continue with your laptop
+closed. local file, browser, and computer access require the Claude Desktop
+app to stay open and connected. browser options vary during rollout.
+
+Claude Code fits engineering work that needs project tools and verification.
+a document or a collection of organized files has its own review criteria.
+name the output first, then pick the workflow around it.
 
 <div class="surface-bento">
   <figure><a href="https://support.claude.com/en/articles/13345190-get-started-with-claude-cowork"><img src="/media/publications/claude-cowork-1200.webp" srcset="/media/publications/claude-cowork-640.webp 640w, /media/publications/claude-cowork-1200.webp 1200w" sizes="(max-width: 767px) calc(100vw - 32px), (max-width: 1151px) calc(100vw - 320px), 832px" alt="the Cowork tab in the Claude desktop app" loading="lazy" decoding="async" width="1200" height="842" /></a><figcaption>the Cowork task interface in Claude. <a href="https://support.claude.com/en/articles/13345190-get-started-with-claude-cowork">Anthropic’s Cowork guide</a>.</figcaption></figure>

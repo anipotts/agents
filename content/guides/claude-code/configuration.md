@@ -2,7 +2,7 @@
 title: settings and memory
 description: where claude code instructions and settings belong, how precedence works, and how to inspect the result.
 products: [claude-code]
-updatedAt: "2026-09-07T16:33:00-04:00"
+updatedAt: "2026-10-17T18:23:26-04:00"
 checkedAt: "2026-09-07T15:02:34-04:00"
 status: current
 completion: complete
@@ -40,15 +40,20 @@ be able to understand a project setting without also inheriting your machine.
 ### which setting wins?
 
 Anthropic documents this order for conflicting settings, highest first:
-managed settings, command line options, project local settings, shared project
-settings, then user settings. merging has field specific behavior; permission
-and hook lists deserve a look at the reference when more than one layer sets
-them.
+managed settings, JSON passed with `--settings`, project local settings,
+shared project settings, then user settings. lists generally combine across
+files; model lists and a few security settings have specific exceptions.
+other command line flags and environment variables follow the rules for the
+individual setting.
 
 if a setting seems ignored, inspect its scope before adding another override.
 a local copy can hide a project change, and a managed value can constrain every
-local choice. use `/config` to inspect settings, `/permissions` for tool rules,
-and `claude doctor` for configuration diagnostics.
+local choice. use `/permissions` for tool rules and `claude doctor` for
+configuration diagnostics. `/status` lists the settings
+files loaded by the session. `/config` exposes selected personal options;
+inspect the JSON files for the full configuration. shared settings reach
+teammates through their checkout, and some committed values require workspace
+trust before they take effect.
 
 <span id="keep-instructions-and-memory-legible" class="heading-alias" aria-hidden="true"></span>
 
@@ -60,8 +65,12 @@ and `claude doctor` for configuration diagnostics.
 
 ### one set of project rules
 
-Claude supports imports in `CLAUDE.md`. a repository with shared agent guidance
-can use:
+Claude Code v2.1.277 and later can read `AGENTS.md` directly when there is no
+`CLAUDE.md` or `CLAUDE.local.md` in the working directory or its ancestors.
+the Project instructions setting can change that selection.
+
+an explicit import in `CLAUDE.md` still works for compatibility or for a project
+that keeps Claude specific instructions alongside shared guidance:
 
 ```markdown
 @AGENTS.md
@@ -82,8 +91,11 @@ contributors maintain.
 
 ### is that memory still right?
 
-auto memory holds notes Claude saves from work. inspect a remembered command
-before treating it as the current way to run the project. repository files,
+auto memory holds notes Claude saves from work, shared across worktrees of
+the same repository on that machine. startup loads the first 200 lines or
+25KB of `MEMORY.md`, whichever comes first; topic files load when needed.
+instructions and memory supply context. configured permissions enforce tool
+approvals. inspect a remembered command before treating it as the current way to run the project. repository files,
 current tool output, and a dated decision can resolve a stale note.
 
 keep the author of a note clear too. an agent’s summary of a preference is a

@@ -2,7 +2,7 @@
 title: grok
 description: a current source based map of grok build, grok bot, and the wider grok product surface.
 products: [grok]
-updatedAt: "2026-09-08T14:44:41-04:00"
+updatedAt: "2026-10-17T18:23:26-04:00"
 status: pending
 evidence: [official-source, analysis, open-question]
 sources: [grok-build, grok-bot, grok-bot-mobile, grok-bot-computer, grok-bot-approvals, grok-bot-profiles, grok-bot-mobile-trackpad-capture, openai-remote-connections, anthropic-remote-control, x-api, grok-assistant]
@@ -25,7 +25,7 @@ model comparison does not get confused with a harness or a cloud computer.
 
 as of september 7, 2026, [Grok Build provides](https://docs.x.ai/build/overview) an interactive terminal CLI,
 headless scripting, ACP integration, custom models, skills, plugins, hooks, MCP,
-subagents, and workflows. [Grok Bot](https://docs.x.ai/grok-bot/overview) is an OS level application that offers
+subagents, and workflows. [Grok Bot](https://docs.x.ai/grok-bot/overview) offers
 persistent Grok agents on a shared cloud computer that you can oversee from your computer or phone.
 
 i use Grok drastically less than Codex and Claude Code, so these pages won't

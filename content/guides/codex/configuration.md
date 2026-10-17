@@ -2,7 +2,7 @@
 title: settings and memory
 description: where codex instructions, permissions, tools, and reusable workflows belong.
 products: [codex]
-updatedAt: "2026-09-07T16:33:00-04:00"
+updatedAt: "2026-10-17T18:23:26-04:00"
 checkedAt: "2026-09-07T15:01:58-04:00"
 status: current
 completion: complete
@@ -38,10 +38,11 @@ have different effects: one guides the agent; the other constrains commands.
 
 ## which setting wins?
 
-as of September 7, 2026, the documented
+as of October 17, 2026, the documented
 [configuration order](https://learn.chatgpt.com/docs/config-file/config-basic)
 is command line overrides, trusted project configuration, a selected profile,
-user configuration, system defaults, then built in defaults. project settings
+user configuration, cloud managed defaults when supplied by the workspace,
+system defaults, then built in defaults. project settings
 closer to the working directory take precedence over those higher up the tree.
 managed requirements can restrict the values a session may use.
 
@@ -87,8 +88,12 @@ profiles, especially when the app and CLI use different installed versions.
 project instructions should explain what applies now. memory can supply useful
 context from earlier work: a failed approach, a preference, or a pointer to an
 investigation. [local Codex memories](https://learn.chatgpt.com/docs/customization/memories)
-are generated from eligible previous chats when enabled, and updates can arrive
-later.
+are off by default. once enabled, they draw from eligible prior chats and
+update in the background; active or short chats can be skipped.
+
+`/memories` controls whether the current chat uses or contributes memories.
+global enablement is separate. the IDE uses its connected host's store;
+ChatGPT on the web uses separate ChatGPT memory controls.
 
 check remembered facts against the current checkout and the user's latest
 instructions. a memory saying a test uses one command can become stale when
@@ -105,7 +110,7 @@ ask for a new approval; restricted commands can still fail. it does not grant
 extra access. the [approval guide](https://learn.chatgpt.com/docs/agent-approvals-security)
 explains these combinations.
 
-named [permission profiles](https://learn.chatgpt.com/docs/permissions) provide
+the beta [permission profiles](https://learn.chatgpt.com/docs/permissions) provide
 another way to describe filesystem and network policy. they are separate from
 the config profiles above. follow one supported permission configuration
 format, and check the active policy before assuming a directory or destination
