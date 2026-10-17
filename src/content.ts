@@ -1,9 +1,16 @@
 import { getCollection, type CollectionEntry } from 'astro:content';
-import { handbookScopes, type NavigationScope } from './site';
+import { chapterForOrder, handbookScopes, type NavigationScope } from './site';
 
 export type HandbookEntry = CollectionEntry<'docs'>;
 
 export const routeForEntry = (entry: HandbookEntry) => `/${entry.id.replace(/\/$/, '')}/`;
+
+export function chapterLabelForEntry(entry: HandbookEntry): string {
+  const chapter = chapterForOrder(entry.data.navigation.order);
+  return entry.data.navigation.scope !== 'handbook' && chapter?.id === 'overview'
+    ? chapter.label
+    : entry.data.title;
+}
 
 export async function scopeForPath(pathname: string): Promise<NavigationScope> {
   const route = `${pathname.replace(/\/$/, '')}/`;

@@ -8,9 +8,9 @@ import Compass from '@tabler/icons/outline/compass.svg';
 import GitBranch from '@tabler/icons/outline/git-branch.svg';
 import ShieldCheck from '@tabler/icons/outline/shield-check.svg';
 import Collapsible from '@starwind-ui/astro/collapsible';
-import { routeForEntry, type HandbookEntry } from '../content';
+import { chapterLabelForEntry, routeForEntry, type HandbookEntry } from '../content';
 import { chapterOutline } from '../navigation';
-import { chapterForOrder, type NavigationScope } from '../site';
+import type { NavigationScope } from '../site';
 import { SidebarMenu, SidebarMenuAction, SidebarMenuButton, SidebarMenuItem, SidebarMenuSub, SidebarMenuSubButton, SidebarMenuSubItem } from './starwind/sidebar';
 
 interface Props {
@@ -19,7 +19,7 @@ interface Props {
   scope: NavigationScope;
   mode?: 'desktop' | 'mobile';
 }
-const { pages, current, scope, mode = 'desktop' } = Astro.props;
+const { pages, current, mode = 'desktop' } = Astro.props;
 const chapterIcons = [Compass, ArrowRight, Adjustments, GitBranch, AppWindow, ShieldCheck, Compass];
 ---
 
@@ -27,7 +27,7 @@ const chapterIcons = [Compass, ArrowRight, Adjustments, GitBranch, AppWindow, Sh
   {pages.map((page, index) => {
     const href = routeForEntry(page);
     const active = current === href;
-    const label = scope === 'handbook' ? page.data.title : chapterForOrder(page.data.navigation.order)?.label ?? page.data.title;
+    const label = chapterLabelForEntry(page);
     const NavigationIcon = chapterIcons[index] ?? BrandGithub;
     const headings = chapterOutline(page);
     const panelId = `chapter-outline-${mode}-${page.id.replace(/[^a-zA-Z0-9_-]/g, '-')}`;
