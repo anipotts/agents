@@ -2,7 +2,7 @@
 title: working on a project
 description: everyday, parallel, long running, and handed off codex work.
 products: [codex]
-updatedAt: "2026-09-07T22:03:00-04:00"
+updatedAt: "2026-10-17T18:23:26-04:00"
 checkedAt: "2026-09-07T15:01:58-04:00"
 status: pending
 completion: outline
@@ -80,9 +80,16 @@ arrive together, review the most consequential dependency first.
 ## how do i schedule repeated work?
 
 [scheduled tasks](https://learn.chatgpt.com/docs/automations) can run a saved
-prompt independently or continue an existing chat with its context. local
-project work requires the host and app to remain available. cloud work uses its
-configured hosted environment.
+prompt in a new chat for each run or return to an existing chat with its context.
+create and manage them from the desktop app or web; CLI and IDE lack that
+management interface. desktop project schedules need the project on disk,
+the computer on, and the app running. Git projects can use the local checkout
+or an isolated worktree. web tasks use uploads and connections, with no direct
+access to local folders. supported app event triggers on web and mobile have
+separate plan and workspace availability.
+
+unattended runs retain the default sandbox. they gain no extra access;
+organization policy also constrains approval behavior.
 
 a useful first automation is a report with a narrow scope:
 
@@ -105,16 +112,23 @@ files, tools, credentials, and permissions. an SSH project runs commands on the
 SSH host. [Codex cloud](https://learn.chatgpt.com/docs/cloud) runs in a separate
 hosted environment with its own setup.
 
-for a mobile handoff, check the connected host, task, checkout, and latest diff.
-a laptop that goes to sleep changes what local work can continue. a cloud task
-may keep running, but needs its own dependencies and access. choose the host
-first, then the screen that is convenient for steering it.
+mobile access steers work on its connected host. moving a chat to another host
+uses [handoff](https://learn.chatgpt.com/docs/remote-connections#hand-off-a-chat-between-hosts),
+which requires a matching saved Git project and transfers chat and Git state
+into a destination worktree. it interrupts active work. request it from another
+chat or use the desktop location control; the requesting chat cannot move
+itself. Codex Cloud is outside this handoff workflow.
+
+check the destination, checkout, and latest diff. remote access stops while
+the host is unavailable; a separately configured Codex Cloud task can continue
+while your laptop sleeps.
 
 ## image generation
 
 Codex can [generate and edit images](https://learn.chatgpt.com/docs/image-generation)
 from a prompt and reference material. describe the asset's purpose, dimensions,
-composition, and the parts that need to stay fixed. review the generated image
+composition, and the parts that need to stay fixed. measure the output before
+using it: requested dimensions still need checking. review the generated image
 before integrating it, then inspect it in the actual page at the sizes readers
 will see.
 

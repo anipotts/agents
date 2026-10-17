@@ -2,7 +2,7 @@
 title: what else can it do?
 description: choosing and combining codex extensions by the job they do.
 products: [codex]
-updatedAt: "2026-09-07T16:33:00-04:00"
+updatedAt: "2026-10-17T18:40:42-04:00"
 checkedAt: "2026-09-07T15:01:58-04:00"
 status: current
 completion: complete
@@ -58,11 +58,12 @@ another system. a server can run as a local process over stdio or expose a
 Streamable HTTP endpoint. the tool connection gives Codex an operation it can
 call; a skill can explain when that operation is useful.
 
-there is also the reverse direction: another application calling Codex. as of
-September 7, 2026, OpenAI marks the old
-[`codex mcp-server`](https://learn.chatgpt.com/docs/mcp-server) command deprecated
-and directs new integrations to the app server. connecting tools to Codex and
-embedding Codex inside another product are separate integration decisions.
+there is also the reverse direction: another application calling Codex.
+OpenAI has removed both old [MCP hosting commands](https://learn.chatgpt.com/docs/mcp-server),
+`codex mcp-server` and `codex-mcp-server`.
+existing integrations must migrate to the app server's JSON-RPC protocol.
+that requires client changes. external MCP connections managed with `codex mcp`
+remain supported.
 
 <span id="authentication-and-reach-stay-explicit" class="heading-alias" aria-hidden="true"></span>
 
@@ -88,8 +89,10 @@ use a hook when a specific event should trigger the same check each time.
 
 for example, a `SessionStart` hook can return the repository's current branch
 and changed paths as context. a `PreToolUse` hook can inspect a proposed action
-before it runs. keep the handler small enough to test directly with saved event
-input, then confirm it runs in the installed Codex version.
+before a supported local tool runs. hosted web search and some specialized
+tool paths sit outside that coverage. keep the handler small enough to test
+directly with saved event input, then confirm it runs in the installed Codex
+version.
 
 Codex discovers hooks in user and project configuration, including
 `.codex/hooks.json`. matching hooks from different sources all run, and command
@@ -100,6 +103,11 @@ nonmanaged hooks require trust for their current definition. inspect them with
 `/hooks` in the CLI after installation or changes. verify the successful case,
 the rejected case, and a handler error. a hook that silently skips its check
 leaves the session with a different policy than you intended.
+
+these local hooks apply when Codex coordinates the task locally.
+cloud coordinated Work with local computer access supports managed remote
+MCP hooks for eligible managed workspaces; local command and plugin hooks
+are unsupported there, even when a tool runs on your computer.
 
 ## task coordination and subagents
 
@@ -122,8 +130,9 @@ is what work it owns and which conversation should receive the result.
 the operations i'm interested in are concrete: create a task, message it,
 read its history, check its current activity, and archive it when the work is
 done. integrations can use the [app server](https://learn.chatgpt.com/docs/app-server)
-for thread operations, history, and runtime events. history tells you what
-has happened; status and new events help you keep up with what happens next.
+for thread operations, history, and runtime events. OpenAI labels the app server
+experimental and unsupported for production workloads. desktop task tools expose
+their own supported operations. history tells you what has happened; status and new events help you keep up with what happens next.
 
 <span id="the-return-contract-matters" class="heading-alias" aria-hidden="true"></span>
 
@@ -155,8 +164,9 @@ both should inspect without editing and return concrete findings with file refer
 wait for both, reconcile overlaps, and give me the issues that matter before release.
 ```
 
-use the project's actual base branch if it differs. separate questions let the
-agents investigate in parallel without writing over each other. the main task
+use the project's actual base branch if it differs. a branch comparison covers
+committed changes; ask for a working tree review too when edits are uncommitted.
+separate questions let the agents investigate in parallel without writing over each other. the main task
 still needs to check whether a finding is valid and whether two reports describe
 the same bug. more reports can increase the amount of review you owe the work.
 
@@ -169,6 +179,10 @@ MCP connections, and supported extensions for installation. a reusable review
 workflow might contain the procedure, a source lookup connection, and a small
 validation hook. a personal skill can stay a skill until there is a reason to
 install and maintain those pieces together.
+
+plugin support depends on the surface. use the desktop app or CLI for Codex
+plugins; the IDE extension currently has no plugin support. cloud coordinated
+Work has separate restrictions on plugin hooks.
 
 for a package you share, record its owner, version, dependencies, required
 access, and removal instructions. test from a clean session with representative

@@ -2,13 +2,13 @@
 title: what else can it do?
 description: choosing and combining claude code extensions by the job they do.
 products: [claude-code]
-updatedAt: "2026-09-07T22:03:00-04:00"
+updatedAt: "2026-10-17T18:23:26-04:00"
 checkedAt: "2026-09-07T15:02:34-04:00"
 status: current
 completion: complete
 draft: false
 evidence: [official-source, analysis, open-question]
-sources: [anthropic-features-overview, anthropic-skills, anthropic-subagents, anthropic-mcp, anthropic-hooks, anthropic-plugins, anthropic-function-hooks-proposal, alex-albert-mcp-github-demo-post]
+sources: [anthropic-features-overview, anthropic-skills, anthropic-subagents, anthropic-mcp, anthropic-hooks, anthropic-plugins, anthropic-function-hooks-proposal, anthropic-mods-overview, anthropic-mods-events, anthropic-plugins-reference, alex-albert-mcp-github-demo-post]
 redirects: []
 voice: personal
 navigation:
@@ -126,6 +126,13 @@ handoff. a worker can only use the context and tools it receives.
 systems. a skill can explain how to use an issue tracker; its MCP server
 provides the operations that read or change issues.
 
+use `claude mcp list` to inspect configured servers and `/mcp` inside a session
+to inspect connections and authenticate supported services. local, project,
+and user MCP scopes control where a server is configured. approving a project
+server and approving its tool calls are separate steps. interactive sessions
+ask before loading project servers; `claude -p`, SDK, and cloud sessions can
+load them without that prompt.
+
 begin with one inspectable operation, such as reading a known issue by its
 identifier. check the active account, expected result, and permissions in the
 environment where Claude runs. a connector configured locally can need separate
@@ -180,8 +187,9 @@ after an Edit or Write tool call:
 ```
 
 this deliberately small example runs after every matching edit in the scratch
-project. exit code 2 shows the failed check’s stderr to Claude; the edit has
-already happened. running the command directly checks the test and shell
+project. Bash commands and other processes that edit the same files do not
+match `Edit|Write`. exit code 2 shows the failed check’s stderr to Claude;
+the edit has already happened. running the command directly checks the test and shell
 behavior. triggering an actual Edit call is a separate check of the hook’s
 registration and delivery.
 
@@ -202,25 +210,34 @@ review skill under `skills/`, a specialist under `agents/`, and event handlers
 under `hooks/`. the manifest names the plugin; these component directories
 belong at the plugin root.
 
-use `claude plugin validate ./my-plugin` to check the package, then load it in
+use the [manifest reference](https://code.claude.com/docs/en/plugins-reference)
+and `claude plugin validate ./my-plugin` to check the package, then load it in
 a disposable project with `claude --plugin-dir ./my-plugin`. test one expected
 invocation and one failure. package validation checks structure; an actual run
 checks whether the pieces work together.
 
-## function hooks are a proposal
+<span id="function-hooks-are-a-proposal" class="heading-alias" aria-hidden="true"></span>
+
+## mods extend the harness
 
 i'm interested in how much an agent can change about its own setup, including
 the harness around it. that's why the Function Hooks proposal caught my
-attention: it could expose more of Claude Code's internals to extensions.
+attention: it described deeper access to Claude Code's internals.
 
-as checked September 7, 2026, [Function Hooks](https://github.com/anthropics/claude-code/issues/91870)
-remain an open proposal shared for feedback. the design describes JavaScript
-or TypeScript callbacks with an engine capability interface named `$`, an
-event, and a `next` continuation. callbacks could wrap later handlers, inspect
-results, or change what proceeds. the discussion also explores UI rendering
-and administrator controls. shipping and the final interface remain open.
+that [discussion](https://github.com/anthropics/claude-code/issues/91870) now
+tracks Mods. [Mods](https://code.claude.com/docs/en/plugins/mods/overview) are
+plugins with JavaScript or TypeScript event handlers that run inside Claude
+Code. they are enabled by default in terminal v2.1.287 and later and Desktop
+Code v2.1.286 and later, subject to organization controls. the earlier
+`CLAUDE_CODE_ENABLE_FUNCTION_HOOKS` variable is ignored from v2.1.287.
+
+mods can change tool calls, requests, and parts of the interface. they run
+with your user permissions, outside the Bash sandbox. inspect the code before
+loading one. the [event reference](https://code.claude.com/docs/en/plugins/mods/events)
+documents the `$` capabilities, event, and `next` continuation. handler failures
+can skip a handler, so a guard needs deliberate failure handling and a test.
 
 the interesting test for deeper customization is concrete: can a plugin observe
 one intended event, make a visible change, and recover cleanly when its callback
-fails? keep the proposed API separate from the supported hook mechanisms above
-while those contracts develop.
+fails? the settings hooks above and Mods have separate APIs. this page documents
+the distinction; it does not report a firsthand Mods runtime test.

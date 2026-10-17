@@ -2,13 +2,13 @@
 title: working on a project
 description: everyday, parallel, long running, and handed off claude code work.
 products: [claude-code]
-updatedAt: "2026-09-07T16:33:00-04:00"
+updatedAt: "2026-10-17T18:23:26-04:00"
 checkedAt: "2026-09-07T15:02:34-04:00"
 status: pending
 completion: outline
 draft: true
 evidence: [official-source, analysis, open-question]
-sources: [anthropic-agents, anthropic-subagents, anthropic-scheduled-tasks, anthropic-session-scheduling, anthropic-routines, anthropic-remote-control, anthropic-web]
+sources: [anthropic-agents, anthropic-subagents, anthropic-agent-teams, anthropic-scheduled-tasks, anthropic-session-scheduling, anthropic-routines, anthropic-remote-control, anthropic-web]
 redirects: []
 voice: evidence
 navigation:
@@ -48,7 +48,9 @@ they give the coordinator different responsibilities:
 | agent teams | a lead needs communicating teammates and a shared task list; currently experimental |
 | dynamic workflows | a repeatable sequence should coordinate several agents through a script |
 
-cross session messaging lets Claude pass findings between sessions. worktrees
+subagents work inside one session in separate context and return their
+findings. independent sessions and agent teams have their own coordination
+controls; teams are disabled by default. worktrees
 separate filesystem edits. communication and isolation solve different parts
 of the same problem: workers need to know what changed, and they need a place
 to change their own files.
@@ -74,9 +76,8 @@ product decision still needs an owner.
 
 `claude agents` opens agent view, currently a research preview, for background sessions.
 `/tasks` shows background work associated with the current session. the
-similarly named `/agents` command has a different job in current versions;
-use the [agent reference](https://code.claude.com/docs/en/agents) for the current
-controls.
+`/agents` command manages subagent definitions. use the
+[agent reference](https://code.claude.com/docs/en/agents) for the current controls.
 
 look for work waiting on input as well as work consuming time. another active
 agent adds another stream of output to review. use parallelism where the saved
@@ -91,9 +92,11 @@ waiting time exceeds the coordination it introduces.
 | cloud routine | configured cloud infrastructure | the routine’s environment and account |
 
 [desktop scheduled tasks](https://code.claude.com/docs/en/desktop-scheduled-tasks)
-can use local tools and worktrees. missed runs can produce a catchup run, so a
-morning prompt may execute later than its scheduled time. write a time boundary
-when the distinction matters.
+can use local tools and worktrees. by default they use the current working
+directory, including uncommitted changes; enable worktree isolation per task.
+on wake or app startup, Desktop starts one catchup run for the latest missed
+time within seven days. a morning prompt may execute later than its scheduled
+time. write a time boundary when the distinction matters.
 
 [routines](https://code.claude.com/docs/en/routines) can respond to schedules,
 API calls, and GitHub events. Anthropic labels them research preview. they run
@@ -113,6 +116,14 @@ on the host. a [web task](https://code.claude.com/docs/en/claude-code-on-the-web
 has a cloud environment. moving between those arrangements requires checking
 which files, uncommitted changes, dependencies, and accounts are available at
 the destination.
+
+to continue a cloud session locally, use `claude --teleport` from a checkout
+of the same repository, signed in to the same account. it fetches the pushed
+branch and copies the conversation; later terminal work stays local.
+`claude --cloud "describe the task"` starts a fresh cloud conversation.
+the Desktop Code tab also has a local to
+cloud option in its Open in menu. inspect what that workflow transfers before
+depending on local files at the destination.
 
 a handoff should name the branch or revision, what changed, what passed, and
 the next concrete step. for example: “the form fix is on this branch; its unit

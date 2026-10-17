@@ -2,7 +2,7 @@
 title: start here
 description: "the foundations of working with agents: models, harnesses, better prompts, and checking the result."
 products: [codex, claude-code]
-updatedAt: "2026-10-12T13:00:00-04:00"
+updatedAt: "2026-10-17T18:23:26-04:00"
 checkedAt: "2026-09-07T16:55:21-04:00"
 status: current
 evidence: [official-source, analysis]
@@ -137,9 +137,11 @@ architecture notes where every contributor can find them.
 
 [`AGENTS.md`](https://learn.chatgpt.com/docs/agent-configuration/agents-md) and
 [`CLAUDE.md`](https://code.claude.com/docs/en/memory) can point the agent toward
-that context. Claude Code supports importing a shared `AGENTS.md` from
-`CLAUDE.md` using `@AGENTS.md`. keep instructions specific to each runtime
-beside that shared material when needed.
+that context. current Claude Code can fall back to `AGENTS.md` when no
+`CLAUDE.md` or `CLAUDE.local.md` exists in the current or ancestor directories.
+configuration can change that selection. an explicit `@AGENTS.md` import in
+`CLAUDE.md` remains supported, including for older versions. keep instructions
+specific to each runtime beside shared material when needed.
 
 record the details that change behavior: which package owns routing, how to run
 its checks, and which generated files come from another source. move procedures

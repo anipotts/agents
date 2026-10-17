@@ -1,11 +1,11 @@
 ---
-title: settings and memory
+title: settings and access
 description: configure grok build by scope, inspect what it loads, and give grok bots a clear role.
 products: [grok]
-updatedAt: "2026-09-07T16:33:00-04:00"
+updatedAt: "2026-10-17T18:23:26-04:00"
 status: pending
 evidence: [tested, official-source, analysis]
-sources: [grok-build, grok-build-settings, grok-build-settings-reference, grok-build-permissions, grok-build-sandbox, grok-bot-profiles, grok-bot-approvals]
+sources: [grok-build, grok-build-cli, grok-build-settings, grok-build-settings-reference, grok-build-permissions, grok-build-sandbox, grok-bot-profiles, grok-bot-approvals]
 redirects: []
 voice: evidence
 navigation:
@@ -26,7 +26,7 @@ identifying which one you are changing.
 | personal defaults | `~/.grok/config.toml` |
 | repository MCP servers, plugins, and permission rules | `.grok/config.toml` |
 | shared agent instructions | `AGENTS.md` |
-| extensions | `.grok/` skills, plugins, hooks, and MCP servers |
+| extensions | `.grok/` skills, plugins, and hooks; MCP servers in `.grok/config.toml` |
 
 the [settings guide](https://docs.x.ai/build/settings) limits project
 configuration to those three jobs. model choices and interface preferences
@@ -57,10 +57,11 @@ rules = [
 ]
 ```
 
-then inspect discovery from that repository:
+then use the [CLI commands](https://docs.x.ai/build/cli/reference) to inspect
+discovery from that repository:
 
 ```sh
-grok --version
+grok version
 grok inspect
 ```
 
@@ -86,22 +87,28 @@ lists those scanners and their controls.
 
 ## what can it actually access?
 
-ask, auto, and always approve control tool permission decisions. auto uses a
-classifier where the feature is available; deny rules and hooks still apply.
-a [sandbox](https://docs.x.ai/build/features/sandbox) limits filesystem and
-network access when active. its profile and enforcement determine what an
-approved command can reach. inspect both controls before unattended work.
+ask, auto, and `always-approve` control tool permission decisions. auto uses a
+classifier where the feature is available; deny rules and PreToolUse hooks still apply.
+a [sandbox](https://docs.x.ai/build/features/sandbox) limits access when active
+and is off by default. filesystem enforcement uses Landlock on Linux and
+Seatbelt on macOS. the `workspace` profile permits network access; the
+`read-only` and `strict` profiles block child process network access on Linux.
+that network restriction has no effect on macOS, and model API calls and web
+tools are outside it. built in profiles also leave `~/.grok/` writable.
+credential paths such as `~/.ssh` need separately configured protection.
+inspect the profile and platform limits before unattended work.
 
 <span id="give-a-bot-a-role-and-a-task-a-finish-line" class="heading-alias" aria-hidden="true"></span>
 
 ## how should i set up a Bot?
 
-Grok Bot [profiles](https://docs.x.ai/grok-bot/bots) hold a name, description,
-avatar, and ongoing instructions. a useful role might be “collect documentation
+Grok Bot [profiles](https://docs.x.ai/grok-bot/bots) hold a name, label, description,
+and avatar. the description can hold ongoing instructions. a useful role might
+be “collect documentation
 changes for these three libraries.” put the specific libraries, date range,
 and expected output in the conversation for this run.
 
-for example:
+for example, after supplying the three changelog links:
 
 > check these three official changelogs since last friday. save a summary with
 > links and dates. flag anything that could change our setup. return the file

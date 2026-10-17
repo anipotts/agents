@@ -283,7 +283,10 @@
         "anthropic-hooks",
         "anthropic-plugins",
         "anthropic-function-hooks-proposal",
-        "alex-albert-mcp-github-demo-post"
+        "alex-albert-mcp-github-demo-post",
+        "anthropic-mods-overview",
+        "anthropic-mods-events",
+        "anthropic-plugins-reference"
       ],
       "experienceQuestions": [],
       "headings": [
@@ -295,7 +298,7 @@
         "## can it run a check after each edit?",
         "### try a hook",
         "## plugins",
-        "## function hooks are a proposal"
+        "## mods extend the harness"
       ]
     },
     {

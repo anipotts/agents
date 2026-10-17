@@ -8,7 +8,7 @@ import Compass from '@tabler/icons/outline/compass.svg';
 import GitBranch from '@tabler/icons/outline/git-branch.svg';
 import Home from '@tabler/icons/outline/home.svg';
 import ShieldCheck from '@tabler/icons/outline/shield-check.svg';
-import { getHandbookPages, routeForEntry, scopeForPath } from '../content';
+import { chapterLabelForEntry, getHandbookPages, routeForEntry, scopeForPath } from '../content';
 import ProviderProductIcon from './ProviderProductIcon.astro';
 import { chapterForOrder, navigationScopes, site, type NavigationScope } from '../site';
 import { Button } from './starwind/button';
@@ -20,9 +20,6 @@ const current = Astro.url.pathname;
 const activeScope = await scopeForPath(current);
 const pages = await getHandbookPages();
 const activeScopeLabel = navigationScopes.find((scope) => scope.id === activeScope)?.label ?? 'handbook';
-const chapterLabel = (page: (typeof pages)[number]) => page.data.navigation.scope === 'handbook'
-  ? page.data.title
-  : chapterForOrder(page.data.navigation.order)?.label ?? page.data.title;
 const chapterIcons = {
   'ph:book-open-text': Book, 'ph:arrow-right': ArrowRight,
   'ph:sliders-horizontal': Adjustments, 'ph:git-branch': GitBranch,
@@ -54,7 +51,7 @@ const label = menuScope ? ('headerLabel' in scopeLabel ? scopeLabel.headerLabel 
           const PageIcon = chapter ? chapterIcons[chapter.icon] : Book;
           return (
             <DropdownLinkItem href={routeForEntry(page)} closeOnClick data-astro-prefetch="hover" aria-current={current === routeForEntry(page) ? 'page' : undefined}>
-              <PageIcon aria-hidden="true" /><span>{chapterLabel(page)}</span>
+              <PageIcon aria-hidden="true" /><span>{chapterLabelForEntry(page)}</span>
             </DropdownLinkItem>
           );
         })}

@@ -2,7 +2,7 @@
 title: choosing your setup
 description: evaluate grok on a real repository task or a browser handoff, then decide what deserves automation.
 products: [grok]
-updatedAt: "2026-09-07T16:33:00-04:00"
+updatedAt: "2026-10-17T18:23:26-04:00"
 status: pending
 evidence: [official-source, analysis, open-question]
 sources: [grok-build, grok-bot, grok-bot-mobile, grok-bot-computer, grok-bot-routines]
@@ -83,11 +83,14 @@ or review; overlapping edits add coordination you then have to untangle.
 ## can it do this every week?
 
 xAI separates [skills and routines](https://docs.x.ai/grok-bot/skills-routines-and-automations):
-a skill describes a repeatable method, and a routine schedules work for an
-owner. once the comparison exercise produces the right result, a skill could
+a skill describes a repeatable method, and a routine gives one Bot scheduled
+work or, where supported, an event trigger. once the comparison exercise
+produces the right result, a skill could
 capture its inputs, steps, and verification. a routine could run it each week.
 
 define the timezone, destination, and behavior when a source is missing or a
 login expires. testing a routine performs real work, so check its access and
-outputs before running it. scheduling becomes worthwhile when the repeated
+outputs before running it. editing a routine's schedule or instructions and
+running its test currently require the desktop app. scheduling becomes
+worthwhile when the repeated
 result already meets your needs.
