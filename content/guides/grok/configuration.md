@@ -94,9 +94,9 @@ and is off by default. filesystem enforcement uses Landlock on Linux and
 Seatbelt on macOS. the `workspace` profile permits network access; the
 `read-only` and `strict` profiles block child process network access on Linux.
 that network restriction has no effect on macOS, and model API calls and web
-tools are outside it. built in profiles also leave `~/.grok/` writable and
-do not automatically deny credential paths such as `~/.ssh`. inspect the profile
-and platform limits before unattended work.
+tools are outside it. built in profiles also leave `~/.grok/` writable.
+credential paths such as `~/.ssh` need separately configured protection.
+inspect the profile and platform limits before unattended work.
 
 <span id="give-a-bot-a-role-and-a-task-a-finish-line" class="heading-alias" aria-hidden="true"></span>
 

@@ -33,7 +33,7 @@ local `/__progress/` page derives the current review map.
 - [ ] reassess the published everyday work and building copy in small wording batches
 - [ ] review corrected product copy in small wording batches
 
-The October 17 [accuracy disposition](editorial/reassessment-details.md#accuracy-corrections-october-17-2026) records the product corrections and the limits of the source and example checks. Exact wording acceptance remains in the review ledger.
+The October 17 [accuracy disposition](editorial/reassessment-details.md#accuracy-corrections-october-17-2026) records the product corrections and the limits of the source and example checks. Exact wording acceptance remains in the review ledger. [PR #329](https://github.com/anipotts/agents/pull/329) carries these corrections and their final check and release evidence.
 
 [PR #327](https://github.com/anipotts/agents/pull/327) carries the organized
 publication and backup first edition. Its exact-head checks and deployment

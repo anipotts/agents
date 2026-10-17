@@ -3,6 +3,32 @@
 This file tracks Ani's manual review of every currently public canonical page and each H1, H2, and H3 block. It is editorial working state, not public content. A section stays `unreviewed` until Ani has directly reviewed it. Git history, validation, publication status, and a lack of recent changes do not count as approval.
 
 
+
+## product accuracy corrections: October 17, 2026
+
+Ani requested fixing product accuracy findings before continuing small wording
+batches. Codex owns this integration; bounded Claude and Grok workers supplied
+scoped source checks and edits, followed by an independent read-only review.
+The [accuracy disposition](reassessment-details.md#accuracy-corrections-october-17-2026)
+records the concrete finding outcomes. Current primary-source checks correct
+Codex config/cloud/hooks/scheduling/MCP removal, Claude AGENTS.md/Mods/cloud and
+local execution, and Grok CLI/sandbox/routine limits. New prose remains agent
+wording. Source dates advance only for the inspected claims; page checkedAt,
+recorded product versions and global checked_on remain historical.
+
+All 31 previously matching acceptance/preservation records still match the
+edited tree. The structured records below are unchanged. Codex's exact supplied
+caption and Grok's accepted computer-view body remain intact. New Mods heading
+has the previous fragment as an alias; no heading acceptance is inferred.
+
+Local source/Astro/build/generated-route/performance checks, editorial/setup
+tests and Markdown/JSON/Python/shell checks passed. Extracted coding fixtures
+show their failing and corrected cases; the hook shell check covers successful
+and exit-2 failure paths without claiming live hook registration. No private
+account, permission enforcement, scheduled run or cross-host transfer was tested.
+[PR #329](https://github.com/anipotts/agents/pull/329) owns final revision checks,
+review and deployment evidence. Continue wording review in small batches.
+
 ## whole handbook reassessment: October 12, 2026
 
 Ani accepted the proposed task based structure and refined building into
