@@ -15,7 +15,6 @@
  */
 
 import { z } from "zod";
-import zodToJsonSchema from "zod-to-json-schema";
 
 // --- args schema (zod, single source of truth) ------------------------------
 
@@ -58,7 +57,7 @@ export const ActionSchema = z.discriminatedUnion("action", [
         .optional()
         .describe("priority hint; default normal. 'question' signals a reply is expected"),
       meta: z
-        .record(z.unknown())
+        .record(z.string(), z.unknown())
         .optional()
         .describe("optional structured metadata; recipient can read this verbatim"),
     })
@@ -154,12 +153,12 @@ export const TOOL_DESCRIPTION =
 // every session and every subagent for prompt-cache stability. Stripping the
 // $schema field shaves ~50B and removes a meta key the MCP client ignores.
 
-const _raw = zodToJsonSchema(ActionSchema, {
-  $refStrategy: "none",
-  target: "jsonSchema7",
+const _raw = z.toJSONSchema(ActionSchema, {
+  target: "draft-7",
+  io: "input",
 });
 
-// zod-to-json-schema wraps the result in {$schema, ...rest}. We want the rest.
+// Keep the existing draft-7 tool contract without the schema meta field.
 const { $schema: _drop, anyOf: _branches, ...stripped } = _raw as {
   $schema?: string;
   anyOf?: unknown[];
@@ -171,7 +170,11 @@ const { $schema: _drop, anyOf: _branches, ...stripped } = _raw as {
 const withOneOf =
   _branches !== undefined ? { ...stripped, oneOf: _branches } : stripped;
 
-export const ACTION_JSON_SCHEMA = withOneOf as Record<string, unknown>;
+// Every action branch is an object; MCP clients also require this root type.
+export const ACTION_JSON_SCHEMA = {
+  ...withOneOf,
+  type: "object" as const,
+};
 
 // --- runtime helpers --------------------------------------------------------
 

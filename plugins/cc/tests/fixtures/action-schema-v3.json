@@ -1,0 +1,172 @@
+{
+  "oneOf": [
+    {
+      "type": "object",
+      "properties": {
+        "action": {
+          "type": "string",
+          "const": "sessions"
+        },
+        "include_self": {
+          "type": "boolean",
+          "description": "include your own session in the result (default false)"
+        },
+        "scope": {
+          "type": "string",
+          "enum": [
+            "project",
+            "global"
+          ],
+          "description": "project (default): peers in my git project_root. global: every peer on this machine."
+        }
+      },
+      "required": [
+        "action"
+      ],
+      "additionalProperties": false
+    },
+    {
+      "type": "object",
+      "properties": {
+        "action": {
+          "type": "string",
+          "const": "send"
+        },
+        "to": {
+          "type": "string",
+          "minLength": 1,
+          "description": "target peer: short id (8 hex), full session id, or cwd basename"
+        },
+        "message": {
+          "type": "string",
+          "minLength": 1,
+          "description": "message body the recipient will read"
+        },
+        "subject": {
+          "type": "string",
+          "description": "optional one-line subject"
+        },
+        "urgency": {
+          "type": "string",
+          "enum": [
+            "low",
+            "normal",
+            "urgent",
+            "question"
+          ],
+          "description": "priority hint; default normal. 'question' signals a reply is expected"
+        },
+        "meta": {
+          "type": "object",
+          "additionalProperties": {},
+          "description": "optional structured metadata; recipient can read this verbatim"
+        }
+      },
+      "required": [
+        "action",
+        "to",
+        "message"
+      ],
+      "additionalProperties": false
+    },
+    {
+      "type": "object",
+      "properties": {
+        "action": {
+          "type": "string",
+          "const": "announce"
+        },
+        "summary": {
+          "type": "string",
+          "minLength": 1,
+          "description": "one-line status broadcast (required)"
+        },
+        "detail": {
+          "type": "string",
+          "description": "optional longer body"
+        }
+      },
+      "required": [
+        "action",
+        "summary"
+      ],
+      "additionalProperties": false
+    },
+    {
+      "type": "object",
+      "properties": {
+        "action": {
+          "type": "string",
+          "const": "check"
+        },
+        "since_s": {
+          "type": "number",
+          "exclusiveMinimum": 0,
+          "description": "lookback window in seconds; defaults to since-last-check"
+        },
+        "scope": {
+          "type": "string",
+          "enum": [
+            "project",
+            "global"
+          ],
+          "description": "project (default): peers in my git project_root. global: every peer on this machine."
+        }
+      },
+      "required": [
+        "action"
+      ],
+      "additionalProperties": false
+    },
+    {
+      "type": "object",
+      "properties": {
+        "action": {
+          "type": "string",
+          "const": "subscribe"
+        },
+        "files": {
+          "type": "string",
+          "description": "file path glob (e.g. 'src/auth/**'); matches edited file paths from digest_delta. ** = any depth, * = single segment."
+        },
+        "peers": {
+          "type": "string",
+          "description": "peer match: 'any', short id (8 hex), or full session id; restricts the subscription to this peer's activity"
+        },
+        "urgency_min": {
+          "type": "string",
+          "enum": [
+            "low",
+            "normal",
+            "urgent",
+            "question"
+          ],
+          "description": "minimum urgency for DM matches; ignored for file/announcement events"
+        }
+      },
+      "required": [
+        "action"
+      ],
+      "additionalProperties": false
+    },
+    {
+      "type": "object",
+      "properties": {
+        "action": {
+          "type": "string",
+          "const": "unsubscribe"
+        },
+        "id": {
+          "type": "string",
+          "minLength": 1,
+          "description": "subscription id from cc(action='subscribe') response"
+        }
+      },
+      "required": [
+        "action",
+        "id"
+      ],
+      "additionalProperties": false
+    }
+  ]
+}
